@@ -16,7 +16,7 @@ namespace App\Controllers;
 use SleekDB\Store;
 use CodeIgniter\I18n\Time;
 
-class InstallController extEnds BaseController
+class InstallController extends BaseController
 {
   public function index()
   {
