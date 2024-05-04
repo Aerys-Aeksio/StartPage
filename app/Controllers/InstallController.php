@@ -16,7 +16,7 @@ namespace App\Controllers;
 use SleekDB\Store;
 use CodeIgniter\I18n\Time;
 
-class InstallController extends BaseController
+class InstallController extEnds BaseController
 {
   public function index()
   {
@@ -25,9 +25,9 @@ class InstallController extends BaseController
       echo 'Startpage is already installed';
       exit;
     }
-    $this->admin    = model(\App\Models\AdminModel::class);
+    $this->admin  = model(\App\Models\AdminModel::class);
 
-    $installed_time = new \DateTime();
+    $installed_time             = new \DateTime();
     $data["title"]              = 'Install Startpage';
     $data["database_dir_write"] = [];
     helper('date');
@@ -52,7 +52,7 @@ class InstallController extends BaseController
           "folder_permissions"  => 0777
         ];
 
-        // BEGIN categories
+        // Begin categories
         $categories_array =
         [
           [
@@ -356,13 +356,13 @@ class InstallController extends BaseController
             'position'            =>  0,
           ],
         ];
-        // CREATE TABLE categories
+        // Create Table categories
         $categories = new Store("categories", DATABASE_DIR, $configuration);
-        // INSERT ARRAY'S categories
-        $categories->insertMany($categories_array);
-        // END categories
+        // Insert Array's categories
+        $categories->InsertMany($categories_array);
+        // End categories
 
-        // BEGIN links
+        // Begin links
         $links_array =
         [
           [
@@ -576,13 +576,13 @@ class InstallController extends BaseController
             'position'    =>  97,
           ],
         ];
-        // CREATE the TABLE links
+        // Create the Table links
         $categories = new Store("links", DATABASE_DIR, $configuration);
-        // INSERT the ARRAY'S links
-        $categories->insertMany($links_array);
-        // END links
+        // Insert the Array's links
+        $categories->InsertMany($links_array);
+        // End links
 
-        // BEGIN users
+        // Begin users
         $users_configuration = [
           "auto_cache"          => false,
           "cache_lifetime"      => null,
@@ -612,17 +612,13 @@ class InstallController extends BaseController
           "changeSettings"  => 1,
           "manageUsers"     => 1,
         ];
-
-        // CREATE TABLE users
+        // Create Table users
         $users_table = new Store("users", DATABASE_DIR, $users_configuration);
-        // INSERT ARRAY'S users
-        $users_table->insert($users_array);
-        $users = $users_table->count();
-        // CREATE CACHE users
-        $users = $users_table->createQueryBuilder()->disableCache()->getQuery()->fetch();
-        // END users
+        // Insert Array's users
+        $users_table->Insert($users_array);
+        // End users
 
-        // BEGIN settings
+        // Begin settings
         $settings_array = 
         [
           "title"                   =>  $title,
@@ -631,10 +627,9 @@ class InstallController extends BaseController
           "show_footer"             =>  1, // 0 = no 1 = yes
           "version_startpage"       =>  "0.0.1",
           "timestamp_installed"     =>  $installed_time->getTimestamp(),
-          "default_user_group"      =>  4,
           "redirect_time"           =>  2,
           "base_url"                =>  $base_url,
-          "board_email"             =>  $adminemail,
+          "startpage_email"         =>  $adminemail,
           "favicon"                 =>  "favicon.ico",
           "favicon16"               =>  "favicon-16x16.png",
           "favicon32"               =>  "favicon-32x32.png",
@@ -648,38 +643,34 @@ class InstallController extends BaseController
           "show_footer"             =>  1,
           "show_login_link"         =>  1,
         ];
-        // CREATE TABLE settings
+        // Create Table settings
         $settings  = new Store("settings", DATABASE_DIR, $configuration);
-        // INSERT ARRAY settings
-        $settings->insert($settings_array);
-        // CREATE CACHE settings
-        $settings = $settings->createQueryBuilder()->disableCache()->getQuery()->fetch();
+        // Insert ARRAY settings
+        $settings->Insert($settings_array);
         // End settings
 
-        $settings_table = new Store('settings', DATABASE_DIR);
-        $settings_table = $settings_table
-          ->createQueryBuilder()
-          ->useCache(300)
-          ->regenerateCache()
+        $settings_Table = new Store('settings', DATABASE_DIR);
+        $settings_Table = $settings_Table
+          ->CreateQueryBuilder()
+          ->disableCache()
           ->getQuery()
           ->fetch();
-          $settings_table = array_shift($settings_table);
+        $settings_Table = array_shift($settings_Table);
 
         $data['time'] 	          = '2';
         $data['message']          = 'Well Done. Startpage is installed';
-        $data['destination_url']  = $settings_table['base_url'];
+        $data['destination_url']  = $settings_Table['base_url'];
 
         return view('Admin/Admin-Redirect-Template', $data);
       }
       $data['time'] 	          = '2';
       $data['message']          = 'Well Done. Startpage is installed';
-      $data['destination_url']  = $settings_table['base_url'];
+      $data['destination_url']  = $settings_Table['base_url'];
       return view('Admin/Admin-Redirect-Template', $data);
     }
     else
     {
-      $database_dir_write = is_writable(DATABASE_DIR);
-
+      $database_dir_write = is_wriTable(DATABASE_DIR);
       $data["database_dir_write"] = ($database_dir_write) ? 1 : 0;
     }
     return view("Install-Template/Install-Template", $data);

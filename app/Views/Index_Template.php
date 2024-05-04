@@ -110,7 +110,7 @@ while($i < 5)
                 if(!empty($linkvalue['icon']))
                   $link = ($linkvalue['icon_place'] == 0) ? $linkvalue['icon'].' <a class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$link_open.'>'.$linkvalue['name'].'</a>' : '<a class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$link_open.'>'.$linkvalue['name'].'</a> '. $linkvalue['icon'];
                 else
-                  $link = '<a class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$link_open.'>'.$linkvalue['name'].'</a>';
+                  $link = '<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$link_open.'>'.$linkvalue['name'].'</a>';
 
                 echo '<li class="list-group-item p-0 m-0">'.$link.'</li>';
               }
@@ -120,6 +120,7 @@ while($i < 5)
           }
         }
         echo ($linkvalue['type'] == 'list') ? '</ul>' : '';
+        unset($already);
 
 ?>
 
