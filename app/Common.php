@@ -13,3 +13,23 @@
  *
  * @see: https://codeigniter.com/user_guide/extending/common.html
  */
+
+ if (! function_exists('sp_base_url')) {
+  /**
+   * Returns the base URL as defined by the App config.
+   * Base URLs are trimmed site URLs without the index page.
+   *
+   * @param array|string $relativePath URI string or array of URI segments.
+   * @param string|null  $scheme       URI scheme. E.g., http, ftp. If empty
+   *                                   string '' is set, a protocol-relative
+   *                                   link is returned.
+   */
+  function sp_base_url($relativePath = '', ?string $scheme = null): string
+  {
+      $currentURI = service('request')->getUri();
+
+      assert($currentURI instanceof SiteURI);
+
+      return $currentURI->baseUrl($relativePath, $scheme);
+  }
+}

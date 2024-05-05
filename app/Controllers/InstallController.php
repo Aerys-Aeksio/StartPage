@@ -56,304 +56,342 @@ class InstallController extends BaseController
         $categories_array =
         [
           [
-            'name'                =>  'bg-primary',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-primary',
-            'text_color'          =>  'text-light',
-            'visible'             =>  1,
-            'position'            =>  100,
+            'name'                    =>  'bg-primary',
+            'column'                  =>  1,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-primary',
+            'text_color_header'       =>  'text-light',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  100,
           ],
           [
-            'name'                =>  'bg-primary-subtle',
-            'column'              =>  2,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-primary-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  100,
+            'name'                    =>  'bg-primary-subtle',
+            'column'                  =>  2,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-primary-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  100,
           ],
           [
-            'name'                =>  'bg-secondary',
-            'column'              =>  3,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-secondary',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  100,
+            'name'                    =>  'bg-secondary',
+            'column'                  =>  3,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-secondary',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  100,
           ],
           [
-            'name'                =>  'bg-secondary-subtle',
-            'column'              =>  4,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-secondary-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  100,
+            'name'                    =>  'bg-secondary-subtle',
+            'column'                  =>  4,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-secondary-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  100,
           ],
           [
-            'name'                =>  'bg-success',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-success',
-            'text_color'          =>  'text-light',
-            'visible'             =>  1,
-            'position'            =>  99,
+            'name'                    =>  'bg-success',
+            'column'                  =>  1,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-success',
+            'text_color_header'       =>  'text-light',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  99,
           ],
           [
-            'name'                =>  'bg-success-subtle',
-            'column'              =>  2,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-success-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  99,
+            'name'                    =>  'bg-success-subtle',
+            'column'                  =>  2,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-success-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  99,
           ],
           [
-            'name'                =>  'bg-danger',
-            'column'              =>  3,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-danger',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  99,
+            'name'                    =>  'bg-danger',
+            'column'                  =>  3,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-danger',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  99,
           ],
           [
-            'name'                =>  'bg-danger-subtle',
-            'column'              =>  4,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-danger-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  99,
+            'name'                    =>  'bg-danger-subtle',
+            'column'                  =>  4,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-danger-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  99,
           ],
           [
-            'name'                =>  'bg-warning',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-warning',
-            'text_color'          =>  'text-light',
-            'visible'             =>  1,
-            'position'            =>  98,
+            'name'                    =>  'bg-warning',
+            'column'                  =>  1,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-warning',
+            'text_color_header'       =>  'text-light',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  98,
           ],
           [
-            'name'                =>  'bg-warning-subtle',
-            'column'              =>  2,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-warning-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  98,
+            'name'                    =>  'bg-warning-subtle',
+            'column'                  =>  2,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-warning-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  98,
           ],
           [
-            'name'                =>  'bg-info',
-            'column'              =>  3,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-info',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  98,
+            'name'                    =>  'bg-info',
+            'column'                  =>  3,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-info',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  98,
           ],
           [
-            'name'                =>  'bg-info-subtle',
-            'column'              =>  4,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-info-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  98,
+            'name'                    =>  'bg-info-subtle',
+            'column'                  =>  4,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-info-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  98,
           ],
           [
-            'name'                =>  'bg-light',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-light',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  97,
+            'name'                    =>  'bg-light',
+            'column'                  =>  1,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-light',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  97,
           ],
           [
-            'name'                =>  'bg-light-subtle',
-            'column'              =>  2,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-light-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  97,
+            'name'                    =>  'bg-light-subtle',
+            'column'                  =>  2,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-light-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  97,
           ],
           [
-            'name'                =>  'bg-dark',
-            'column'              =>  3,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-dark',
-            'text_color'          =>  'text-light',
-            'visible'             =>  1,
-            'position'            =>  97,
+            'name'                    =>  'bg-dark',
+            'column'                  =>  3,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-dark',
+            'text_color_header'       =>  'text-light',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  97,
           ],
           [
-            'name'                =>  'bg-dark-subtle',
-            'column'              =>  4,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-dark-subtle',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  97,
+            'name'                    =>  'bg-dark-subtle',
+            'column'                  =>  4,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-dark-subtle',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  97,
           ],
           [
-            'name'                =>  'bg-body-secondary',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-body-secondary',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  96,
+            'name'                    =>  'bg-body-secondary',
+            'column'                  =>  1,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-body-secondary',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  96,
           ],
           [
-            'name'                =>  'bg-body-tertiary',
-            'column'              =>  2,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-body-tertiary',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  96,
+            'name'                    =>  'bg-body-tertiary',
+            'column'                  =>  2,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-body-tertiary',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  96,
           ],
           [
-            'name'                =>  'bg-body',
-            'column'              =>  3,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-body',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  96,
+            'name'                    =>  'bg-body',
+            'column'                  =>  3,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-body',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  96,
           ],
           [
-            'name'                =>  'bg-black',
-            'column'              =>  4,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-black',
-            'text_color'          =>  'text-light',
-            'visible'             =>  1,
-            'position'            =>  96,
+            'name'                    =>  'bg-black',
+            'column'                  =>  4,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-black',
+            'text_color_header'       =>  'text-light',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  96,
           ],
           [
-            'name'                =>  'bg-white',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-white',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  95,
+            'name'                    =>  'bg-white',
+            'column'                  =>  1,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-white',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  95,
           ],
           [
-            'name'                =>  'bg-transparent',
-            'column'              =>  2,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  'bg-transparent',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  95,
+            'name'                    =>  'bg-transparent',
+            'column'                  =>  2,
+            'numb_links'              =>  5,
+            'icon'                    =>  '',
+            'background_color_header' =>  'bg-transparent',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  95,
           ],
           [
-            'name'                =>  'Startpage built with',
-            'column'              =>  1,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  '',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  0,
+            'name'                    =>  'Startpage built with',
+            'column'                  =>  1,
+            'numb_links'              =>  4,
+            'icon'                    =>  '',
+            'background_color_header' =>  '',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  0,
           ],
           [
-            'name'                =>  'Css Frameworks',
-            'column'              =>  2,
-            'more'                =>  1, // 0 = no 1 = yes
-            'link_to_more'        =>  'https://github.com/troxler/awesome-css-frameworks#awesome-css-frameworks-',
-            'link_to_more_target' =>  1, // 0 is same tab 1 = new tab
-            'icon'                =>  '',
-            'background_color'    =>  '',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  0,
+            'name'                    =>  'Css Frameworks',
+            'column'                  =>  2,
+            'numb_links'              =>  4,
+            'icon'                    =>  '',
+            'background_color_header' =>  '',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  0,
           ],
           [
-            'name'                =>  'Php Frameworks',
-            'column'              =>  3,
-            'more'                =>  0, // 0 = no 1 = yes
-            'link_to_more'        =>  '',
-            'link_to_more_target' =>  1,
-            'icon'                =>  '',
-            'background_color'    =>  '',
-            'text_color'          =>  'text-dark',
-            'visible'             =>  1,
-            'position'            =>  0,
+            'name'                    =>  'Php Frameworks',
+            'column'                  =>  3,
+            'numb_links'              =>  4,
+            'icon'                    =>  '',
+            'background_color_header' =>  '',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  0,
+          ],
+          [
+            'name'                    =>  'Misc',
+            'column'                  =>  4,
+            'numb_links'              =>  4,
+            'icon'                    =>  '',
+            'background_color_header' =>  '',
+            'text_color_header'       =>  'text-dark',
+            'background_color_footer' =>  'bg-primary',
+            'link_color_footer'       =>  'link-light',
+            'link_color_list'         =>  'link-dark',
+            'visible'                 =>  1,
+            'position'                =>  0,
           ],
         ];
         // Create Table categories
@@ -373,7 +411,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -387,7 +425,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -401,7 +439,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -415,7 +453,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -429,7 +467,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -443,7 +481,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -457,7 +495,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -471,7 +509,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -485,7 +523,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -499,7 +537,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -513,7 +551,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -527,7 +565,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -541,7 +579,7 @@ class InstallController extends BaseController
             'title'       =>  'Symfony',
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -555,7 +593,7 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -569,7 +607,21 @@ class InstallController extends BaseController
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'link_open'   =>  1, // 0 = same tab 1 = new tab
+            'target'      =>  1, // 0 = same tab 1 = new tab
+            'visible'     =>  1, // 0 = no 1 = yes
+            'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
+            'icon_place'  =>  0, // 0 = left  1 = right
+            'position'    =>  97,
+          ],
+          [
+            'name'        =>  'Base64decode',
+            'url'         =>  'https://www.base64decode.org/',
+            'category_id' =>  26,
+            'title'       =>  'Base64decode',
+            'type'        =>  'list', //'list','img','html'
+            'img'         =>  '',
+            'html'        =>  '',
+            'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
@@ -621,27 +673,29 @@ class InstallController extends BaseController
         // Begin settings
         $settings_array = 
         [
-          "title"                   =>  $title,
-          "description"             =>  $description,
-          "footer"                  =>  "Copyright ©",
-          "show_footer"             =>  1, // 0 = no 1 = yes
-          "version_startpage"       =>  "0.0.1",
-          "timestamp_installed"     =>  $installed_time->getTimestamp(),
-          "redirect_time"           =>  2,
-          "base_url"                =>  $base_url,
-          "startpage_email"         =>  $adminemail,
-          "favicon"                 =>  "favicon.ico",
-          "favicon16"               =>  "favicon-16x16.png",
-          "favicon32"               =>  "favicon-32x32.png",
-          "apple_touch_icon"        =>  "apple-touch-icon.png",
-          "android_chrome_192x192"  =>  "android-chrome-192x192.png",
-          "android_chrome_512x512"  =>  "android-chrome-512x512.png",
-          "webmanifest"             =>  "site.webmanifest",
-          "body_background"         =>  "bg-light",
-          "nav_background"          =>  "bg-primary-subtle",
-          "nav_link_color"          =>  "text-dark",
-          "show_footer"             =>  1,
-          "show_login_link"         =>  1,
+          "title"                     =>  $title,
+          "description"               =>  $description,
+          "footer"                    =>  "Copyright ©",
+          "show_footer"               =>  0, // 0 = no 1 = yes
+          "version_startpage"         =>  "0.0.1",
+          "timestamp_installed"       =>  $installed_time->getTimestamp(),
+          "redirect_time"             =>  2,
+          "base_url"                  =>  $base_url,
+          "startpage_email"           =>  $adminemail,
+          "favicon"                   =>
+          [
+            "favicon"                 => "favicon.ico",
+            "favicon16"               =>  "favicon-16x16.png",
+            "favicon32"               =>  "favicon-32x32.png",
+            "apple_touch_icon"        =>  "apple-touch-icon.png",
+            "android_chrome_192x192"  =>  "android-chrome-192x192.png",
+            "android_chrome_512x512"  =>  "android-chrome-512x512.png",
+            "webmanifest"             =>  "site.webmanifest",
+          ],
+          "body_background"           =>  "bg-light",
+          "nav_background"            =>  "bg-primary",
+          "nav_link_color"            =>  "link-light text-light",
+          "show_login_link"           =>  1,
         ];
         // Create Table settings
         $settings  = new Store("settings", DATABASE_DIR, $configuration);
@@ -661,12 +715,12 @@ class InstallController extends BaseController
         $data['message']          = 'Well Done. Startpage is installed';
         $data['destination_url']  = $settings_Table['base_url'];
 
-        return view('Admin/Admin-Redirect-Template', $data);
+        return view('Redirect-Template', $data);
       }
       $data['time'] 	          = '2';
       $data['message']          = 'Well Done. Startpage is installed';
       $data['destination_url']  = $settings_Table['base_url'];
-      return view('Admin/Admin-Redirect-Template', $data);
+      return view('Redirect-Template', $data);
     }
     else
     {

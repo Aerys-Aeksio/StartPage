@@ -59,7 +59,7 @@ else
 
 <form action="install" class="form-control" method="post" accept-charset="utf-8">
   <div class="card mb-3 pb-3 border border-0 rounded">
-    <div class="card-header rounded border bg-dark text-light">
+    <div class="card-header rounded border bg-primary text-light">
       <h1>Install Your Startpage</h1>
     </div>
     <div class="card-body">

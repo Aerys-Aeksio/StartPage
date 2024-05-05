@@ -25,6 +25,53 @@ class AdminModel extends Model
 
   }
 
+      /**
+     * [Log user in on success]
+     *
+     * @param mixed $email
+     * @param mixed $password
+     * 
+     * @return [boolean]
+     * 
+     */
+    function login($email, $password)
+    {
+      $users_configuration = [
+        "auto_cache"          => false,
+        "cache_lifetime"      => null,
+        "timeout"             => false, // deprecated! Set it to false!
+        "primary_key"         => "user_id",
+        "folder_permissions"  => 0777
+      ];
+      $session    = \Config\Services::session();
+      $user_table = new Store("users", DATABASE_DIR, $users_configuration);
+      $user       = $user_table
+        ->createQueryBuilder()
+        ->where([ "email", "=", $email ])
+        ->disableCache()
+        ->getQuery()
+        ->fetch();
+      $user= array_shift($user);
+      // Verify password
+      if (password_verify($password, $user["password"]) == true)
+      {
+         $newdata =
+         [
+           "id"        => $user["user_id"],
+           "username"  => $user["username"],
+           "email"     => $user["email"],
+           "logged_in" => true,
+         ];
+         $session->set("id",        $newdata["id"]);
+         $session->set("username",  $newdata["username"]);
+         $session->set("email",     $newdata["email"]);
+         $session->set("logged_in", $newdata["logged_in"]);
+         return true;
+      }
+      else
+        return false;
+    }
+
   /**
    * [Fetch all settings of the site from the settings table]
    *
@@ -78,10 +125,10 @@ class AdminModel extends Model
       "primary_key" => "id",
       "folder_permissions" => 0777
     ];
-    $settings = new Store('fusionboard_settings', DATABASE_DIR, $configuration);
+    $settings = new Store('settings', DATABASE_DIR, $configuration);
     $settings->updateById(1, $array );
 
-    $settings->createQueryBuilder()->useCache(0)->regenerateCache()->getQuery()->fetch();
+    $settings->createQueryBuilder()->disableCache()->getQuery()->fetch();
     return true;
   }
 
@@ -105,8 +152,10 @@ class AdminModel extends Model
       ->createQueryBuilder()
       ->orderBy([ "column" =>  "asc" ])
       ->orderBy([ "position" =>  "desc" ])
+      ->disableCache()
       ->getQuery()
       ->fetch();
+      //array_shift($categories);
     return $categories;
   }
 
@@ -141,12 +190,36 @@ class AdminModel extends Model
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
-    $fusionboard_categories = new Store("categories", DATABASE_DIR, $configuration);
-    $fusionboard_categories
+    $categories = new Store("categories", DATABASE_DIR, $configuration);
+    $categories
       ->createQueryBuilder()
       ->getQuery()
       ->delete();
-    $fusionboard_categories->deleteById($id);
+    $categories->deleteById($id);
+  }
+
+  function numb_links($cat_id, $number_link_in_category)
+  {
+    $configuration = [
+      "auto_cache"          => false,
+      "cache_lifetime"      => null,
+      "timeout"             => false, // deprecated! Set it to false!
+      "primary_key"         => "id",
+      "folder_permissions"  => 0777
+    ];
+    $links = new Store("links", DATABASE_DIR, $configuration);
+    $links = $links
+      ->createQueryBuilder()
+      ->where([ 'category_id', "=", $cat_id ])
+      ->getQuery()
+      ->fetch();
+    $numb = count($links);
+    if($numb == $number_link_in_category)
+      return 0;
+    elseif($numb < $number_link_in_category)
+      return 0;
+    else
+      return 1;
   }
 
 }
