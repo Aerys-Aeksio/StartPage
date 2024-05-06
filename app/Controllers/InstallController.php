@@ -615,7 +615,7 @@ class InstallController extends BaseController
           ],
           [
             'name'        =>  'Base64decode',
-            'url'         =>  'https://www.base64decode.org/',
+            'url'         =>  'https://www.base64decode.org',
             'category_id' =>  26,
             'title'       =>  'Base64decode',
             'type'        =>  'list', //'list','img','html'
@@ -626,6 +626,20 @@ class InstallController extends BaseController
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
             'icon_place'  =>  0, // 0 = left  1 = right
             'position'    =>  97,
+          ],
+          [
+            'name'        =>  'Logo',
+            'url'         =>  'https://logo.com',
+            'category_id' =>  26,
+            'title'       =>  'Logo',
+            'type'        =>  'list', //'list','img','html'
+            'img'         =>  '',
+            'html'        =>  '',
+            'target'      =>  1, // 0 = same tab 1 = new tab
+            'visible'     =>  1, // 0 = no 1 = yes
+            'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
+            'icon_place'  =>  0, // 0 = left  1 = right
+            'position'    =>  96,
           ],
         ];
         // Create the Table links
