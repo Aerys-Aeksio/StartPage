@@ -55,8 +55,8 @@
     <div class="col-4">
       <div class="card mb-3 border border-0 rounded">
         <form action="install" method="post" accept-charset="utf-8">
-        <div class="card-header bg-primary text-light text-center">
-          <h1>Install Your Startpage</h1>
+        <div class="card-header bg-primary text-light text-center h3">
+          Install Your Startpage
         </div>
         <div class="card-body">
             <h2>Administrator setup</h2>
