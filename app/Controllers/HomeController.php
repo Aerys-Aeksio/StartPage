@@ -118,16 +118,6 @@ class HomeController extends BaseController
         "redirect_time"             =>  $this->request->getPost('redirect_time'),
         "base_url"                  =>  $this->request->getPost('base_url'),
         "email"                     =>  $this->request->getPost('email'),
-        "favicon"                   =>
-        [
-          "favicon"                 =>  $this->request->getPost('favicon'),
-          "favicon16"               =>  $this->request->getPost('favicon16'),
-          "favicon32"               =>  $this->request->getPost('favicon32'),
-          "apple_touch_icon"        =>  $this->request->getPost('apple_touch_icon'),
-          "android_chrome_192x192"  =>  $this->request->getPost('android_chrome_192x192'),
-          "android_chrome_512x512"  =>  $this->request->getPost('android_chrome_512x512'),
-          "webmanifest"             =>  $this->request->getPost('webmanifest'),
-        ],
         "body_background"           =>  $this->request->getPost('body_background'),
         "nav_background"            =>  $this->request->getPost('nav_background'),
         "nav_link_color"            =>  $this->request->getPost('nav_link_color'),

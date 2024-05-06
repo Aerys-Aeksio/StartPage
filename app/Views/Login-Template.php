@@ -40,8 +40,8 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? true : false;
     <div class="col m-0 p-0">
       <div class="card mb-3">
       <?=form_open('login', ['id' => "loginform"]) ?>
-        <div style="background-color:#44699C;" class="card-header text-light text-center">
-          <p class="w-100 text-center p-0 m-0 h3">
+        <div class="card-header bg-primary text-light text-center h3">
+          <p class="text-center p-0 m-0 h3">
             Login
           </p>
         </div>

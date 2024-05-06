@@ -21,11 +21,11 @@
   <meta name="description" content="<?=$settings['description']?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <?="\t".link_tag(''.$settings['favicon']['favicon'].'', 'shortcut icon', 'image/ico')."\n";?>
-  <link rel="apple-touch-icon" sizes="180x180" href="/<?=$settings['favicon']['apple_touch_icon']?>">
-  <link rel="icon" type="image/png" sizes="32x32" href="/<?=$settings['favicon']['favicon32']?>">
-  <link rel="icon" type="image/png" sizes="16x16" href="/<?=$settings['favicon']['favicon16']?>">
-  <link rel="manifest" href="/<?=$settings['favicon']['webmanifest']?>">
+  <?="\t".link_tag('favicon.ico', 'shortcut icon', 'image/ico')."\n";?>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
@@ -112,13 +112,6 @@ if($logged_in == TRUE)
         </div>
         <div class="modal-body bg-body-secondary">
           <?=form_open('edit-settings')?>
-          <?=form_hidden('favicon',                 $settings['favicon']['favicon'])?>
-          <?=form_hidden('favicon16',               $settings['favicon']['favicon16'])?>
-          <?=form_hidden('favicon32',               $settings['favicon']['favicon32'])?>
-          <?=form_hidden('apple_touch_icon',        $settings['favicon']['apple_touch_icon'])?>
-          <?=form_hidden('android_chrome_192x192',  $settings['favicon']['android_chrome_192x192'])?>
-          <?=form_hidden('android_chrome_512x512',  $settings['favicon']['android_chrome_512x512'])?>
-          <?=form_hidden('webmanifest',             $settings['favicon']['webmanifest'])?>
           <?=form_hidden('version',                 $settings['version'])?>
           <?=form_hidden('timestamp_installed',     $settings['timestamp_installed'])?>
           <div class="mb-3">

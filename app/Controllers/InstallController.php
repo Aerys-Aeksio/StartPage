@@ -34,17 +34,15 @@ class InstallController extends BaseController
     
     if ($this->request->is("post"))
     {
-      $title          = !empty($this->request->getPost("title")) ? esc($this->request->getPost("title")) : "Startpage";
-      $description    = !empty($this->request->getPost("desc")) ? esc($this->request->getPost("desc")) : "";
-      $c_url          = str_replace('/install', '', 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-      $base_url       = !empty($this->request->getPost("base_url")) ? esc($this->request->getPost("base_url")) : $c_url;
-      $adminusername  = !empty($this->request->getPost("administrator_username")) ? str_replace(' ', '', strtolower(esc($this->request->getPost("administrator_username")))) : "admin";
-      $adminpassword  = !empty($this->request->getPost("password")) ? esc($this->request->getPost("password")) : "admin";
-      $adminemail     = !empty($this->request->getPost("admin_email")) ? str_replace(' ', '',strtolower(esc($this->request->getPost("admin_email")))) : "info@forgotten-email.dev";
+      $base_url       = str_replace('/install', '', 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+      $adminusername  = !empty($this->request->getPost("administrator_username")) ? str_replace(' ', '', strtolower(esc($this->request->getPost("administrator_username")))) : "StartPage";
+      $adminpassword  = !empty($this->request->getPost("password")) ? esc($this->request->getPost("password")) : "StartPage";
+      $adminemail     = !empty($this->request->getPost("admin_email")) ? str_replace(' ', '',strtolower(esc($this->request->getPost("admin_email")))) : "startpage@placeholder.dev";
 
       if (!is_dir(DATABASE_DIR . "/settings"))
       {
-        $configuration = [
+        $configuration =
+        [
           "auto_cache"          => false,
           "cache_lifetime"      => null,
           "timeout"             => false, // deprecated! Set it to false!
@@ -545,7 +543,7 @@ class InstallController extends BaseController
           ],
           [
             'name'        =>  'Codeigniter',
-            'url'         =>  'http://getbootstrap.com',
+            'url'         =>  'http://codeigniter.com',
             'category_id' =>  25,
             'title'       =>  'Codeigniter',
             'type'        =>  'list', //'list','img','html'
@@ -559,7 +557,7 @@ class InstallController extends BaseController
           ],
           [
             'name'        =>  'Laravel',
-            'url'         =>  'http://getbootstrap.com',
+            'url'         =>  'http://laravel.com',
             'category_id' =>  25,
             'title'       =>  'Laravel',
             'type'        =>  'list', //'list','img','html'
@@ -687,8 +685,8 @@ class InstallController extends BaseController
         // Begin settings
         $settings_array = 
         [
-          "title"                     =>  $title,
-          "description"               =>  $description,
+          "title"                     =>  'Startpage',
+          "description"               =>  'What is a Startpage',
           "footer"                    =>  "Copyright ©",
           "show_footer"               =>  0, // 0 = no 1 = yes
           "version"                   =>  "0.0.1",
@@ -696,16 +694,6 @@ class InstallController extends BaseController
           "redirect_time"             =>  2,
           "base_url"                  =>  $base_url,
           "email"                     =>  $adminemail,
-          "favicon"                   =>
-          [
-            "favicon"                 => "favicon.ico",
-            "favicon16"               =>  "favicon-16x16.png",
-            "favicon32"               =>  "favicon-32x32.png",
-            "apple_touch_icon"        =>  "apple-touch-icon.png",
-            "android_chrome_192x192"  =>  "android-chrome-192x192.png",
-            "android_chrome_512x512"  =>  "android-chrome-512x512.png",
-            "webmanifest"             =>  "site.webmanifest",
-          ],
           "body_background"           =>  "bg-light",
           "nav_background"            =>  "bg-primary",
           "nav_link_color"            =>  "link-light",

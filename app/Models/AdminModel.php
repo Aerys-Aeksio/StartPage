@@ -47,11 +47,11 @@ class AdminModel extends Model
       $user_table = new Store("users", DATABASE_DIR, $users_configuration);
       $user       = $user_table
         ->createQueryBuilder()
-        ->where([ "email", "=", $email ])
+        ->where([ "email", "=", strtolower($email) ])
         ->disableCache()
         ->getQuery()
         ->fetch();
-      $user= array_shift($user);
+      $user=array_shift($user);
       // Verify password
       if (password_verify($password, $user["password"]) == true)
       {
