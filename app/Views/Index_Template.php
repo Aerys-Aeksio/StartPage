@@ -402,7 +402,7 @@ while($i < 5)
 
 <?php
     $modal .= '<!-- Modal -->
-          <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="#more_'.$value['id'].'" aria-hidden="true">
+          <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header '.$bg_header . $link_color_header.'">
