@@ -1,4 +1,16 @@
 <?php
+/**
+ *
+ * This file is part of StartPage
+ *
+ * @copyright 2024-2024 (c) Daniël Rokven
+ *
+ * @license Mit
+ *
+ * For full copyright and license information, please see
+ * the docs/CREDITS.txt file.
+ *
+ */
 
 namespace App\Controllers;
 use CodeIgniter\I18n\Time;
@@ -26,6 +38,7 @@ class HomeController extends BaseController
     {
       $data['more'][$value['id']] = $this->admin->numb_links($value['id'], $value['numb_links']);
     }
+    $data['time'] = Time::createFromTimestamp($data['settings']['timestamp_installed'], 'America/Chicago', 'en_US');
     return view('Index_Template', $data);
   }
 
@@ -87,4 +100,48 @@ class HomeController extends BaseController
     return view("/Redirect-Template", $data);
   }
 
+  public function edit_settings()
+  {
+    if (!$this->request->is("post"))
+      return redirect('/');
+    else
+    {
+      $data['settings'] = $this->admin->get_settings();
+      $newdata =
+      [
+        "title"                     =>  $this->request->getPost('title'),
+        "description"               =>  $this->request->getPost('description'),
+        "footer"                    =>  $this->request->getPost('footer'),
+        "show_footer"               =>  $this->request->getPost('show_footer'), // 0 = no 1 = yes
+        "version"                   =>  $this->request->getPost('version'),
+        "timestamp_installed"       =>  $this->request->getPost('timestamp_installed'),
+        "redirect_time"             =>  $this->request->getPost('redirect_time'),
+        "base_url"                  =>  $this->request->getPost('base_url'),
+        "email"                     =>  $this->request->getPost('email'),
+        "favicon"                   =>
+        [
+          "favicon"                 =>  $this->request->getPost('favicon'),
+          "favicon16"               =>  $this->request->getPost('favicon16'),
+          "favicon32"               =>  $this->request->getPost('favicon32'),
+          "apple_touch_icon"        =>  $this->request->getPost('apple_touch_icon'),
+          "android_chrome_192x192"  =>  $this->request->getPost('android_chrome_192x192'),
+          "android_chrome_512x512"  =>  $this->request->getPost('android_chrome_512x512'),
+          "webmanifest"             =>  $this->request->getPost('webmanifest'),
+        ],
+        "body_background"           =>  $this->request->getPost('body_background'),
+        "nav_background"            =>  $this->request->getPost('nav_background'),
+        "nav_link_color"            =>  $this->request->getPost('nav_link_color'),
+        "show_login_link"           =>  $this->request->getPost('show_login_link'),
+        "head"                      =>  $this->request->getPost('head'),
+        "foot"                      =>  $this->request->getPost('foot'),
+      ];
+      $this->admin->update_settings($newdata);
+      $data['settings']   = $this->admin->get_settings();
+      $data['time'] = $data['settings']['redirect_time'];
+      $data['destination_url'] = url_to('/');
+      $data['message'] = 'Your settings are saved..';
+      return view("/Redirect-Template", $data);
+  
+    }
+  }
 }

@@ -12,6 +12,7 @@
  *
  */
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,10 +23,6 @@
   <?="\t".link_tag(''.$settings['favicon']['favicon'].'', 'shortcut icon', 'image/ico')."\n";?>
   <link rel="apple-touch-icon" sizes="180x180" href="/<?=$settings['favicon']['apple_touch_icon']?>">
   <link rel="icon" type="image/png" sizes="32x32" href="/<?=$settings['favicon']['favicon32']?>">
-  <link rel="icon" type="image/png" sizes="16x16" href="/<?=$settings['favicon']['favicon16']?>">
-  <link rel="manifest" href="/<?=$settings['favicon']['webmanifest']?>">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"> -->
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>

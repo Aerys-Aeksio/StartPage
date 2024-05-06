@@ -677,11 +677,11 @@ class InstallController extends BaseController
           "description"               =>  $description,
           "footer"                    =>  "Copyright ©",
           "show_footer"               =>  0, // 0 = no 1 = yes
-          "version_startpage"         =>  "0.0.1",
-          "timestamp_installed"       =>  $installed_time->getTimestamp(),
+          "version"                   =>  "0.0.1",
+          "timestamp_installed"       =>  ''.$installed_time->getTimestamp().'',
           "redirect_time"             =>  2,
           "base_url"                  =>  $base_url,
-          "startpage_email"           =>  $adminemail,
+          "email"                     =>  $adminemail,
           "favicon"                   =>
           [
             "favicon"                 => "favicon.ico",
@@ -694,8 +694,10 @@ class InstallController extends BaseController
           ],
           "body_background"           =>  "bg-light",
           "nav_background"            =>  "bg-primary",
-          "nav_link_color"            =>  "link-light text-light",
+          "nav_link_color"            =>  "link-light",
           "show_login_link"           =>  1,
+          "head"                      =>  '',
+          "foot"                      =>  '',
         ];
         // Create Table settings
         $settings  = new Store("settings", DATABASE_DIR, $configuration);

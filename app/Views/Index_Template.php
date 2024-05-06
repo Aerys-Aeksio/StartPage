@@ -1,3 +1,18 @@
+<?php
+/**
+ *
+ * This file is part of StartPage
+ *
+ * @copyright 2024-2024 (c) Daniël Rokven
+ *
+ * @license Mit
+ *
+ * For full copyright and license information, please see
+ * the docs/CREDITS.txt file.
+ *
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +20,17 @@
   <title><?=$settings['title']?></title>
   <meta name="description" content="<?=$settings['description']?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <?="\t".link_tag(''.$settings['favicon']['favicon'].'', 'shortcut icon', 'image/ico')."\n";?>
   <link rel="apple-touch-icon" sizes="180x180" href="/<?=$settings['favicon']['apple_touch_icon']?>">
   <link rel="icon" type="image/png" sizes="32x32" href="/<?=$settings['favicon']['favicon32']?>">
   <link rel="icon" type="image/png" sizes="16x16" href="/<?=$settings['favicon']['favicon16']?>">
   <link rel="manifest" href="/<?=$settings['favicon']['webmanifest']?>">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"> -->
+
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>
+
 <?php
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
@@ -59,39 +75,249 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? TRUE : FALSE;
 <?php
 if($login_link AND $logged_in == FALSE)
 {
-  echo '
-            <li class="nav-item">
+      echo '<li class="nav-item">
               <a class="nav-link'.$nav_link_color.'" href="'.url_to('login').'">Login</a>
-            </li>';
-}
-elseif($login_link AND $logged_in == TRUE)
-{
-  echo '
-            <li class="nav-item">
-              <a class="nav-link'.$nav_link_color.'" href="'.url_to('logout').'">Logout</a>
             </li>';
 }
 ?>
 
           </ul>
         </div>
-      </div>
-    </nav>
-  </header>
 
 <?php
 if($logged_in == TRUE)
+  echo'<div class="float-end">
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#settings">
+          Edit StartPage Settings
+        </button>
+            <a tabindex="-1" role="button" class="btn btn-danger btn-sm" href="'.url_to('logout').'">Logout</a>
+          </div>';
+?>
+
+      </div>
+    </nav>
+  </header>
+  <?php
+if($logged_in == TRUE)
 {
 ?>
-  <div class="row">
-    <?=form_open('edit_settings')?>
 
-    <?=form_close()?>
+<!-- Begin Modal edit startpage settings-->
+  <div class="modal modal-lg fade" id="settings" tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-light">
+          <h1 class="modal-title fs-5" id="settingsLabel">Edit StartPage Settings</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-body-secondary">
+          <?=form_open('edit-settings')?>
+          <?=form_hidden('favicon',                 $settings['favicon']['favicon'])?>
+          <?=form_hidden('favicon16',               $settings['favicon']['favicon16'])?>
+          <?=form_hidden('favicon32',               $settings['favicon']['favicon32'])?>
+          <?=form_hidden('apple_touch_icon',        $settings['favicon']['apple_touch_icon'])?>
+          <?=form_hidden('android_chrome_192x192',  $settings['favicon']['android_chrome_192x192'])?>
+          <?=form_hidden('android_chrome_512x512',  $settings['favicon']['android_chrome_512x512'])?>
+          <?=form_hidden('webmanifest',             $settings['favicon']['webmanifest'])?>
+          <?=form_hidden('version',                 $settings['version'])?>
+          <?=form_hidden('timestamp_installed',     $settings['timestamp_installed'])?>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="version_span_edited" name="version_span_edited">StartPage Version</span>
+              <input type="text" class="form-control bg-white" id="version_edited" name="version_edited" aria-describedby="version_edited" value="V<?=$settings['version']?>" aria-label="Disabled" disabled>
+              <span class="input-group-text w-25"><= Disabled</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="timestamp_installed_span_edited" name="timestamp_installed_span_edited">StartPage Installed</span>
+              <input type="text" class="form-control bg-white" id="timestamp_installed_edited" name="timestamp_installed_edited" aria-describedby="timestamp_installed_edited" value="<?=$time?>" aria-label="Disabled" disabled>
+              <span class="input-group-text w-25"><= Disabled</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="title_span" name="title_span">Title</span>
+              <input type="text" class="form-control" id="title" name="title" aria-describedby="title" value="<?=$settings['title']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="description_span" name="description_span">Description</span>
+              <input type="text" class="form-control" id="description" name="description" aria-describedby="description" value="<?=$settings['description']?>">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="footer_span" name="footer_span">Footer</span>
+              <input type="text" class="form-control" id="footer" name="footer" aria-describedby="footer" value="<?=$settings['footer']?>">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="footer_span" name="footer_span">Show footer</span>
+              <?php $selected_footer_no   = ($settings['show_footer'] == 0) ? ' selected="selected"' : '';
+                    $selected_footer_yes  = ($settings['show_footer'] == 1) ? ' selected="selected"' : '';
+              ?>
+              <select class="form-select" id="show_footer" name="show_footer" aria-label="Default select example">
+                <option>Show Footer</option>
+                <option value="0"<?=$selected_footer_no?>>No</option>
+                <option value="1"<?=$selected_footer_yes?>>Yes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="redirect_time_span" name="redirect_time_span">Redirect time</span>
+              <input type="number" min="0" max="10" class="form-control" id="redirect_time" name="redirect_time" aria-describedby="redirect_time" value="<?=$settings['redirect_time']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="base_url_span" name="base_url_span">Base url</span>
+              <input type="text" class="form-control" id="base_url" name="base_url" aria-describedby="base_url" value="<?=$settings['base_url']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="email_span" name="email_span">E-mail</span>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="email" value="<?=$settings['email']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="body_background_span" name="body_background_span">Body background</span>
+              <select class="form-select" id="body_background" name="body_background" aria-label="Default select example">
+                <option value="">Body background</option>
+
+<?php           $bg_colors =
+                [
+                  'bg-primary',
+                  'bg-primary-subtle',
+                  'bg-secondary',
+                  'bg-secondary-subtle',
+                  'bg-success',
+                  'bg-success-subtle',
+                  'bg-danger',
+                  'bg-danger-subtle',
+                  'bg-warning',
+                  'bg-warning-subtle',
+                  'bg-info',
+                  'bg-info-subtle',
+                  'bg-light',
+                  'bg-light-subtle',
+                  'bg-dark',
+                  'bg-dark-subtle',
+                  'bg-body-secondary',
+                  'bg-body-tertiary',
+                  'bg-body',
+                  'bg-black',
+                  'bg-white',
+                  'bg-transparent',
+                ];
+                foreach($bg_colors as $colors)
+                {
+                  if($settings['body_background'] == $colors)
+                    echo '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+                  else
+                    echo '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+                }
+?>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="nav_background_span" name="nav_background_span">Navigation background</span>
+              <select class="form-select" id="nav_background" name="nav_background" aria-label="nav_background">
+                <option value="">Navigation background</option>
+
+<?php           foreach($bg_colors as $colors)
+                {
+                  if($settings['nav_background'] == $colors)
+                    echo '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+                  else
+                    echo '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+                }
+?>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="nav_link_color_span" name="nav_link_color_span">Navigation link color</span>
+              <select class="form-select" id="nav_link_color" name="nav_link_color" aria-label="nav_link_color">
+                <option value="">Navigation link color</option>
+
+<?php           $text_colors =
+                [
+                  'link-primary',
+                  'link-secondary',
+                  'link-success',
+                  'link-danger',
+                  'link-warning',
+                  'link-info',
+                  'link-light',
+                  'link-dark',
+                  'link-body-emphasis',
+                ];
+
+                foreach($text_colors as $colors)
+                {
+                  if($settings['nav_link_color'] == $colors)
+                    echo '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+                  else
+                    echo '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+                }
+?>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text w-25" id="show_login_link_span" name="show_login_link_span">Show Login Link</span>
+              <?php $selected_show_login_link_no   = ($settings['show_login_link'] == 0) ? ' selected="selected"' : '';
+                    $selected_show_login_link_yes  = ($settings['show_login_link'] == 1) ? ' selected="selected"' : '';
+              ?>
+              <select class="form-select" id="show_login_link" name="show_login_link" aria-label="show_login_link_span">
+                <option>Show Login Link</option>
+                <option value="0"<?=$selected_show_login_link_no?>>No</option>
+                <option value="1"<?=$selected_show_login_link_yes?>>Yes</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer bg-primary">
+          <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success btn-sm">Save changes</button>
+        </div>
+        <?=form_close()?>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal edit startpage settings-->
 <?php
 }
 ?>
   <div class="row">
     <div class="col">&nbsp;</div>
+
 <?php
 $i = 1;
 $a = 1;
@@ -262,54 +488,7 @@ $edit_modal .= '<!-- Edit_Modal_'.$value['id'].' -->
 }
 echo $edit_modal; // here are all the edit Modal's of every category
 echo $modal; // here are all the Modal's of the more links in every category
-$bg_colors =
-[
-  'bg-primary',
-  'bg-primary-subtle',
-  'bg-secondary',
-  'bg-secondary-subtle',
-  'bg-success',
-  'bg-success-subtle',
-  'bg-danger',
-  'bg-danger-subtle',
-  'bg-warning',
-  'bg-warning-subtle',
-  'bg-info',
-  'bg-info-subtle',
-  'bg-light',
-  'bg-light-subtle',
-  'bg-dark',
-  'bg-dark-subtle',
-  'bg-body-secondary',
-  'bg-body-tertiary',
-  'bg-body',
-  'bg-black',
-  'bg-white',
-  'bg-transparent',
-];
-?>
 
-  <div class="dropdown">
-  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Background Color
-  </button> -->
-  <select class="form-select w-25" id="background_color">
-
-<?php
-  foreach($bg_colors as $colors)
-  {
-    if($colors === "bg_black" OR $colors === "bg_dark")
-      $text_color = ' text-light';
-    else
-      $text_color = '';
-
-    echo '<option value="'.$colors.'" class="'.$colors.$text_color.'">'.$colors.'</option>';
-  }
-?>
-
-  </select>
-</div>
-<?php
 if (!empty($settings['show_footer']) == 1)
 {
  ?>

@@ -39,3 +39,8 @@ $routes->get(
   'HomeController::logout',
   ['as' => 'logout']
 );
+$routes->post(
+  'edit-settings',
+  'HomeController::edit_settings',
+  ['as' => 'edit_settings']
+);
