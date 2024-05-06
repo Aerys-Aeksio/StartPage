@@ -93,10 +93,10 @@ class HomeController extends BaseController
     $session->set("logged_in", "");
     $session->destroy();
 
-    $data['settings']   = $this->admin->get_settings();
-    $data['time'] = $data['settings']['redirect_time'];
-    $data['destination_url'] = url_to('/');
-    $data['message'] = 'You have been Logged out';
+    $data['settings']         = $this->admin->get_settings();
+    $data['time']             = $data['settings']['redirect_time'];
+    $data['destination_url']  = url_to('/');
+    $data['message']          = 'You have been Logged out';
     return view("/Redirect-Template", $data);
   }
 
@@ -126,12 +126,67 @@ class HomeController extends BaseController
         "foot"                      =>  $this->request->getPost('foot'),
       ];
       $this->admin->update_settings($newdata);
-      $data['settings']   = $this->admin->get_settings();
-      $data['time'] = $data['settings']['redirect_time'];
-      $data['destination_url'] = url_to('/');
-      $data['message'] = 'Your settings are saved..';
+      $data['settings']         = $this->admin->get_settings();
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your Settings Are Updated..';
       return view("/Redirect-Template", $data);
-  
+    }
+  }
+
+  public function edit_category($id)
+  {
+    if ($this->request->is("post"))
+    {
+      $data['settings'] = $this->admin->get_settings();
+      $newdata =
+      [
+        "name"                    =>  $this->request->getPost('name'),
+        "column"                  =>  $this->request->getPost('column'),
+        "numb_links"              =>  $this->request->getPost('numb_links'),
+        "icon"                    =>  $this->request->getPost('icon'),
+        "side_icon"               =>  $this->request->getPost('side_icon'),
+        "background_color_header" =>  $this->request->getPost('background_color_header'),
+        "text_color_header"       =>  $this->request->getPost('text_color_header'),
+        "background_color_footer" =>  $this->request->getPost('background_color_footer'),
+        "link_color_footer"       =>  $this->request->getPost('link_color_footer'),
+        "link_color_list"         =>  $this->request->getPost('link_color_list'),
+        "visible"                 =>  $this->request->getPost('visible'),
+        "position"                =>  $this->request->getPost('position'),
+      ];
+      $this->admin->update_category($newdata, $id);
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your Category Has Been Updated..';
+      return view("/Redirect-Template", $data);
+    }
+  }
+
+  public function edit_link($id)
+  {
+    if ($this->request->is("post"))
+    {
+      $data['settings'] = $this->admin->get_settings();
+      $newdata =
+      [
+        "name"        =>  $this->request->getPost('name'),
+        "url"         =>  $this->request->getPost('url'),
+        "category_id" =>  $this->request->getPost('category_id'),
+        "title"       =>  $this->request->getPost('title'),
+        "type"        =>  $this->request->getPost('type'),
+        "img"         =>  $this->request->getPost('img'),
+        "html"        =>  $this->request->getPost('html'),
+        "target"      =>  $this->request->getPost('target'),
+        "visible"     =>  $this->request->getPost('visible'),
+        "icon"        =>  $this->request->getPost('icon'),
+        "side_icon"   =>  $this->request->getPost('side_icon'),
+        "position"    =>  $this->request->getPost('position'),
+      ];
+      $this->admin->update_link($newdata, $id);
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your Link Has Been Updated..';
+      return view("/Redirect-Template", $data);
     }
   }
 }

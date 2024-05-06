@@ -43,9 +43,9 @@ class InstallController extends BaseController
       {
         $configuration =
         [
-          "auto_cache"          => false,
+          "auto_cache"          => FALSE,
           "cache_lifetime"      => null,
-          "timeout"             => false, // deprecated! Set it to false!
+          "timeout"             => FALSE, // deprecated! Set it to FALSE!
           "primary_key"         => "id",
           "folder_permissions"  => 0777
         ];
@@ -58,6 +58,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-primary',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
@@ -71,6 +72,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-primary-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -84,6 +86,7 @@ class InstallController extends BaseController
             'column'                  =>  3,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-secondary',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -97,6 +100,7 @@ class InstallController extends BaseController
             'column'                  =>  4,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-secondary-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -110,6 +114,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-success',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
@@ -123,6 +128,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-success-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -136,6 +142,7 @@ class InstallController extends BaseController
             'column'                  =>  3,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-danger',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -149,6 +156,7 @@ class InstallController extends BaseController
             'column'                  =>  4,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-danger-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -162,6 +170,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-warning',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
@@ -175,6 +184,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-warning-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -188,6 +198,7 @@ class InstallController extends BaseController
             'column'                  =>  3,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-info',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -201,6 +212,7 @@ class InstallController extends BaseController
             'column'                  =>  4,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-info-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -214,6 +226,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-light',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -227,6 +240,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-light-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -240,6 +254,7 @@ class InstallController extends BaseController
             'column'                  =>  3,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-dark',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
@@ -253,6 +268,7 @@ class InstallController extends BaseController
             'column'                  =>  4,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-dark-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -266,6 +282,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-body-secondary',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -279,6 +296,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-body-tertiary',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -292,6 +310,7 @@ class InstallController extends BaseController
             'column'                  =>  3,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-body',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -305,6 +324,7 @@ class InstallController extends BaseController
             'column'                  =>  4,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-black',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
@@ -318,6 +338,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-white',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -331,6 +352,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  5,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  'bg-transparent',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -344,6 +366,7 @@ class InstallController extends BaseController
             'column'                  =>  1,
             'numb_links'              =>  4,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -357,6 +380,7 @@ class InstallController extends BaseController
             'column'                  =>  2,
             'numb_links'              =>  4,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -370,6 +394,7 @@ class InstallController extends BaseController
             'column'                  =>  3,
             'numb_links'              =>  4,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -383,6 +408,7 @@ class InstallController extends BaseController
             'column'                  =>  4,
             'numb_links'              =>  4,
             'icon'                    =>  '',
+            'side_icon'               =>  '', // left or right
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
@@ -412,7 +438,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -426,7 +452,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -440,7 +466,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -454,7 +480,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -468,7 +494,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -482,7 +508,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -496,7 +522,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -510,7 +536,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -524,7 +550,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -538,7 +564,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -552,7 +578,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  100,
           ],
           [
@@ -566,7 +592,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  99,
           ],
           [
@@ -580,7 +606,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  98,
           ],
           [
@@ -594,7 +620,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  98,
           ],
           [
@@ -608,7 +634,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  97,
           ],
           [
@@ -622,7 +648,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  97,
           ],
           [
@@ -636,7 +662,7 @@ class InstallController extends BaseController
             'target'      =>  1, // 0 = same tab 1 = new tab
             'visible'     =>  1, // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_place'  =>  0, // 0 = left  1 = right
+            'side_icon'   =>  1, // 1 = left and 0 = right
             'position'    =>  96,
           ],
         ];
@@ -648,9 +674,9 @@ class InstallController extends BaseController
 
         // Begin users
         $users_configuration = [
-          "auto_cache"          => false,
+          "auto_cache"          => FALSE,
           "cache_lifetime"      => null,
-          "timeout"             => false, // deprecated! Set it to false!
+          "timeout"             => FALSE, // deprecated! Set it to FALSE!
           "primary_key"         => "user_id",
           "folder_permissions"  => 0777
         ];

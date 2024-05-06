@@ -44,3 +44,13 @@ $routes->post(
   'HomeController::edit_settings',
   ['as' => 'edit_settings']
 );
+$routes->post(
+  'edit-category/(:num)',
+  'HomeController::edit_category/$1',
+  ['as' => 'edit-category']
+);
+$routes->post(
+  'edit-link/(:num)',
+  'HomeController::edit_link/$1',
+  ['as' => 'edit-link']
+);

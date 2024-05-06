@@ -31,6 +31,8 @@
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>
 
+  <?=(empty($settings['head']))?$settings['head']:'';?>
+
 <?php
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
@@ -45,7 +47,7 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? TRUE : FALSE;
     <nav class="navbar navbar-expand-lg<?=$nav_bg_color?>">
       <div class="container-fluid">
         <a class="navbar-brand<?=$nav_link_color?>" href="#">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="FALSE" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -70,6 +72,9 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? TRUE : FALSE;
             </li>
             <li class="nav-item">
               <a class="nav-link<?=$nav_link_color?>" href="#">Tips</a>
+            </li>
+            <lii class="nav-item">
+            <a class="nav-link<?=$nav_link_color?>" href="#">Page rendered in {elapsed_time} seconds using {memory_usage} MB of memory.</a>
             </li>
 
 <?php
@@ -101,6 +106,7 @@ if($logged_in == TRUE)
 <?php
 if($logged_in == TRUE)
 {
+  define('Include-Modal-Edit-Settings', 'Include-Modal-Edit-Settings');
   echo $this->include('Include-Modal-Edit-Settings');
 }
 ?>
@@ -118,19 +124,19 @@ while($i < 5)
   echo '<div class="col my-3 px-0 mx-2"><!-- column '.$i.' -->';
   foreach($categories as $key => $value)
   {
-    $bg_header  = (!empty($value['background_color_header'])) ? ' '.$value['background_color_header'] : '';
-    $text_color_header       = (!empty($value['text_color_header'])) ? ' '.$value['text_color_header'] : '';
+    $bg_header          = (!empty($value['background_color_header'])) ? ' '.$value['background_color_header'] : '';
+    $text_color_header  = (!empty($value['text_color_header'])) ? ' '.$value['text_color_header'] : '';
     if($value['column'] == $i AND $value['visible'] == 1)
     {
       if($logged_in == TRUE)
-        $edit_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_'.$value['id'].'"><i class="fa-solid fa-pencil"></i></button>';
+        $edit_cat_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Cat'.$value['id'].'"><i class="fa-solid fa-pencil"></i></button>';
       else
-        $edit_button = '';
+        $edit_cat_button = '';
 ?>
 
       <div class="card mx-0 mb-1 rounded-0">
         <div class="card-header rounded-0 p-1<?=$bg_header?><?=$text_color_header?>">
-          <?=$value['name']?> <?=$edit_button?>
+          <?=(!empty($value['side_icon']) AND $value['side_icon'] == 1) ? $value['icon'] : ''?> <?=$value['name']?> <?=(!empty($value['side_icon']) AND $value['side_icon'] == 0) ? $value['icon'] : ''?> <?=$edit_cat_button?>
         </div>
         <div class="card-body p-0">
 
@@ -140,8 +146,12 @@ while($i < 5)
           if($linkvalue['type'] == 'list' AND !isset($already))
           {
             echo ($linkvalue['type'] == 'list') ? '<ul class="list-group list-group-flush p9-0 m-0 px-2 mb-2">' : '';
-            $already = true;
+            $already = TRUE;
           }
+          if($logged_in == TRUE)
+            $edit_link_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
+          else
+            $edit_link_button = '';
           switch ($linkvalue['type'])
           {
             case 'list':
@@ -149,14 +159,14 @@ while($i < 5)
               {
                 if($a <= $value['numb_links'])
                 {
-                  $target = ($linkvalue['target'] == 0) ? ' target="_self"' : ' target="_blank"';
+                  $target = ($linkvalue['target'] == 1) ? ' target="_blank"' : ' target="_self"';
 
                   if(!empty($linkvalue['icon']))
-                    $link = ($linkvalue['icon_place'] == 0) ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $link_open . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
+                    $link = ($linkvalue['side_icon'] == 1) ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
                   else
-                    $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$link_open.'>'.$linkvalue['name'].'</a>';
+                    $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
 
-                  echo '<li class="list-group-item p-0 m-0">' . $link . '</li>';
+                  echo '<li class="list-group-item p-0 m-0">' . $link . ' '.$edit_link_button.'</li>';
                   $a++;
                 }
               }
@@ -190,7 +200,7 @@ while($i < 5)
 
 <?php
     $modal .= '<!-- Modal -->
-          <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="true">
+          <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="TRUE">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header '.$bg_header . $link_color_header.'">
@@ -206,12 +216,12 @@ while($i < 5)
                       {
                         if($a <= $value['numb_links'])
                         {
-                          $target = ($linkvalue['target'] == 0) ? ' target="_self"' : ' target="_blank"';
+                          $target = ($linkvalue['target'] == 1) ? ' target="_blank"' : ' target="_self"';
 
                           if(!empty($linkvalue['icon']))
-                            $link = ($linkvalue['icon_place'] == 0) ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $link_open . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
+                            $link = ($linkvalue['side_icon'] == 1) ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
                           else
-                            $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$link_open.'>'.$linkvalue['name'].'</a>';
+                            $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
 
                           $modal .= '<li class="list-group-item p-0 m-0">' . $link . '</li>';
                         }
@@ -242,47 +252,433 @@ while($i < 5)
   </div>
 
 <?php
-$edit_modal = '';
+$edit_cat_modal = '';
 if($logged_in == TRUE)
 {
   foreach($categories as $key => $value)
   {
-    $background_color = (!empty($value['background_color'])) ? ' '.$value['background_color'] : '';
-    $text_color       = (!empty($value['text_color'])) ? ' '.$value['text_color'] : '';
+    $selected_side_icon_left  = ($value['side_icon'] == 1) ? ' selected="selected"' : '';
+    $selected_side_icon_right = ($value['side_icon'] == 0) ? ' selected="selected"' : '';
 
-    $edit_modal .= '<!-- Edit_Modal_'.$value['id'].' -->
-    <div class="modal fade" id="Edit_Modal_'.$value['id'].'" tabindex="-1" aria-labelledby="Edit_Modal_'.$value['id'].'_Label" aria-hidden="true">
-        <input type="hidden" value="'.$value['id'].'" id="category_'.$value['id'].'" name="category_'.$value['id'].'">
-      <div class="modal-dialog">
+    $bg_colors =
+    [
+      'bg-primary',
+      'bg-primary-subtle',
+      'bg-secondary',
+      'bg-secondary-subtle',
+      'bg-success',
+      'bg-success-subtle',
+      'bg-danger',
+      'bg-danger-subtle',
+      'bg-warning',
+      'bg-warning-subtle',
+      'bg-info',
+      'bg-info-subtle',
+      'bg-light',
+      'bg-light-subtle',
+      'bg-dark',
+      'bg-dark-subtle',
+      'bg-body-secondary',
+      'bg-body-tertiary',
+      'bg-body',
+      'bg-black',
+      'bg-white',
+      'bg-transparent',
+    ];
+    $background_color_header = '';
+    foreach($bg_colors as $colors)
+    {
+      if($value['background_color_header'] == $colors)
+        $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+      else
+        $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+    }
+    $background_color_footer = '';
+    foreach($bg_colors as $colors)
+    {
+      if($value['background_color_footer'] == $colors)
+        $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+      else
+        $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+    }
+    $text_colors =
+    [
+      'text-primary',
+      'text-primary-emphasis',
+      'text-secondary',
+      'text-secondary-emphasis',
+      'text-success',
+      'text-success-emphasis',
+      'text-danger',
+      'text-danger-emphasis',
+      'text-warning',
+      'text-warning-emphasis',
+      'text-info',
+      'text-info-emphasis',
+      'text-light',
+      'text-light-emphasis',
+      'text-dark',
+      'text-dark-emphasis',
+      'text-body',
+      'text-body-emphasis',
+      'text-body-secondary',
+      'text-body-tertiary',
+      'text-black',
+      'text-white',
+      'text-black-50',
+      'text-white-50',
+    ];
+    $text_color_header = '';
+    foreach($text_colors as $colors)
+    {
+      if($value['text_color_header'] == $colors)
+        $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+      else
+        $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+    }
+    $link_colors =
+    [
+      'link-primary',
+      'link-secondary',
+      'link-success',
+      'link-danger',
+      'link-warning',
+      'link-info',
+      'link-light',
+      'link-dark',
+      'link-body-emphasis',
+    ];
+    $link_color_footer = '';
+    foreach($link_colors as $colors)
+    {
+      if($value['link_color_footer'] == $colors)
+        $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+      else
+        $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+    }
+    $link_color_list = '';
+    foreach($link_colors as $colors)
+    {
+      if($value['link_color_list'] == $colors)
+        $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+      else
+        $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+    }
+    $selected_visible_yes  = ($value['visible'] == 1) ? ' selected="selected"' : '';
+    $selected_visible_no   = ($value['visible'] == 0) ? ' selected="selected"' : '';
+
+    $edit_cat_modal .= '<!-- Edit_Modal_Cat'.$value['id'].' -->
+    <div class="modal fade modal-lg" id="Edit_Modal_Cat'.$value['id'].'" tabindex="-1" aria-labelledby="Edit_Modal_Cat'.$value['id'].'_Label" aria-hidden="TRUE">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-          <div class="modal-header '.$background_color . $text_color.'">
-            <h1 class="modal-title fs-5" id="Edit_Modal_'.$value['id'].'_Label">Edit Category '.$value['name'].'</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-header bg-primary text-light">
+            <h1 class="modal-title fs-5" id="Edit_Modal_Cat'.$value['id'].'_Label">Edit Category '.$value['name'].'</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            '.form_open("edit_category").'
-            ...
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            '.form_close().'
+          <div class="modal-body bg-body-secondary">
+            '.form_open(url_to('edit-category', $value['id'])).'
+            '.form_hidden('id', ''.$value['id'].'').'
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="_id_span" name="_id_span">Category Id</span>
+                <input type="text" class="form-control bg-white" id="_id" name="_id" placeholder="Id" value="'.$value['id'].'" aria-label="Disabled input" disabled>
+              </div>
             </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="name_span" name="name_span">Name Category</span>
+                <input type="text" class="form-control" minlength="1" maxlength="25" id="name" name="name" placeholder="Name" value="'.$value['name'].'">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="column_span" name="column_span">Column</span>
+                <input type="number" class="form-control" min="1" max="4" id="column" name="column" placeholder="Column" value="'.$value['column'].'">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
+                <input type="number" class="form-control" min="0" max="1000" id="position" name="position" placeholder="Position / Height" value="'.$value['position'].'">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="numb_links_span" name="numb_links_span">Number Of Links</span>
+                <input type="number" class="form-control" min="1" max="50" id="numb_links" name="numb_links" placeholder="Number Of Links" value="'.$value['numb_links'].'">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="icon_span" name="icon_span">Icon</span>
+                <input type="text" class="form-control" id="icon" name="icon" placeholder="Icon" value="'.esc($value['icon']).'">
+              </div>
+              <div class="form-text">
+                You can use icons from font awesome
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="side_icon_span" name="side_icon_span">Side Icon Of The Category</span>
+
+                <select class="form-select" id="side_icon" name="side_icon" aria-label="Default select example">
+                  <option>Side Icon Of The Category</option>
+                  <option value="1"'.$selected_side_icon_left.'>Left</option>
+                  <option value="0"'.$selected_side_icon_right.'>Right</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="background_color_header_span" name="background_color_header_span">Background Color Header</span>
+                <select class="form-select" id="background_color_header" name="background_color_header">
+                  <option value="">Background color header</option>
+                  '.$background_color_header.'
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="text_color_header_span" name="text_color_header_span">Text Color Header</span>
+                <select class="form-select" id="text_color_header" name="text_color_header">
+                  <option value="">Text Color Header</option>
+                  '.$text_color_header.'
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25 text-start" id="background_color_footer_span" name="background_color_footer_span">Background Color Footer<br>(The More link)</span>
+                <select class="form-select" id="background_color_footer" name="background_color_footer">
+                  <option value="">Background Color Footer<br>(The More link)</option>
+                  '.$background_color_footer.'
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25 text-start" id="link_color_footer_span" name="link_color_footer_span">Link Color Footer<br>(The More Link)</span>
+                <select class="form-select" id="link_color_footer" name="link_color_footer">
+                  <option value="">Link Color Footer<br>(The More Link)</option>
+                  '.$link_color_footer.'
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25 text-start" id="link_color_list_span" name="link_color_list_span">Links Color List</span>
+                <select class="form-select" id="link_color_list" name="link_color_list">
+                  <option value="">Links Color List</option>
+                  '.$link_color_list.'
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="visible_span" name="visible_span">Category Visible</span>
+                <select class="form-select" id="visible" name="visible" aria-label="visible_span">
+                  <option>Category Visible</option>
+                  <option value="1"'.$selected_visible_yes.'>Yes</option>
+                  <option value="0"'.$selected_visible_no.'>No</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer bg-primary">
+            <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success btn-sm">Save changes</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>';
   }
   // here are all the edit Modal's of every category
-  echo isset($edit_modal) ? $edit_modal : '';
+  echo isset($edit_cat_modal) ? $edit_cat_modal : '';
 }
 // here are all the Modal's of the more links in every category
 echo isset($modal) ? $modal : ''; 
 
+//Begin edit link modals
+$edit_link_modal = '';
+if($logged_in == TRUE)
+{
+  foreach($links as $key => $value)
+  {
+    $selected_side_icon_left  = ($value['side_icon'] == 1) ? ' selected="selected"' : '';
+    $selected_side_icon_right = ($value['side_icon'] == 0) ? ' selected="selected"' : '';
+
+?>
+
+  <div class="modal fade modal-lg" id="Edit_Modal_Link<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Link<?=$value['id']?>Label" aria-hidden="TRUE">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <?=form_open(url_to('edit-link', $value['id'])); ?>
+        <div class="modal-header bg-primary text-light">
+          <h1 class="modal-title fs-5" id="Edit_Modal_Link<?=$value['id']?>Label">Edit The Link <?=$value['name']?></h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="link_id_span" name="link_id_span">Link Id</span>
+              <input type="text" class="form-control bg-white" id="link_id" name="link_id" aria-describedby="link_id" value="<?=$value['id']?>" aria-label="link_id" disabled>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="name_span" name="name_span">Name</span>
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="<?=$value['name']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="url_span" name="url_span">Url</span>
+              <input type="text" class="form-control" id="url" name="url" aria-describedby="url" value="<?=$value['url']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="category_id_span" name="category_id_span">Category</span>
+              <select class="form-select" id="category_id" name="category_id" aria-label="category_id">
+
+                <?php           
+                foreach($categories as $cat => $cat_value)
+                {
+                  if($value['category_id'] == $cat_value['id'])
+                    echo '<option value="'.$cat_value['id'].'" selected="selected">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
+                  else
+                    echo '<option value="'.$cat_value['id'].'">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
+                }
+                ?>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="title_span" name="title_span">Title</span>
+              <input type="text" class="form-control" id="title" name="title" aria-describedby="title" value="<?=$value['title']?>" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="type_span" name="type_span">Type</span>
+              <select class="form-select" id="type" name="type" aria-label="type">
+                <option value="list"<?=($value['type'] == 'list') ? ' selected="selected"' : ''?>>List</option>
+                <option value="img"<?=($value['type'] == 'img') ? ' selected="selected"' : ''?>>Image</option>
+                <option value="html"<?=($value['type'] == 'html') ? ' selected="selected"' : ''?>>Html</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="img_span" name="img_span">Base64 Image String</span>
+              <textarea class="form-control" rows="10" id="img" name="img" placeholder="base 64 image string"><?=$value['img']?></textarea>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="html_span" name="html_span">Html</span>
+              <textarea class="form-control"" rows="10" id="html" name="html" placeholder="html"><?=$value['html']?></textarea>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="target_span" name="target_span">Link Target</span>
+              <select class="form-select" id="target" name="target" aria-label="target">
+                <option value="1"<?=($value['target'] == 1) ? ' selected="selected"' : ''?>>New Window / New Tab</option>
+                <option value="0"<?=($value['target'] == 0) ? ' selected="selected"' : ''?>>Same Window / Same Tab</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="visible_span" name="visible_span">Link Visible</span>
+              <select class="form-select" id="visible" name="visible" aria-label="visible">
+                <option value="1"<?=($value['visible'] == 1) ? ' selected="selected"' : ''?>>Yes</option>
+                <option value="0"<?=($value['visible'] == 0) ? ' selected="selected"' : ''?>>No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text w-25" id="icon_span" name="icon_span">Icon</span>
+              <input type="text" class="form-control" id="icon" name="icon" placeholder="Icon" value="<?=esc($value['icon'])?>">
+            </div>
+            <div class="form-text">
+              You can use icons from font awesome
+            </div>
+          </div>
+
+          <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="side_icon_span" name="side_icon_span">Side icon of the link</span>
+                <select class="form-select" id="side_icon" name="side_icon" aria-label="Default select example">
+                  <option>Side icon of the link</option>
+                  <option value="1"<?=$selected_side_icon_left?>>Left</option>
+                  <option value="0"<?=$selected_side_icon_right?>>Right</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
+                <input type="number" class="form-control" min="0" max="1000" id="position" name="position" placeholder="Position / Height" value="<?=$value['position']?>">
+              </div>
+            </div>
+
+        </div>
+        <div class="modal-footer bg-primary">
+          <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success btn-sm">Save changes</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<?php
+  }
+}
+//End edit link modals
+
 if (!empty($settings['show_footer']) == 1)
 {
+  define('Include-Footer', 'Include-Footer');
   echo $this->include('Include-Footer');
 }
 ?>
 
 </div>
+<?=(empty($settings['foot']))?$settings['foot']:'';?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

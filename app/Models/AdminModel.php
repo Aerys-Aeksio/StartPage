@@ -25,52 +25,53 @@ class AdminModel extends Model
 
   }
 
-      /**
-     * [Log user in on success]
-     *
-     * @param mixed $email
-     * @param mixed $password
-     * 
-     * @return [boolean]
-     * 
-     */
-    function login($email, $password)
+  /**
+   * [Log user in on success]
+   *
+   * @param mixed $email
+   * @param mixed $password
+   * 
+   * @return [bool]
+   * 
+   */
+  function login($email, $password)
+  {
+    $users_configuration =
+    [
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "primary_key"         => "user_id",
+      "folder_permissions"  => 0777
+    ];
+    $session    = \Config\Services::session();
+    $user_table = new Store("users", DATABASE_DIR, $users_configuration);
+    $user       = $user_table
+      ->createQueryBuilder()
+      ->where([ "email", "=", strtolower($email) ])
+      ->disableCache()
+      ->getQuery()
+      ->fetch();
+    $user=array_shift($user);
+    // Verify password
+    if (password_verify($password, $user["password"]) == TRUE)
     {
-      $users_configuration = [
-        "auto_cache"          => false,
-        "cache_lifetime"      => null,
-        "timeout"             => false, // deprecated! Set it to false!
-        "primary_key"         => "user_id",
-        "folder_permissions"  => 0777
-      ];
-      $session    = \Config\Services::session();
-      $user_table = new Store("users", DATABASE_DIR, $users_configuration);
-      $user       = $user_table
-        ->createQueryBuilder()
-        ->where([ "email", "=", strtolower($email) ])
-        ->disableCache()
-        ->getQuery()
-        ->fetch();
-      $user=array_shift($user);
-      // Verify password
-      if (password_verify($password, $user["password"]) == true)
-      {
-         $newdata =
-         [
-           "id"        => $user["user_id"],
-           "username"  => $user["username"],
-           "email"     => $user["email"],
-           "logged_in" => true,
-         ];
-         $session->set("id",        $newdata["id"]);
-         $session->set("username",  $newdata["username"]);
-         $session->set("email",     $newdata["email"]);
-         $session->set("logged_in", $newdata["logged_in"]);
-         return true;
-      }
-      else
-        return false;
+        $newdata =
+        [
+          "id"        => $user["user_id"],
+          "username"  => $user["username"],
+          "email"     => $user["email"],
+          "logged_in" => TRUE,
+        ];
+        $session->set("id",        $newdata["id"]);
+        $session->set("username",  $newdata["username"]);
+        $session->set("email",     $newdata["email"]);
+        $session->set("logged_in", $newdata["logged_in"]);
+        return TRUE;
     }
+    else
+      return FALSE;
+  }
 
   /**
    * [Fetch all settings of the site from the settings table]
@@ -83,7 +84,6 @@ class AdminModel extends Model
     $settings = new Store('settings', DATABASE_DIR);
     $settings = $settings->createQueryBuilder()->useCache(300)->regenerateCache()->getQuery()->fetch();
     $settings = array_shift($settings);
-
     return $settings;
   }
 
@@ -96,15 +96,14 @@ class AdminModel extends Model
   public function get_links(): array
   {
     $configuration = [
-      "auto_cache"          => true,
-      "cache_lifetime"      => null,
-      "timeout"             => false, // deprecated! Set it to false!
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $links = new Store('links', DATABASE_DIR, $configuration);
     $links = $links->findAll();
-
     return $links;
   }
 
@@ -113,23 +112,76 @@ class AdminModel extends Model
    *
    * @param mixed $array
    * 
-   * @return [boolean]
+   * @return [bool]
    * 
    */
   public function update_settings($array)
   {
-    $configuration = [
-      "auto_cache" => true,
-      "cache_lifetime" => null,
-      "timeout" => false, // deprecated! Set it to false!
-      "primary_key" => "id",
-      "folder_permissions" => 0777
+    $configuration =
+    [
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "primary_key"         => "id",
+      "folder_permissions"  => 0777
     ];
     $settings = new Store('settings', DATABASE_DIR, $configuration);
-    $settings->updateById(1, $array );
+    $settings->updateById(1, $array);
 
-    $settings->createQueryBuilder()->disableCache()->getQuery()->fetch();
-    return true;
+    $settings
+      ->createQueryBuilder()
+      ->disableCache()
+      ->getQuery()
+      ->fetch();
+    return TRUE;
+  }
+
+  /**
+   * [Description for update_category]
+   *
+   * @param mixed $array
+   * @param mixed $id
+   * 
+   * @return [bool]
+   * 
+   */
+  public function update_category($array, $id)
+  {
+    $configuration =
+    [
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "primary_key"         => "id",
+      "folder_permissions"  => 0777
+    ];
+    $update_category = new Store('categories', DATABASE_DIR, $configuration);
+    $update_category->updateById($id, $array);
+    return TRUE;
+  }
+
+  /**
+   * [Description for update_link]
+   *
+   * @param mixed $array
+   * @param mixed $id
+   * 
+   * @return [bool]
+   * 
+   */
+  public function update_link($array, $id)
+  {
+    $configuration =
+    [
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "primary_key"         => "id",
+      "folder_permissions"  => 0777
+    ];
+    $update_category = new Store('links', DATABASE_DIR, $configuration);
+    $update_category->updateById($id, $array);
+    return TRUE;
   }
 
   /**
@@ -141,9 +193,9 @@ class AdminModel extends Model
   public function get_categories(): array
   {
     $configuration = [
-      "auto_cache"          => true,
-      "cache_lifetime"      => null,
-      "timeout"             => false, // deprecated! Set it to false!
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
@@ -155,22 +207,29 @@ class AdminModel extends Model
       ->disableCache()
       ->getQuery()
       ->fetch();
-      //array_shift($categories);
     return $categories;
   }
 
+  /**
+   * [Description for add_category]
+   *
+   * @param mixed $array
+   * 
+   * @return [bool]
+   * 
+   */
   public function add_category($array): bool
   {
     $configuration = [
-      "auto_cache"          => false,
-      "cache_lifetime"      => null,
-      "timeout"             => false, // deprecated! Set it to false!
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $add_category = new Store('categories', DATABASE_DIR, $configuration);
     $add_category->insert($array);
-    return true;
+    return TRUE;
   }
 
   /**
@@ -178,15 +237,15 @@ class AdminModel extends Model
    *
    * @param mixed $array
    * 
-   * @return
+   * @return [bool]
    * 
    */
   public function delete_category($id)
   {
     $configuration = [
-      "auto_cache"          => false,
-      "cache_lifetime"      => null,
-      "timeout"             => false, // deprecated! Set it to false!
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
@@ -196,14 +255,24 @@ class AdminModel extends Model
       ->getQuery()
       ->delete();
     $categories->deleteById($id);
+    return TRUE;
   }
 
+  /**
+   * [Description for numb_links]
+   *
+   * @param mixed $cat_id
+   * @param mixed $number_link_in_category
+   * 
+   * @return [type]
+   * 
+   */
   function numb_links($cat_id, $number_link_in_category)
   {
     $configuration = [
-      "auto_cache"          => false,
-      "cache_lifetime"      => null,
-      "timeout"             => false, // deprecated! Set it to false!
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
