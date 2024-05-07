@@ -65,7 +65,7 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? true : false;
             <span class="input-group-text">
               <i class="fa-solid fa-envelope"></i>
             </span>
-            <input type="email" class="form-control" placeholder="startpage@placeholder.com" id="email" name="email" value="<?= set_value('email')?>" required="required">
+            <input type="email" class="form-control" placeholder="startpage@placeholder.dev" id="email" name="email" value="<?= set_value('email')?>" required="required">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">

@@ -187,14 +187,14 @@ while($i < 5)
               {
                 if($a < $value['numb_links'])
                 {
-                  $target = ($linkvalue['target'] = '1') ? ' target="_blank"' : ' target="_self"';
+                  $target = ($linkvalue['target'] === '1') ? ' target="_blank"' : ' target="_self"';
 
                   if(!empty($linkvalue['icon']))
-                    $link = ($linkvalue['side_icon'] = '1') ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
+                    $link = ($linkvalue['side_icon'] === '1') ? $linkvalue['icon'].'&nbsp;<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>&nbsp;'.$linkvalue['icon'];
                   else
-                    $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
+                    $link = '<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>';
 
-                  echo '<li class="list-group-item p-0 m-0">' . $link . ' '.$edit_link_button.'</li>';
+                  echo '<li class="list-group-item p-0 m-0">'.$link.'&nbsp;'.$edit_link_button.'</li>';
                   $a++;
                 }
               }
@@ -392,8 +392,8 @@ if($logged_in == TRUE)
       else
         $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
     }
-    $selected_visible_yes  = ($value['visible'] == '1') ? ' selected="selected"' : '';
-    $selected_visible_no   = ($value['visible'] == '0') ? ' selected="selected"' : '';
+    $selected_visible_yes  = ($value['visible'] === '1') ? ' selected="selected"' : '';
+    $selected_visible_no   = ($value['visible'] === '0') ? ' selected="selected"' : '';
 
     $edit_cat_modal .= '<!-- Edit_Modal_Cat'.$value['id'].' -->
     <div class="modal fade modal-lg" id="Edit_Modal_Cat'.$value['id'].'" tabindex="-1" aria-labelledby="Edit_Modal_Cat'.$value['id'].'_Label" aria-hidden="TRUE">
@@ -528,7 +528,7 @@ if($logged_in == TRUE)
           </div>
           <div class="modal-footer bg-primary">
             <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success btn-sm">Save changes</button>
+            <button type="submit" class="btn btn-success btn-sm">Save Category</button>
             </form>
           </div>
         </div>
@@ -545,155 +545,8 @@ echo isset($modal) ? $modal : '';
 $edit_link_modal = '';
 if($logged_in == TRUE)
 {
-  foreach($links as $key => $value)
-  {
-    $selected_side_icon_left  = ($value['side_icon'] == '1') ? ' selected="selected"' : '';
-    $selected_side_icon_right = ($value['side_icon'] == '0') ? ' selected="selected"' : '';
-
-?>
-
-  <div class="modal fade modal-lg" id="Edit_Modal_Link<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Link<?=$value['id']?>Label" aria-hidden="TRUE">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <?=form_open(url_to('edit-link', $value['id'])); ?>
-        <div class="modal-header bg-primary text-light">
-          <h1 class="modal-title fs-5" id="Edit_Modal_Link<?=$value['id']?>Label">Edit The Link <?=$value['name']?></h1>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-        <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="link_id_span" name="link_id_span">Link Id</span>
-              <input type="text" class="form-control bg-white" id="link_id" name="link_id" aria-describedby="link_id" value="<?=$value['id']?>" aria-label="link_id" disabled>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="name_span" name="name_span">Name</span>
-              <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="<?=$value['name']?>" required>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="url_span" name="url_span">Url</span>
-              <input type="text" class="form-control" id="url" name="url" aria-describedby="url" value="<?=$value['url']?>" required>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="category_id_span" name="category_id_span">Category</span>
-              <select class="form-select" id="category_id" name="category_id" aria-label="category_id">
-
-                <?php           
-                foreach($categories as $cat => $cat_value)
-                {
-                  if($value['category_id'] == $cat_value['id'])
-                    echo '<option value="'.$cat_value['id'].'" selected="selected">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
-                  else
-                    echo '<option value="'.$cat_value['id'].'">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
-                }
-                ?>
-
-              </select>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="title_span" name="title_span">Title</span>
-              <input type="text" class="form-control" id="title" name="title" aria-describedby="title" value="<?=$value['title']?>" required>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="type_span" name="type_span">Type</span>
-              <select class="form-select" id="type" name="type" aria-label="type">
-                <option value="list"<?=($value['type'] = 'list') ? ' selected="selected"' : ''?>>List</option>
-                <option value="img"<?=($value['type'] = 'img') ? ' selected="selected"' : ''?>>Image</option>
-                <option value="html"<?=($value['type'] = 'html') ? ' selected="selected"' : ''?>>Html</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="img_span" name="img_span">Base64 Image String</span>
-              <textarea class="form-control" rows="10" id="img" name="img" placeholder="base 64 image string"><?=$value['img']?></textarea>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="html_span" name="html_span">Html</span>
-              <textarea class="form-control"" rows="10" id="html" name="html" placeholder="html"><?=$value['html']?></textarea>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="target_span" name="target_span">Link Target</span>
-              <select class="form-select" id="target" name="target" aria-label="target">
-                <option value="1"<?=($value['target'] = '1') ? ' selected="selected"' : ''?>>New Window / New Tab</option>
-                <option value="0"<?=($value['target'] = '0') ? ' selected="selected"' : ''?>>Same Window / Same Tab</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="visible_span" name="visible_span">Link Visible</span>
-              <select class="form-select" id="visible" name="visible" aria-label="visible">
-                <option value="1"<?=($value['visible'] = '1') ? ' selected="selected"' : ''?>>Yes</option>
-                <option value="0"<?=($value['visible'] = '0') ? ' selected="selected"' : ''?>>No</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="icon_span" name="icon_span">Icon</span>
-              <input type="text" class="form-control" id="icon" name="icon" placeholder="Icon" value="<?=esc($value['icon'])?>">
-            </div>
-            <div class="form-text">
-              You can use icons from font awesome
-            </div>
-          </div>
-
-          <div class="mb-3">
-              <div class="input-group input-group-sm">
-                <span class="input-group-text w-25" id="side_icon_span" name="side_icon_span">Side icon of the link</span>
-                <select class="form-select" id="side_icon" name="side_icon" aria-label="Default select example">
-                  <option>Side icon of the link</option>
-                  <option value="1"<?=$selected_side_icon_left?>>Left</option>
-                  <option value="0"<?=$selected_side_icon_right?>>Right</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <div class="input-group input-group-sm">
-                <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
-                <input type="number" class="form-control" min="0" max="1000" id="position" name="position" placeholder="Position / Height" value="<?=$value['position']?>">
-              </div>
-            </div>
-
-        </div>
-        <div class="modal-footer bg-primary">
-          <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success btn-sm">Save changes</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-<?php
-  }
+    define('Include-Modal-Edit-Link', 'Include-Modal-Edit-Link');
+    echo $this->include('Include-Modal-Edit-Link');
 }
 //End edit link modals
 
@@ -706,7 +559,6 @@ if (!empty($settings['show_footer']) === '1')
 
 </div>
 <?=(empty($settings['foot']))?$settings['foot']:'';?>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

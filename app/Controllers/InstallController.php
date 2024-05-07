@@ -431,7 +431,7 @@ class InstallController extends BaseController
             'name'        =>  'Bootstrap',
             'url'         =>  'http://getbootstrap.com',
             'category_id' =>  '23',
-            'title'       =>  'Bootstrap',
+            'title'       =>  'Build fast, responsive sites with Bootstrap',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -443,9 +443,9 @@ class InstallController extends BaseController
           ],
           [
             'name'        =>  'Codeigniter',
-            'url'         =>  'http://getbootstrap.com',
+            'url'         =>  'http://codeigniter.com',
             'category_id' =>  '23',
-            'title'       =>  'Codeigniter',
+            'title'       =>  'The small framework with powerful features',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -459,7 +459,7 @@ class InstallController extends BaseController
             'name'        =>  'SleekDB',
             'url'         =>  'https://sleekdb.github.io',
             'category_id' =>  '23',
-            'title'       =>  'SleekDB',
+            'title'       =>  'SleekDB - A NoSQL Database made using PHP',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -473,7 +473,7 @@ class InstallController extends BaseController
             'name'        =>  'Favicon',
             'url'         =>  'https://favicon.io',
             'category_id' =>  '23',
-            'title'       =>  'Favicon',
+            'title'       =>  'The only favicon generator you need for your next project. Quickly generate your favicon from text, image, or choose from hundreds of emojis.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -487,7 +487,7 @@ class InstallController extends BaseController
             'name'        =>  'Font Awesome',
             'url'         =>  'https://fontawesome.com',
             'category_id' =>  '23',
-            'title'       =>  'Font Awesome',
+            'title'       =>  'Take the hassle out of icons in your project.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -501,7 +501,7 @@ class InstallController extends BaseController
             'name'        =>  'Bootstrap',
             'url'         =>  'http://getbootstrap.com',
             'category_id' =>  '24',
-            'title'       =>  'Bootstrap',
+            'title'       =>  'Build fast, responsive sites with Bootstrap',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -515,7 +515,7 @@ class InstallController extends BaseController
             'name'        =>  'Bulma',
             'url'         =>  'https://bulma.io',
             'category_id' =>  '24',
-            'title'       =>  'Bulma',
+            'title'       =>  'The Modern CSS Framework',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -529,7 +529,7 @@ class InstallController extends BaseController
             'name'        =>  'Foundation',
             'url'         =>  'https://get.foundation',
             'category_id' =>  '24',
-            'title'       =>  'Foundation',
+            'title'       =>  'The most advanced responsive front-end framework in the world.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -543,7 +543,7 @@ class InstallController extends BaseController
             'name'        =>  'Materialize',
             'url'         =>  'https://materializecss.github.io/materialize',
             'category_id' =>  '24',
-            'title'       =>  'Materialize',
+            'title'       =>  'Simple. Built on open source. The responsive front-end library based on Material Design from Google.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -557,7 +557,7 @@ class InstallController extends BaseController
             'name'        =>  'Tailwind',
             'url'         =>  'https://tailwindcss.com',
             'category_id' =>  '24',
-            'title'       =>  'Tailwind',
+            'title'       =>  'Rapidly build modern websites without ever leaving your HTML.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -571,7 +571,7 @@ class InstallController extends BaseController
             'name'        =>  'Codeigniter',
             'url'         =>  'http://codeigniter.com',
             'category_id' =>  '25',
-            'title'       =>  'Codeigniter',
+            'title'       =>  'The small framework with powerful features',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -585,7 +585,7 @@ class InstallController extends BaseController
             'name'        =>  'Laravel',
             'url'         =>  'http://laravel.com',
             'category_id' =>  '25',
-            'title'       =>  'Laravel',
+            'title'       =>  'The PHP Framework for Web Artisans',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -600,7 +600,7 @@ class InstallController extends BaseController
             'url'         =>  'https://symfony.com',
             'type'        =>  'list', //'list','img','html'
             'category_id' =>  '25',
-            'title'       =>  'Symfony',
+            'title'       =>  'Symfony is a set of reusable PHP components ... and a PHP framework for web projects',
             'img'         =>  '',
             'html'        =>  '',
             'target'      =>  '1', // 0 = same tab 1 = new tab
@@ -613,7 +613,7 @@ class InstallController extends BaseController
             'name'        =>  'Laminas',
             'url'         =>  'https://getlaminas.org',
             'category_id' =>  '25',
-            'title'       =>  'Laminas',
+            'title'       =>  'Laminas Project, the enterprise-ready PHP Framework and components A community-supported, open source continuation of Zend Framework.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -627,7 +627,7 @@ class InstallController extends BaseController
             'name'        =>  'Yii',
             'url'         =>  'https://www.yiiframework.com',
             'category_id' =>  '25',
-            'title'       =>  'Yii',
+            'title'       =>  'Yii is a fast, secure, and efficient PHP framework. Flexible yet pragmatic. Works right out of the box. Has reasonable defaults.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -641,7 +641,7 @@ class InstallController extends BaseController
             'name'        =>  'Base64decode',
             'url'         =>  'https://www.base64decode.org',
             'category_id' =>  '26',
-            'title'       =>  'Base64decode',
+            'title'       =>  'Do you have to deal with Base64 format? Then this site is perfect for you! Use our super handy online tool to encode or decode your data.',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
@@ -655,7 +655,7 @@ class InstallController extends BaseController
             'name'        =>  'Logo',
             'url'         =>  'https://logo.com',
             'category_id' =>  '26',
-            'title'       =>  'Logo',
+            'title'       =>  'Launch your business with a free logo',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',

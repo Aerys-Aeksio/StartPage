@@ -212,7 +212,7 @@ if (!defined('Include-Modal'))
         </div>
         <div class="modal-footer bg-primary">
           <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success btn-sm">Save changes</button>
+          <button type="submit" class="btn btn-success btn-sm">Save Settings</button>
         </div>
         <?=form_close()?>
       </div>
