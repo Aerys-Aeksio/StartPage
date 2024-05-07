@@ -32,7 +32,7 @@ class HomeController extends BaseController
   public function index(): string
   {
     $data               = $this->_get_data();
-    $data['logged_in']  = ($this->_loggedin()) ? TRUE : FALSE;
+    $data['logged_in']  = $this->_loggedin() ? TRUE : FALSE;
     $data['more']       = [];
     foreach($data['categories'] as $key => $value)
     {
@@ -181,8 +181,9 @@ class HomeController extends BaseController
         "icon"        =>  $this->request->getPost('icon'),
         "side_icon"   =>  $this->request->getPost('side_icon'),
         "position"    =>  $this->request->getPost('position'),
+        "id"          =>  $id,
       ];
-      $this->admin->update_link($newdata, $id);
+      $this->admin->update_link($newdata);
       $data['time']             = $data['settings']['redirect_time'];
       $data['destination_url']  = url_to('/');
       $data['message']          = 'Your Link Has Been Updated..';

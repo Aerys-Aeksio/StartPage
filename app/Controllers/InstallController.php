@@ -55,367 +55,367 @@ class InstallController extends BaseController
         [
           [
             'name'                    =>  'bg-primary',
-            'column'                  =>  1,
-            'numb_links'              =>  5,
+            'column'                  =>  '1',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-primary',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  100,
+            'visible'                 =>  '1',
+            'position'                =>  '100',
           ],
           [
             'name'                    =>  'bg-primary-subtle',
-            'column'                  =>  2,
-            'numb_links'              =>  5,
+            'column'                  =>  '2',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-primary-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  100,
+            'visible'                 =>  '1',
+            'position'                =>  '100',
           ],
           [
             'name'                    =>  'bg-secondary',
             'column'                  =>  3,
-            'numb_links'              =>  5,
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-secondary',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  100,
+            'visible'                 =>  '1',
+            'position'                =>  '100',
           ],
           [
             'name'                    =>  'bg-secondary-subtle',
-            'column'                  =>  4,
-            'numb_links'              =>  5,
+            'column'                  =>  '4',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-secondary-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  100,
+            'visible'                 =>  '1',
+            'position'                =>  '100',
           ],
           [
             'name'                    =>  'bg-success',
-            'column'                  =>  1,
-            'numb_links'              =>  5,
+            'column'                  =>  '1',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-success',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  99,
+            'visible'                 =>  '1',
+            'position'                =>  '99',
           ],
           [
             'name'                    =>  'bg-success-subtle',
-            'column'                  =>  2,
-            'numb_links'              =>  5,
+            'column'                  =>  '2',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-success-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  99,
+            'visible'                 =>  '1',
+            'position'                =>  '99',
           ],
           [
             'name'                    =>  'bg-danger',
             'column'                  =>  3,
-            'numb_links'              =>  5,
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-danger',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  99,
+            'visible'                 =>  '1',
+            'position'                =>  '99',
           ],
           [
             'name'                    =>  'bg-danger-subtle',
-            'column'                  =>  4,
-            'numb_links'              =>  5,
+            'column'                  =>  '4',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-danger-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  99,
+            'visible'                 =>  '1',
+            'position'                =>  '99',
           ],
           [
             'name'                    =>  'bg-warning',
-            'column'                  =>  1,
-            'numb_links'              =>  5,
+            'column'                  =>  '1',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-warning',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  98,
+            'visible'                 =>  '1',
+            'position'                =>  '98',
           ],
           [
             'name'                    =>  'bg-warning-subtle',
-            'column'                  =>  2,
-            'numb_links'              =>  5,
+            'column'                  =>  '2',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-warning-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  98,
+            'visible'                 =>  '1',
+            'position'                =>  '98',
           ],
           [
             'name'                    =>  'bg-info',
-            'column'                  =>  3,
-            'numb_links'              =>  5,
+            'column'                  =>  '3',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-info',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  98,
+            'visible'                 =>  '1',
+            'position'                =>  '98',
           ],
           [
             'name'                    =>  'bg-info-subtle',
-            'column'                  =>  4,
-            'numb_links'              =>  5,
+            'column'                  =>  '4',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-info-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  98,
+            'visible'                 =>  '1',
+            'position'                =>  '98',
           ],
           [
             'name'                    =>  'bg-light',
-            'column'                  =>  1,
-            'numb_links'              =>  5,
+            'column'                  =>  '1',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-light',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  97,
+            'visible'                 =>  '1',
+            'position'                =>  '97',
           ],
           [
             'name'                    =>  'bg-light-subtle',
-            'column'                  =>  2,
-            'numb_links'              =>  5,
+            'column'                  =>  '2',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-light-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  97,
+            'visible'                 =>  '1',
+            'position'                =>  '97',
           ],
           [
             'name'                    =>  'bg-dark',
-            'column'                  =>  3,
-            'numb_links'              =>  5,
+            'column'                  =>  '3',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-dark',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  97,
+            'visible'                 =>  '1',
+            'position'                =>  '97',
           ],
           [
             'name'                    =>  'bg-dark-subtle',
-            'column'                  =>  4,
-            'numb_links'              =>  5,
+            'column'                  =>  '4',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-dark-subtle',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  97,
+            'visible'                 =>  '1',
+            'position'                =>  '97',
           ],
           [
             'name'                    =>  'bg-body-secondary',
-            'column'                  =>  1,
-            'numb_links'              =>  5,
+            'column'                  =>  '1',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-body-secondary',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  96,
+            'visible'                 =>  '1',
+            'position'                =>  '96',
           ],
           [
             'name'                    =>  'bg-body-tertiary',
-            'column'                  =>  2,
-            'numb_links'              =>  5,
+            'column'                  =>  '2',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-body-tertiary',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  96,
+            'visible'                 =>  '1',
+            'position'                =>  '96',
           ],
           [
             'name'                    =>  'bg-body',
-            'column'                  =>  3,
-            'numb_links'              =>  5,
+            'column'                  =>  '3',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-body',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  96,
+            'visible'                 =>  '1',
+            'position'                =>  '96',
           ],
           [
             'name'                    =>  'bg-black',
-            'column'                  =>  4,
-            'numb_links'              =>  5,
+            'column'                  =>  '4',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-black',
             'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  96,
+            'visible'                 =>  '1',
+            'position'                =>  '96',
           ],
           [
             'name'                    =>  'bg-white',
-            'column'                  =>  1,
-            'numb_links'              =>  5,
+            'column'                  =>  '1',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-white',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  95,
+            'visible'                 =>  '1',
+            'position'                =>  '95',
           ],
           [
             'name'                    =>  'bg-transparent',
-            'column'                  =>  2,
-            'numb_links'              =>  5,
+            'column'                  =>  '2',
+            'numb_links'              =>  '5',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  'bg-transparent',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  95,
+            'visible'                 =>  '1',
+            'position'                =>  '95',
           ],
           [
             'name'                    =>  'Startpage built with',
-            'column'                  =>  1,
-            'numb_links'              =>  4,
+            'column'                  =>  '1',
+            'numb_links'              =>  '4',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  0,
+            'visible'                 =>  '1',
+            'position'                =>  '0',
           ],
           [
             'name'                    =>  'Css Frameworks',
-            'column'                  =>  2,
-            'numb_links'              =>  4,
+            'column'                  =>  '2',
+            'numb_links'              =>  '4',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  0,
+            'visible'                 =>  '1',
+            'position'                =>  '0',
           ],
           [
             'name'                    =>  'Php Frameworks',
-            'column'                  =>  3,
-            'numb_links'              =>  4,
+            'column'                  =>  '3',
+            'numb_links'              =>  '4',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  0,
+            'visible'                 =>  '1',
+            'position'                =>  '0',
           ],
           [
             'name'                    =>  'Misc',
-            'column'                  =>  4,
-            'numb_links'              =>  4,
+            'column'                  =>  '4',
+            'numb_links'              =>  '4',
             'icon'                    =>  '',
-            'side_icon'               =>  '', // left or right
+            'side_icon'               =>  '',
             'background_color_header' =>  '',
             'text_color_header'       =>  'text-dark',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',
-            'visible'                 =>  1,
-            'position'                =>  0,
+            'visible'                 =>  '1',
+            'position'                =>  '0',
           ],
         ];
         // Create Table categories
@@ -430,240 +430,240 @@ class InstallController extends BaseController
           [
             'name'        =>  'Bootstrap',
             'url'         =>  'http://getbootstrap.com',
-            'category_id' =>  23,
+            'category_id' =>  '23',
             'title'       =>  'Bootstrap',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Codeigniter',
             'url'         =>  'http://getbootstrap.com',
-            'category_id' =>  23,
+            'category_id' =>  '23',
             'title'       =>  'Codeigniter',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'SleekDB',
             'url'         =>  'https://sleekdb.github.io',
-            'category_id' =>  23,
+            'category_id' =>  '23',
             'title'       =>  'SleekDB',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Favicon',
             'url'         =>  'https://favicon.io',
-            'category_id' =>  23,
+            'category_id' =>  '23',
             'title'       =>  'Favicon',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Font Awesome',
             'url'         =>  'https://fontawesome.com',
-            'category_id' =>  23,
+            'category_id' =>  '23',
             'title'       =>  'Font Awesome',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Bootstrap',
             'url'         =>  'http://getbootstrap.com',
-            'category_id' =>  24,
+            'category_id' =>  '24',
             'title'       =>  'Bootstrap',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Bulma',
             'url'         =>  'https://bulma.io',
-            'category_id' =>  24,
+            'category_id' =>  '24',
             'title'       =>  'Bulma',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Foundation',
             'url'         =>  'https://get.foundation',
-            'category_id' =>  24,
+            'category_id' =>  '24',
             'title'       =>  'Foundation',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Materialize',
             'url'         =>  'https://materializecss.github.io/materialize',
-            'category_id' =>  24,
+            'category_id' =>  '24',
             'title'       =>  'Materialize',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Tailwind',
             'url'         =>  'https://tailwindcss.com',
-            'category_id' =>  24,
+            'category_id' =>  '24',
             'title'       =>  'Tailwind',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Codeigniter',
             'url'         =>  'http://codeigniter.com',
-            'category_id' =>  25,
+            'category_id' =>  '25',
             'title'       =>  'Codeigniter',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  100,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '100',
           ],
           [
             'name'        =>  'Laravel',
             'url'         =>  'http://laravel.com',
-            'category_id' =>  25,
+            'category_id' =>  '25',
             'title'       =>  'Laravel',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  99,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '99',
           ],
           [
             'name'        =>  'Symfony',
             'url'         =>  'https://symfony.com',
             'type'        =>  'list', //'list','img','html'
-            'category_id' =>  25,
+            'category_id' =>  '25',
             'title'       =>  'Symfony',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  98,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '98',
           ],
           [
             'name'        =>  'Laminas',
             'url'         =>  'https://getlaminas.org',
-            'category_id' =>  25,
+            'category_id' =>  '25',
             'title'       =>  'Laminas',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  98,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '98',
           ],
           [
             'name'        =>  'Yii',
             'url'         =>  'https://www.yiiframework.com',
-            'category_id' =>  25,
+            'category_id' =>  '25',
             'title'       =>  'Yii',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  97,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '97',
           ],
           [
             'name'        =>  'Base64decode',
             'url'         =>  'https://www.base64decode.org',
-            'category_id' =>  26,
+            'category_id' =>  '26',
             'title'       =>  'Base64decode',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  97,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '97',
           ],
           [
             'name'        =>  'Logo',
             'url'         =>  'https://logo.com',
-            'category_id' =>  26,
+            'category_id' =>  '26',
             'title'       =>  'Logo',
             'type'        =>  'list', //'list','img','html'
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  1, // 0 = same tab 1 = new tab
-            'visible'     =>  1, // 0 = no 1 = yes
+            'target'      =>  '1', // 0 = same tab 1 = new tab
+            'visible'     =>  '1', // 0 = no 1 = yes
             'icon'        =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'side_icon'   =>  1, // 1 = left and 0 = right
-            'position'    =>  96,
+            'side_icon'   =>  '1', // 1 = left and 0 = right
+            'position'    =>  '96',
           ],
         ];
         // Create the Table links
@@ -693,14 +693,14 @@ class InstallController extends BaseController
           "style"           => "default",
           "registered"      => time(),
           "registration_ip" => esc($this->request->getIPAddress()),
-          "addCategory"     => 1,
-          "delCategory"     => 1,
-          "editCategory"    => 1,
-          "addLink"         => 1,
-          "delLink"         => 1,
-          "editLink"        => 1,
-          "changeSettings"  => 1,
-          "manageUsers"     => 1,
+          "addCategory"     => '1',
+          "delCategory"     => '1',
+          "editCategory"    => '1',
+          "addLink"         => '1',
+          "delLink"         => '1',
+          "editLink"        => '1',
+          "changeSettings"  => '1',
+          "manageUsers"     => '1',
         ];
         // Create Table users
         $users_table = new Store("users", DATABASE_DIR, $users_configuration);
@@ -714,16 +714,16 @@ class InstallController extends BaseController
           "title"                     =>  'Startpage',
           "description"               =>  'What is a Startpage',
           "footer"                    =>  "Copyright ©",
-          "show_footer"               =>  0, // 0 = no 1 = yes
+          "show_footer"               =>  '0', // 0 = no 1 = yes
           "version"                   =>  "0.0.1",
           "timestamp_installed"       =>  ''.$installed_time->getTimestamp().'',
-          "redirect_time"             =>  2,
+          "redirect_time"             =>  '2',
           "base_url"                  =>  $base_url,
           "email"                     =>  $adminemail,
           "body_background"           =>  "bg-light",
           "nav_background"            =>  "bg-primary",
           "nav_link_color"            =>  "link-light",
-          "show_login_link"           =>  1,
+          "show_login_link"           =>  '1',
           "head"                      =>  '',
           "foot"                      =>  '',
         ];

@@ -169,7 +169,7 @@ class AdminModel extends Model
    * @return [bool]
    * 
    */
-  public function update_link($array, $id)
+  public function update_link($array)
   {
     $configuration =
     [
@@ -180,7 +180,7 @@ class AdminModel extends Model
       "folder_permissions"  => 0777
     ];
     $update_category = new Store('links', DATABASE_DIR, $configuration);
-    $update_category->updateById($id, $array);
+    $update_category->updateOrInsert($array);
     return TRUE;
   }
 
@@ -270,7 +270,7 @@ class AdminModel extends Model
   function numb_links($cat_id, $number_link_in_category)
   {
     $configuration = [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => TRUE,
       "cache_lifetime"      => NULL,
       "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",
@@ -279,7 +279,8 @@ class AdminModel extends Model
     $links = new Store("links", DATABASE_DIR, $configuration);
     $links = $links
       ->createQueryBuilder()
-      ->where([ 'category_id', "=", $cat_id ])
+      ->where([ 'category_id', "=", "".$cat_id."" ])
+      ->regenerateCache()
       ->getQuery()
       ->fetch();
     $numb = count($links);

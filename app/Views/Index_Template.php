@@ -37,7 +37,7 @@
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
 $nav_link_color = (!empty($settings['nav_link_color'])) ? ' '.$settings['nav_link_color'] : '';
-$login_link     = (!empty($settings['show_login_link']) == 1) ? TRUE : FALSE;
+$login_link     = (!empty($settings['show_login_link']) === '1') ? TRUE : FALSE;
 ?>
 
 <?=$body_color?>
@@ -73,8 +73,11 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? TRUE : FALSE;
             <li class="nav-item">
               <a class="nav-link<?=$nav_link_color?>" href="#">Tips</a>
             </li>
-            <lii class="nav-item">
-            <a class="nav-link<?=$nav_link_color?>" href="#">Page rendered in {elapsed_time} seconds using {memory_usage} MB of memory.</a>
+            <li class="nav-item">
+              <a class="nav-link<?=$nav_link_color?>" href="#">Page rendered in {elapsed_time} seconds</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link<?=$nav_link_color?>" href="#">using {memory_usage} MB of memory.</a>
             </li>
 
 <?php
@@ -116,7 +119,7 @@ if($logged_in == TRUE)
 
 <?php
 $i = 1;
-$a = 1;
+$a = 0;
 $modal = '';
 // Begin while loop for the output of all the categories and links
 while($i < 5)
@@ -126,7 +129,7 @@ while($i < 5)
   {
     $bg_header          = (!empty($value['background_color_header'])) ? ' '.$value['background_color_header'] : '';
     $text_color_header  = (!empty($value['text_color_header'])) ? ' '.$value['text_color_header'] : '';
-    if($value['column'] == $i AND $value['visible'] == 1)
+    if($value['column'] == $i AND $value['visible'] = '1')
     {
       if($logged_in == TRUE)
         $edit_cat_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Cat'.$value['id'].'"><i class="fa-solid fa-pencil"></i></button>';
@@ -136,7 +139,7 @@ while($i < 5)
 
       <div class="card mx-0 mb-1 rounded-0">
         <div class="card-header rounded-0 p-1<?=$bg_header?><?=$text_color_header?>">
-          <?=(!empty($value['side_icon']) AND $value['side_icon'] == 1) ? $value['icon'] : ''?> <?=$value['name']?> <?=(!empty($value['side_icon']) AND $value['side_icon'] == 0) ? $value['icon'] : ''?> <?=$edit_cat_button?>
+          <?=(!empty($value['side_icon']) AND $value['side_icon'] = '1') ? $value['icon'] : ''?> <?=$value['name']?> <?=(!empty($value['side_icon']) AND $value['side_icon'] = '0') ? $value['icon'] : ''?> <?=$edit_cat_button?>
         </div>
         <div class="card-body p-0">
 
@@ -155,14 +158,14 @@ while($i < 5)
           switch ($linkvalue['type'])
           {
             case 'list':
-              if($linkvalue['category_id'] == $value['id'] )
+              if($linkvalue['category_id'] == $value['id'])
               {
-                if($a <= $value['numb_links'])
+                if($a < $value['numb_links'])
                 {
-                  $target = ($linkvalue['target'] == 1) ? ' target="_blank"' : ' target="_self"';
+                  $target = ($linkvalue['target'] = '1') ? ' target="_blank"' : ' target="_self"';
 
                   if(!empty($linkvalue['icon']))
-                    $link = ($linkvalue['side_icon'] == 1) ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
+                    $link = ($linkvalue['side_icon'] = '1') ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
                   else
                     $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
 
@@ -177,7 +180,7 @@ while($i < 5)
               break;
           }
         }
-        $a=1;
+        $a=0;
         echo ($linkvalue['type'] == 'list') ? '</ul>' : '';
         unset($already);
 ?>
@@ -185,7 +188,7 @@ while($i < 5)
         </div><!-- End Card Body -->
 
 <?php
-  if($more[$value['id']] == 1)
+  if($more[$value['id']] == '1')
   {
     $link_color_header  = (!empty($value['link_color_header'])) ? ' '.$value['link_color_header'] : '';
     $link_color_footer  = (!empty($value['link_color_footer'])) ? ' '.$value['link_color_footer'] : '';
@@ -216,10 +219,10 @@ while($i < 5)
                       {
                         if($a <= $value['numb_links'])
                         {
-                          $target = ($linkvalue['target'] == 1) ? ' target="_blank"' : ' target="_self"';
+                          $target = ($linkvalue['target'] == '1') ? ' target="_blank"' : ' target="_self"';
 
                           if(!empty($linkvalue['icon']))
-                            $link = ($linkvalue['side_icon'] == 1) ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
+                            $link = ($linkvalue['side_icon'] == '1') ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
                           else
                             $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
 
@@ -257,8 +260,8 @@ if($logged_in == TRUE)
 {
   foreach($categories as $key => $value)
   {
-    $selected_side_icon_left  = ($value['side_icon'] == 1) ? ' selected="selected"' : '';
-    $selected_side_icon_right = ($value['side_icon'] == 0) ? ' selected="selected"' : '';
+    $selected_side_icon_left  = ($value['side_icon'] == '1') ? ' selected="selected"' : '';
+    $selected_side_icon_right = ($value['side_icon'] == '0') ? ' selected="selected"' : '';
 
     $bg_colors =
     [
@@ -364,8 +367,8 @@ if($logged_in == TRUE)
       else
         $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
     }
-    $selected_visible_yes  = ($value['visible'] == 1) ? ' selected="selected"' : '';
-    $selected_visible_no   = ($value['visible'] == 0) ? ' selected="selected"' : '';
+    $selected_visible_yes  = ($value['visible'] == '1') ? ' selected="selected"' : '';
+    $selected_visible_no   = ($value['visible'] == '0') ? ' selected="selected"' : '';
 
     $edit_cat_modal .= '<!-- Edit_Modal_Cat'.$value['id'].' -->
     <div class="modal fade modal-lg" id="Edit_Modal_Cat'.$value['id'].'" tabindex="-1" aria-labelledby="Edit_Modal_Cat'.$value['id'].'_Label" aria-hidden="TRUE">
@@ -519,8 +522,8 @@ if($logged_in == TRUE)
 {
   foreach($links as $key => $value)
   {
-    $selected_side_icon_left  = ($value['side_icon'] == 1) ? ' selected="selected"' : '';
-    $selected_side_icon_right = ($value['side_icon'] == 0) ? ' selected="selected"' : '';
+    $selected_side_icon_left  = ($value['side_icon'] == '1') ? ' selected="selected"' : '';
+    $selected_side_icon_right = ($value['side_icon'] == '0') ? ' selected="selected"' : '';
 
 ?>
 
@@ -585,9 +588,9 @@ if($logged_in == TRUE)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="type_span" name="type_span">Type</span>
               <select class="form-select" id="type" name="type" aria-label="type">
-                <option value="list"<?=($value['type'] == 'list') ? ' selected="selected"' : ''?>>List</option>
-                <option value="img"<?=($value['type'] == 'img') ? ' selected="selected"' : ''?>>Image</option>
-                <option value="html"<?=($value['type'] == 'html') ? ' selected="selected"' : ''?>>Html</option>
+                <option value="list"<?=($value['type'] = 'list') ? ' selected="selected"' : ''?>>List</option>
+                <option value="img"<?=($value['type'] = 'img') ? ' selected="selected"' : ''?>>Image</option>
+                <option value="html"<?=($value['type'] = 'html') ? ' selected="selected"' : ''?>>Html</option>
               </select>
             </div>
           </div>
@@ -610,8 +613,8 @@ if($logged_in == TRUE)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="target_span" name="target_span">Link Target</span>
               <select class="form-select" id="target" name="target" aria-label="target">
-                <option value="1"<?=($value['target'] == 1) ? ' selected="selected"' : ''?>>New Window / New Tab</option>
-                <option value="0"<?=($value['target'] == 0) ? ' selected="selected"' : ''?>>Same Window / Same Tab</option>
+                <option value="1"<?=($value['target'] = '1') ? ' selected="selected"' : ''?>>New Window / New Tab</option>
+                <option value="0"<?=($value['target'] = '0') ? ' selected="selected"' : ''?>>Same Window / Same Tab</option>
               </select>
             </div>
           </div>
@@ -620,8 +623,8 @@ if($logged_in == TRUE)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="visible_span" name="visible_span">Link Visible</span>
               <select class="form-select" id="visible" name="visible" aria-label="visible">
-                <option value="1"<?=($value['visible'] == 1) ? ' selected="selected"' : ''?>>Yes</option>
-                <option value="0"<?=($value['visible'] == 0) ? ' selected="selected"' : ''?>>No</option>
+                <option value="1"<?=($value['visible'] = '1') ? ' selected="selected"' : ''?>>Yes</option>
+                <option value="0"<?=($value['visible'] = '0') ? ' selected="selected"' : ''?>>No</option>
               </select>
             </div>
           </div>
@@ -669,7 +672,7 @@ if($logged_in == TRUE)
 }
 //End edit link modals
 
-if (!empty($settings['show_footer']) == 1)
+if (!empty($settings['show_footer']) === '1')
 {
   define('Include-Footer', 'Include-Footer');
   echo $this->include('Include-Footer');
