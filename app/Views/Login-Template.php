@@ -29,7 +29,7 @@
 
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-  <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>
+  <?="\n\t".link_tag('Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
 
 <?php
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
@@ -51,7 +51,7 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? true : false;
           </p>
         </div>
         <div class="card-body text-center">
-          <img class="mb-3" style="width:400px;" src="data:image/png;base64,<?php include('logo_base64.txt')?>" alt="Logo">
+          <img class="mb-3" src="<?=base_url()?>Assets/images/logo-login-screen-resized.png" alt="Logo">
           <?php if (! empty($errors)): ?>
               <div class="alert alert-danger" role="alert">
                   <ul>
@@ -86,6 +86,9 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? true : false;
           </div>
         </div>
         <div class="card-footer text-end bg-primary">
+          <a role="button" href="<?=base_url()?>" class="btn btn-warning">
+            Go Back To Index
+          </a>
           <button type ="submit" class="btn btn-success">
             Login
           </button>

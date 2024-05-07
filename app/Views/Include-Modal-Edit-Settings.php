@@ -1,5 +1,5 @@
 <?php
-if (!defined('Include-Modal-Edit-Settings')) 
+if (!defined('Include-Modal')) 
     exit;
 ?>
 <!-- Begin Modal edit startpage settings-->

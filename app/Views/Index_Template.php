@@ -29,7 +29,7 @@
 
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-  <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>
+  <?="\n\t".link_tag('Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
 
   <?=(empty($settings['head']))?$settings['head']:'';?>
 
@@ -44,14 +44,20 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
 <div class="container-fluid px-0">
   <div class="row align-items-center mt-3 px-0 mx-0">
     <div class="col-4"></div>
-    <div class="col text-center"><img class="mb-3" style="height:50px;" src="<?=base_url()?>/Admin-Css/startpage-header.png" alt="Logo"></div>
+    <div class="col text-center">
+      <img class="mb-3" style="height:50px;" src="<?=base_url()?>/Assets/images/startpage-header.png" alt="Logo">
+    </div>
     <div class="col-4"></div>
   </div>
+
+    <?php
+?>
+
   <header>
     <nav class="navbar navbar-expand-lg<?=$nav_bg_color?>">
       <div class="container-fluid">
         <a class="navbar-brand<?=$nav_link_color?>" href="#">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="FALSE" aria-label="Toggle navigation">
+        <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="FALSE" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -87,25 +93,39 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
 <?php
 if($login_link AND $logged_in == FALSE)
 {
-      echo '<li class="nav-item">
-              <a class="nav-link'.$nav_link_color.'" href="'.url_to('login').'">Login</a>
-            </li>';
+?>
+
+            <li class="nav-item">
+              <a class="nav-link<?=$nav_link_color?>" href="<?=url_to('login')?>">Login</a>
+            </li>
+
+<?php
+}
+if($logged_in === TRUE)
+{
+?>
+
+            <li class="nav-item me-2">
+              <button type="button" class="mb-2 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#add_link_category">
+                Add Link / Category
+              </button>
+            </li>
+            <li class="nav-item me-2">
+              <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#settings">
+                Edit StartPage Settings
+              </button>
+            </li>
+            <li class="nav-item">
+              <a role="button" class="btn btn-danger btn-sm" href="<?=url_to('logout')?>">
+                Logout
+              </a>
+            </li>
+<?php
 }
 ?>
 
           </ul>
         </div>
-
-<?php
-if($logged_in == TRUE)
-  echo'<div class="float-end">
-        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#settings">
-          Edit StartPage Settings
-        </button>
-            <a tabindex="-1" role="button" class="btn btn-danger btn-sm" href="'.url_to('logout').'">Logout</a>
-          </div>';
-?>
-
       </div>
     </nav>
   </header>
@@ -113,8 +133,9 @@ if($logged_in == TRUE)
 <?php
 if($logged_in == TRUE)
 {
-  define('Include-Modal-Edit-Settings', 'Include-Modal-Edit-Settings');
+  define('Include-Modal', 'Include-Modal');
   echo $this->include('Include-Modal-Edit-Settings');
+  echo $this->include('Include-Modal-Add-Link-Add-Category');
 }
 ?>
 

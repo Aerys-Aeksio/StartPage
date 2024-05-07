@@ -270,7 +270,7 @@ class AdminModel extends Model
   function numb_links($cat_id, $number_link_in_category)
   {
     $configuration = [
-      "auto_cache"          => TRUE,
+      "auto_cache"          => FALSE,
       "cache_lifetime"      => NULL,
       "timeout"             => FALSE, // deprecated! Set it to FALSE!
       "primary_key"         => "id",

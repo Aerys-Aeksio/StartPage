@@ -74,7 +74,7 @@ class InstallController extends BaseController
             'icon'                    =>  '',
             'side_icon'               =>  '',
             'background_color_header' =>  'bg-primary-subtle',
-            'text_color_header'       =>  'text-dark',
+            'text_color_header'       =>  'text-light',
             'background_color_footer' =>  'bg-primary',
             'link_color_footer'       =>  'link-light',
             'link_color_list'         =>  'link-dark',

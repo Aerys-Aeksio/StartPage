@@ -17,13 +17,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Install Startpage</title>
+  <title>StartPage | Install Startpage</title>
   <meta name="description" content="Your StartPage Install">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?=link_tag('favicon.ico', 'shortcut icon', 'image/ico');?>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>
+  <?="\n\t".link_tag('Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
 </head>
 <body class="bg-body-secondary p-0 m-0">
 |<div class="container-fluid">
@@ -59,12 +59,17 @@
           Install Your Startpage
         </div>
         <div class="card-body">
+          <p class="text-center p-0 m-0"><img class="img-fluid mb-3 w-25" src="<?=base_url()?>Assets/images/logo-login-screen-resized.png" alt="Logo"></p>
+
             <h2>Administrator setup</h2>
             <div class="input-group mb-3">
               <p>
                 Your username should be between 2 and 25 characters long.<br>
                 Your password must be between <span class="text-danger">6 characters</span> and <span class="text-danger">64 characters</span> long.<br>
                 Remember that passwords are case-sensitive.
+              </p>
+              <p class="text-end p-0 m-0 w-100">
+                <span class="text-danger p-0 m-0">*</span> = Mandatory
               </p>
             </div>
             <div class="input-group mb-3">
@@ -85,7 +90,7 @@
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="confirm_password1" style="width:200px;">
-                Confim Password<span class="text-danger">*</span>
+                Confirm Password<span class="text-danger">*</span>
               </span>
               <input type="password" class="form-control" placeholder="Confirm password" id="confirm_password" name="confirm_password" value="StartPage" maxlength="64" minlength="6" required="required">
               <span class="input-group-text" onclick="confirm_password_show_hide();">
@@ -98,9 +103,6 @@
                 Email<span class="text-danger">*</span>
               </span>
               <input type="text" class="form-control" placeholder ="email@example.com" id="admin_email" name="admin_email" value="StartPage@placeholder.dev" required="required">
-            </div>
-            <div class="text-end">
-              <span class="text-danger">*</span> = Mandatory
             </div>
         </div>
         <div class="card-footer bg-primary text-light text-end">

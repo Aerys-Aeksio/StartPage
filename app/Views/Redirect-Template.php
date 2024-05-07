@@ -35,7 +35,7 @@ header('Pragma: no-cache'); // For HTTP/1.0 compatibility
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
     <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-    <?="\n\t".link_tag('Admin-Css/Admin-Css.css', 'stylesheet')."\n";?>
+    <?="\n\t".link_tag('Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
    <script>
       var timeleft = <?= $time-1 ?>;
       var downloadTimer = setInterval(function(){
