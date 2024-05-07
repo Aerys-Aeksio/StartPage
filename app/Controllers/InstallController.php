@@ -720,7 +720,7 @@ class InstallController extends BaseController
           "redirect_time"             =>  '2',
           "base_url"                  =>  $base_url,
           "email"                     =>  $adminemail,
-          "body_background"           =>  "bg-light",
+          "body_background"           =>  "bg-dark-subtle",
           "nav_background"            =>  "bg-primary",
           "nav_link_color"            =>  "link-light",
           "show_login_link"           =>  '1',

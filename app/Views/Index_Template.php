@@ -17,7 +17,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?=$settings['title']?></title>
+  <title><?=$settings['title']?> | <?=$settings['description']?></title>
   <meta name="description" content="<?=$settings['description']?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,11 +37,16 @@
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
 $nav_link_color = (!empty($settings['nav_link_color'])) ? ' '.$settings['nav_link_color'] : '';
-$login_link     = (!empty($settings['show_login_link']) === '1') ? TRUE : FALSE;
+$login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
 ?>
 
 <?=$body_color?>
 <div class="container-fluid px-0">
+  <div class="row align-items-center mt-3 px-0 mx-0">
+    <div class="col-4"></div>
+    <div class="col text-center"><img class="mb-3" style="height:50px;" src="<?=base_url()?>/Admin-Css/startpage-header.png" alt="Logo"></div>
+    <div class="col-4"></div>
+  </div>
   <header>
     <nav class="navbar navbar-expand-lg<?=$nav_bg_color?>">
       <div class="container-fluid">
@@ -145,10 +150,10 @@ while($i < 5)
 <?php
         foreach($links as $linkkey => $linkvalue)
         {
-          if($linkvalue['type'] == 'list' AND !isset($already))
+          if($linkvalue['type'] == 'list' AND !isset($ul_already))
           {
             echo ($linkvalue['type'] == 'list') ? '<ul class="list-group list-group-flush p9-0 m-0 px-2 mb-2">' : '';
-            $already = TRUE;
+            $ul_already = TRUE;
           }
           if($logged_in == TRUE)
             $edit_link_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
@@ -181,7 +186,7 @@ while($i < 5)
         }
         $a=0;
         echo ($linkvalue['type'] == 'list') ? '</ul>' : '';
-        unset($already);
+        unset($ul_already);
 ?>
 
         </div><!-- End Card Body -->

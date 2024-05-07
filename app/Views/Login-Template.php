@@ -65,13 +65,13 @@ $login_link     = (!empty($settings['show_login_link']) == 1) ? true : false;
             <span class="input-group-text">
               <i class="fa-solid fa-envelope"></i>
             </span>
-            <input type="email" class="form-control" placeholder="E-mail" id="email" name="email" value="<?= set_value('email')?>" required="required">
+            <input type="email" class="form-control" placeholder="startpage@placeholder.com" id="email" name="email" value="<?= set_value('email')?>" required="required">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">
               <i class="fa-solid fa-lock"></i>
             </span>
-            <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="<?= set_value('password')?>" maxlength="64" minlength="6" required="required">
+            <input type="password" class="form-control" placeholder="StartPage" id="password" name="password" value="<?= set_value('password')?>" maxlength="64" minlength="6" required="required">
             <span class="input-group-text" onclick="password_show_hide();">
               <i class="fa-solid fa-eye" id="show_eye"></i>
               <i class="fa-solid fa-eye-slash d-none" id="hide_eye"></i>
