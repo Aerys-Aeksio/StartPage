@@ -41,8 +41,7 @@ $login_link     = (!empty($settings['show_login_link']) === '1') ? TRUE : FALSE;
 ?>
 
 <?=$body_color?>
-<div class="container-fluid">
-  <div class="h-20">&nbsp;</div>
+<div class="container-fluid px-0">
   <header>
     <nav class="navbar navbar-expand-lg<?=$nav_bg_color?>">
       <div class="container-fluid">
@@ -114,7 +113,7 @@ if($logged_in == TRUE)
 }
 ?>
 
-  <div class="row">
+  <div class="row mx-0">
     <div class="col">&nbsp;</div>
 
 <?php
