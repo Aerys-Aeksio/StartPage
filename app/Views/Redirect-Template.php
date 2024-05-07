@@ -62,9 +62,11 @@ header('Pragma: no-cache'); // For HTTP/1.0 compatibility
 <?php
 if( !isset($message))
   $message = 'no lang found but still something happened';
+
+  $body_color = (!empty($settings['body_background'])) ? '<body class="pt-5 mt-3 '.$settings['body_background'].'">' : '<body>';
 ?>
 
-<body class="bg-body-secondary pt-5 mt-3">
+<?=$body_color?>
 <div class="container">
   <div class="card w-25 m-auto p-auto">
     <div class="card-header bg-primary text-light h3 w-100">
