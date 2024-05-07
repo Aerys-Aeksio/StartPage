@@ -13,28 +13,28 @@
 }
 .btn-primary,
 .bg-primary {
-  background-color: #44699C !important;
+  background-color: #541265 !important;
 }
 .text-primary {
-  color: #44699C  !important;
+  color: #541265  !important;
 }
 .btn-outline-primary:hover{
-  background-color: #44699C !important;
+  background-color: #541265 !important;
 }
 .btn-primary,
 .btn-outline-primary,
 .border-primary {
-  border-color: #44699C !important;
+  border-color: #541265 !important;
 }
 .bg-primary-subtle,
 .btn-primary-subtle {
-  background-color: #EBF1F5 !important;
+  background-color: #541265 !important;
 }
 .border-primary-subtle {
-  border-color: #CAD7E1 !important;
+  border-color: #541265 !important;
 }
 .fa {
-  font-family: 'FontAwesome', 'Roboto'
+  font-family: 'FontAwesome', 'Roboto', 'Forum'
 }
 body {
   font-family: 'Forum';
