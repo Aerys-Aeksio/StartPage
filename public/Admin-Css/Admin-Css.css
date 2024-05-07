@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*!
+ * FusionBoard  v0.0.1 (https://getbootstrap.com/)
+ * Copyright 2024- The FusionBoard Authors
+ * Licensed under MIT
+ */
+ #btn-back-to-top {
+  position: fixed;
+  bottom: 59px;
+  right: 5px;
+  display: none;
+  cursor: default;
+}
+.btn-primary,
+.bg-primary {
+  background-color: #44699C !important;
+}
+.text-primary {
+  color: #44699C  !important;
+}
+.btn-outline-primary:hover{
+  background-color: #44699C !important;
+}
+.btn-primary,
+.btn-outline-primary,
+.border-primary {
+  border-color: #44699C !important;
+}
+.bg-primary-subtle,
+.btn-primary-subtle {
+  background-color: #EBF1F5 !important;
+}
+.border-primary-subtle {
+  border-color: #CAD7E1 !important;
+}
+.fa {
+  font-family: 'FontAwesome', 'Roboto'
+}
+body {
+  font-family: 'Forum';
+}
