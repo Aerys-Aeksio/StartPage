@@ -178,7 +178,7 @@ class HomeController extends BaseController
    * @return [type]
    * 
    */
-  public function edit_category($id)
+  public function update_category($id)
   {
     $data['settings'] = $this->admin->get_settings();
     if($this->request->is("post"))
