@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * This file is part of StartPage
+ * This file is part of the StartPage
  *
- * @copyright 2024-2024 (c) Daniël Rokven
+ * @copyright (c) Daniël Rokven
  *
  * @license Mit
  *
@@ -12,7 +12,7 @@
  *
  */
 ?>
-    <meta http-equiv="refresh" content="<?= $time ?>;URL=<?= $destination_url ?>" />
+  <meta http-equiv="refresh" content="<?= $time ?>;URL=<?= $destination_url ?>" />
 <?php
 
 header('Location: '.str_replace('&amp;', '&', $destination_url));

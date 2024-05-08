@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * This file is part of StartPage
+ * This file is part of the StartPage
  *
- * @copyright 2024-2024 (c) Daniël Rokven
+ * @copyright (c) Daniël Rokven
  *
  * @license Mit
  *

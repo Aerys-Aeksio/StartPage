@@ -1,4 +1,16 @@
 <?php
+/**
+ *
+ * This file is part of the StartPage
+ *
+ * @copyright (c) Daniël Rokven
+ *
+ * @license Mit
+ *
+ * For full copyright and license information, please see
+ * the docs/CREDITS.txt file.
+ *
+ */
 if (!defined('StartPage')) 
     exit;
 ?>
