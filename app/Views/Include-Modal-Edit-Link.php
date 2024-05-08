@@ -1,7 +1,6 @@
 <?php
-if (!defined('Include-Modal-Edit-Link')) 
+if (!defined('StartPage')) 
     exit;
-
 
     foreach($links as $key => $value)
     {
@@ -139,9 +138,10 @@ if (!defined('Include-Modal-Edit-Link'))
         </div>
 
       </div>
-      <div class="modal-footer bg-primary">
-        <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success btn-sm">Save Link</button>
+      <div class="modal-footer bg-primary btn-group rounded-0">
+        <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
+        <button type="submit" id="delete_link<?=$value['id']?>" name="delete_link<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Link</button>
+        <button type="submit" class="btn btn-success btn-sm m-0">Save Link</button>
         </form>
       </div>
     </div>

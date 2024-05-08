@@ -136,9 +136,17 @@ class HomeController extends BaseController
 
   public function edit_category($id)
   {
-    if ($this->request->is("post"))
+    $data['settings'] = $this->admin->get_settings();
+    if($this->request->is("post"))
     {
-      $data['settings'] = $this->admin->get_settings();
+      if($this->request->getPost('name').$id)
+      {
+        $this->admin->delete_category($id);
+        $data['time']             = $data['settings']['redirect_time'];
+        $data['destination_url']  = url_to('/');
+        $data['message']          = 'Your category Has Been Deleted..';
+        return view("/Redirect-Template", $data);  
+      }
       $newdata =
       [
         "name"                    =>  $this->request->getPost('name'),
@@ -164,9 +172,17 @@ class HomeController extends BaseController
 
   public function edit_link($id)
   {
+    $data['settings'] = $this->admin->get_settings();
     if ($this->request->is("post"))
     {
-      $data['settings'] = $this->admin->get_settings();
+      if($this->request->getPost('delete_link').$id)
+      {
+        $this->admin->delete_link($id);
+        $data['time']             = $data['settings']['redirect_time'];
+        $data['destination_url']  = url_to('/');
+        $data['message']          = 'Your Link Has Been Deleted..';
+        return view("/Redirect-Template", $data);  
+      }
       $newdata =
       [
         "name"        =>  $this->request->getPost('name'),

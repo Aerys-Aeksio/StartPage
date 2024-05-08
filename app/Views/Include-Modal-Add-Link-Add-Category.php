@@ -1,7 +1,8 @@
 <?php
-if (!defined('Include-Modal')) 
+if (!defined('StartPage')) 
     exit;
 ?>
+
 <!-- Modal -->
 <div class="modal fade modal-lg" id="add_link_category" tabindex="-1" aria-labelledby="add_link_categoryLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
@@ -13,9 +14,9 @@ if (!defined('Include-Modal'))
       <div class="modal-body">
         ...
       </div>
-      <div class="modal-footer bg-primary text-light">
-        <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success btn-sm">Add Link / Category</button>
+      <div class="modal-footer bg-primary text-light btn-group rounded-0">
+        <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success btn-sm m-0">Add Link / Category</button>
       </div>
     </div>
   </div>

@@ -1,7 +1,8 @@
 <?php
-if (!defined('Include-Modal')) 
+if (!defined('StartPage')) 
     exit;
 ?>
+
 <!-- Begin Modal edit startpage settings-->
   <div class="modal modal-lg fade" id="settings" tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="TRUE">
     <div class="modal-dialog modal-dialog-scrollable">
@@ -199,9 +200,9 @@ if (!defined('Include-Modal'))
           </div>
 
         </div>
-        <div class="modal-footer bg-primary">
-          <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success btn-sm">Save Settings</button>
+        <div class="modal-footer bg-primary btn-group rounded-0">
+          <button type="button" class="btn btn-warning btn-sm mx-0" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success btn-sm mx-0">Save Settings</button>
         </div>
         <?=form_close()?>
       </div>

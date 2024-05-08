@@ -185,6 +185,30 @@ class AdminModel extends Model
   }
 
   /**
+   * [Description for delete_link]
+   *
+   * @param mixed $array
+   * @param mixed $id
+   * 
+   * @return [bool]
+   * 
+   */
+  public function delete_link($id)
+  {
+    $configuration =
+    [
+      "auto_cache"          => FALSE,
+      "cache_lifetime"      => NULL,
+      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "primary_key"         => "id",
+      "folder_permissions"  => 0777
+    ];
+    $update_category = new Store('links', DATABASE_DIR, $configuration);
+    $update_category->deleteById($id);
+    return TRUE;
+  }
+
+  /**
    * [Description for get_categories]
    *
    * @return [array]
@@ -250,10 +274,6 @@ class AdminModel extends Model
       "folder_permissions"  => 0777
     ];
     $categories = new Store("categories", DATABASE_DIR, $configuration);
-    $categories
-      ->createQueryBuilder()
-      ->getQuery()
-      ->delete();
     $categories->deleteById($id);
     return TRUE;
   }

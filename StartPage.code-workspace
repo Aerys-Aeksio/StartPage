@@ -11,7 +11,8 @@
       "linkkey",
       "linkvalue",
       "loggedin",
-      "loginform"
+      "loginform",
+      "newdata"
     ]
   }
 }
