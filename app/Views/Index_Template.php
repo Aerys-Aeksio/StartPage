@@ -50,10 +50,6 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
     </div>
     <div class="col-4"></div>
   </div>
-
-    <?php
-?>
-
   <header>
     <nav class="navbar navbar-expand-lg<?=$nav_bg_color?>">
       <div class="container-fluid">
@@ -112,8 +108,13 @@ if($logged_in === TRUE)
               </a>
             </li>
             <li class="nav-item me-2">
-              <button type="button" class="mb-2 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#add_link_category">
-                Add Link / Category
+              <button type="button" class="mb-2 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#add_link">
+                Add Link
+              </button>
+            </li>
+            <li class="nav-item me-2">
+              <button type="button" class="mb-2 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#add_category">
+                Add Category
               </button>
             </li>
             <li class="nav-item me-2">
@@ -296,8 +297,8 @@ if($logged_in === TRUE)
 echo isset($more_modal) ? $more_modal : ''; 
 
 // if user want's a footer here we show it
-if (!empty($settings['show_footer']) === '1')
-  echo $this->include('Include-Footer');
+if (!empty($settings['show_footer']) == '1')
+  echo $settings['html_footer'];
 ?>
 
 </div>

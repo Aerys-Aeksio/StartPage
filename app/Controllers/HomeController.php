@@ -147,8 +147,8 @@ class HomeController extends BaseController
       [
         "title"                     =>  $this->request->getPost('title'),
         "description"               =>  $this->request->getPost('description'),
-        "footer"                    =>  $this->request->getPost('footer'),
-        "show_footer"               =>  $this->request->getPost('show_footer'), // 0 = no 1 = yes
+        "html_footer"               =>  $this->request->getPost('html_footer'),
+        "show_footer"               =>  $this->request->getPost('show_footer'),
         "version"                   =>  $this->request->getPost('version'),
         "timestamp_installed"       =>  $this->request->getPost('timestamp_installed'),
         "redirect_time"             =>  $this->request->getPost('redirect_time'),

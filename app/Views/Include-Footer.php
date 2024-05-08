@@ -11,7 +11,7 @@
  * the docs/CREDITS.txt file.
  *
  */
-if (!defined('Include-Footer')) 
+if (!defined('StartPage')) 
     exit;
 ?>
   <footer class="bg-body-tertiary text-muted">

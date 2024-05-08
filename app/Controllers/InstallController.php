@@ -713,7 +713,7 @@ class InstallController extends BaseController
         [
           "title"                     =>  'Startpage',
           "description"               =>  'What is a Startpage',
-          "footer"                    =>  "Copyright ©",
+          "html_footer"                    =>  "Copyright ©",
           "show_footer"               =>  '0', // 0 = no 1 = yes
           "version"                   =>  "0.0.1",
           "timestamp_installed"       =>  ''.$installed_time->getTimestamp().'',

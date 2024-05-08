@@ -59,15 +59,28 @@ if (!defined('StartPage'))
 
           <div class="mb-3">
             <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="footer_span" name="footer_span">Footer</span>
-              <input type="text" class="form-control" id="footer" name="footer" aria-describedby="footer" value="<?=$settings['footer']?>">
+              <span class="input-group-text w-25 text-wrap" id="html_footer_span" name="html_footer_span">Html Footer:<br>You can use several settings like here below:</span>
+              <textarea class="form-control" style="height:100px;" id="html_footer" name="html_footer" placeholder="Html Footer"><?=$settings['html_footer']?></textarea>
+              <p>
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">title</span>'<span class="text-warning">]</span>,&nbsp;
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">description</span>'<span class="text-warning">]</span>,&nbsp;
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">version</span>'<span class="text-warning">]</span>,&nbsp;
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">timestamp_installed</span>'<span class="text-warning">]</span>,&nbsp;
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">redirect_time</span>'<span class="text-warning">]</span>,&nbsp;
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">base_url</span>'<span class="text-warning">]</span>,
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">email</span>'<span class="text-warning">]</span>,
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">body_background</span>'<span class="text-warning">]</span>,
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">nav_background</span>'<span class="text-warning">]</span>,
+                <span class="text-danger">&#36;settings</span><span class="text-warning">[</span>'<span class="text-success">nav_link_color</span>'<span class="text-warning">]</span>,
+              </p>
+
             </div>
           </div>
 
           <div class="mb-3">
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="footer_span" name="footer_span">Show footer</span>
-              <select class="form-select" id="show_footer" name="show_footer" aria-label="Default select example">
+              <select class="form-select" id="show_footer" name="show_footer" aria-label="footer_span">
                 <option value="">Show Footer</option>
                 <option value="1"<?=($settings['show_footer'] == '1') ? ' selected="selected"' : ''?>>Yes</option>
                 <option value="0"<?=($settings['show_footer'] == '0') ? ' selected="selected"' : ''?>>No</option>
