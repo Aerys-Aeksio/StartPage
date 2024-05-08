@@ -68,6 +68,7 @@ if (!defined('StartPage'))
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="footer_span" name="footer_span">Show footer</span>
               <select class="form-select" id="show_footer" name="show_footer" aria-label="Default select example">
+                <option value="">Show Footer</option>
                 <option value="1"<?=($settings['show_footer'] == '1') ? ' selected="selected"' : ''?>>Yes</option>
                 <option value="0"<?=($settings['show_footer'] == '0') ? ' selected="selected"' : ''?>>No</option>
               </select>
@@ -99,6 +100,7 @@ if (!defined('StartPage'))
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="body_background_span" name="body_background_span">Body background</span>
               <select class="form-select" id="body_background" name="body_background" aria-label="Default select example">
+              <option value="">Background body Color</option>
 
 <?php           $bg_colors =
                 [
@@ -142,6 +144,7 @@ if (!defined('StartPage'))
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="nav_background_span" name="nav_background_span">Navigation background</span>
               <select class="form-select" id="nav_background" name="nav_background" aria-label="nav_background">
+              <option value="">Navigation Background Color</option>
 
 <?php           foreach($bg_colors as $colors)
                 {
@@ -160,6 +163,7 @@ if (!defined('StartPage'))
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="nav_link_color_span" name="nav_link_color_span">Navigation link color</span>
               <select class="form-select" id="nav_link_color" name="nav_link_color" aria-label="nav_link_color">
+              <option value="">Navigation Link Color</option>
 
 <?php           $link_colors =
                 [

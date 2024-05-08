@@ -44,30 +44,30 @@ class AdminModel extends Model
       "primary_key"         => "user_id",
       "folder_permissions"  => 0777
     ];
-    $session    = \Config\Services::session();
+    $session = \Config\Services::session();
     $user_table = new Store("users", DATABASE_DIR, $users_configuration);
-    $user       = $user_table
+    $user = $user_table
       ->createQueryBuilder()
       ->where([ "email", "=", strtolower($email) ])
       ->disableCache()
       ->getQuery()
       ->fetch();
-    $user=array_shift($user);
+    $user = array_shift($user);
     // Verify password
     if (password_verify($password, $user["password"]) == TRUE)
     {
-        $newdata =
-        [
-          "id"        => $user["user_id"],
-          "username"  => $user["username"],
-          "email"     => $user["email"],
-          "logged_in" => TRUE,
-        ];
-        $session->set("id",        $newdata["id"]);
-        $session->set("username",  $newdata["username"]);
-        $session->set("email",     $newdata["email"]);
-        $session->set("logged_in", $newdata["logged_in"]);
-        return TRUE;
+      $newdata =
+      [
+        "id"        => $user["user_id"],
+        "username"  => $user["username"],
+        "email"     => $user["email"],
+        "logged_in" => TRUE,
+      ];
+      $session->set("id",        $newdata["id"]);
+      $session->set("username",  $newdata["username"]);
+      $session->set("email",     $newdata["email"]);
+      $session->set("logged_in", $newdata["logged_in"]);
+      return TRUE;
     }
     else
       return FALSE;
@@ -82,7 +82,11 @@ class AdminModel extends Model
   public function get_settings(): array
   {
     $settings = new Store('settings', DATABASE_DIR);
-    $settings = $settings->createQueryBuilder()->useCache(300)->regenerateCache()->getQuery()->fetch();
+    $settings = $settings
+      ->createQueryBuilder()
+      ->disableCache()
+      ->getQuery()
+      ->fetch();
     $settings = array_shift($settings);
     return $settings;
   }
@@ -103,7 +107,12 @@ class AdminModel extends Model
       "folder_permissions"  => 0777
     ];
     $links = new Store('links', DATABASE_DIR, $configuration);
-    $links = $links->findAll();
+    $links = $links
+    ->createQueryBuilder()
+    ->orderBy([ "position" =>  "DESC" ])
+    ->disableCache()
+    ->getQuery()
+    ->fetch();
     return $links;
   }
 
@@ -226,8 +235,8 @@ class AdminModel extends Model
     $categories = new Store('categories', DATABASE_DIR, $configuration);
     $categories = $categories
       ->createQueryBuilder()
-      ->orderBy([ "column" =>  "asc" ])
-      ->orderBy([ "position" =>  "desc" ])
+      ->orderBy([ "column" =>  "ASC" ])
+      ->orderBy([ "position" =>  "DESC" ])
       ->disableCache()
       ->getQuery()
       ->fetch();
@@ -305,11 +314,11 @@ class AdminModel extends Model
       ->fetch();
     $numb = count($links);
     if($numb == $number_link_in_category)
-      return 0;
+      return FALSE;
     elseif($numb < $number_link_in_category)
-      return 0;
+      return FALSE;
     else
-      return 1;
+      return TRUE;
   }
 
 }

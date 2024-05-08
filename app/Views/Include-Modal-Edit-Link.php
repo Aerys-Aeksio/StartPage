@@ -53,6 +53,13 @@ if (!defined('StartPage'))
 
         <div class="mb-3">
           <div class="input-group input-group-sm">
+            <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
+            <input type="number" class="form-control" min="0" max="1000" id="position" name="position" placeholder="Position / Height" value="<?=$value['position']?>">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="input-group input-group-sm">
             <span class="input-group-text w-25" id="category_id_span" name="category_id_span">Category</span>
             <select class="form-select" id="category_id" name="category_id" aria-label="category_id">
 
@@ -140,13 +147,6 @@ if (!defined('StartPage'))
               <option value="1"<?=($value['side_icon'] === '1') ? ' selected="selected"' : ''?>>Left</option>
               <option value="0"<?=($value['side_icon'] === '0') ? ' selected="selected"' : ''?>>Right</option>
             </select>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <div class="input-group input-group-sm">
-            <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
-            <input type="number" class="form-control" min="0" max="1000" id="position" name="position" placeholder="Position / Height" value="<?=$value['position']?>">
           </div>
         </div>
 

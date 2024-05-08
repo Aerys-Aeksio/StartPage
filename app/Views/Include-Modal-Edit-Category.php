@@ -196,7 +196,7 @@ foreach($categories as $key => $value)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="background_color_header_span" name="background_color_header_span">Background Color Header</span>
               <select class="form-select" id="background_color_header" name="background_color_header">
-              <option value="">Background color header</option>
+              <option value="">Background Color Header</option>
               <?=$background_color_header?>
               </select>
             </div>
@@ -206,6 +206,7 @@ foreach($categories as $key => $value)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25" id="text_color_header_span" name="text_color_header_span">Text Color Header</span>
               <select class="form-select" id="text_color_header" name="text_color_header">
+                <option value="">Text Color Header</option>
               <?=$text_color_header?>
               </select>
             </div>
@@ -215,6 +216,7 @@ foreach($categories as $key => $value)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25 text-start" id="background_color_footer_span" name="background_color_footer_span">Background Color Footer<br>(The More link)</span>
               <select class="form-select" id="background_color_footer" name="background_color_footer">
+                <option value="">Background Color Footer</option>
                 <?=$background_color_footer?>
               </select>
             </div>
@@ -224,7 +226,8 @@ foreach($categories as $key => $value)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25 text-start" id="link_color_footer_span" name="link_color_footer_span">Link Color Footer<br>(The More Link)</span>
               <select class="form-select" id="link_color_footer" name="link_color_footer">
-              <?=$link_color_footer?>
+                <option value="">Link Color Footer</option>
+                <?=$link_color_footer?>
               </select>
             </div>
           </div>
@@ -233,6 +236,7 @@ foreach($categories as $key => $value)
             <div class="input-group input-group-sm">
               <span class="input-group-text w-25 text-start" id="link_color_list_span" name="link_color_list_span">Links Color List</span>
               <select class="form-select" id="link_color_list" name="link_color_list">
+                <option value="">Link Color Links</option>
                 <?=$link_color_list?>
               </select>
             </div>
