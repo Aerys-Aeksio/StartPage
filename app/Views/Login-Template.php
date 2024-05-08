@@ -35,7 +35,7 @@
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
 $nav_link_color = (!empty($settings['nav_link_color'])) ? ' '.$settings['nav_link_color'] : '';
-$login_link     = (!empty($settings['show_login_link']) == 1) ? true : false;
+$login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
 ?>
 
 <?=$body_color?>
