@@ -30,7 +30,7 @@ define('StartPage', 'StartPage');
 
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-  <?="\n\t".link_tag(base_url().'Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
+  <?="\n\t".link_tag(base_url().'Assets/css/Default-Css.css', 'stylesheet')."\n";?>
 
   <?=(empty($settings['head']))?$settings['head']:'';?>
 
