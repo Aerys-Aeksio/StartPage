@@ -136,7 +136,7 @@ class HomeController extends BaseController
    * @return [type]
    * 
    */
-  public function edit_settings()
+  public function update_settings()
   {
     if (!$this->request->is("post"))
       return redirect('/');

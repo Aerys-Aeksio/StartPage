@@ -24,7 +24,7 @@ if (!defined('StartPage'))
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-body-secondary">
-          <?=form_open('edit-settings')?>
+          <?=form_open('update-settings')?>
           <?=form_hidden('version',                 $settings['version'])?>
           <?=form_hidden('timestamp_installed',     $settings['timestamp_installed'])?>
           <div class="mb-3">
