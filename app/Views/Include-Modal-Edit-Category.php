@@ -131,7 +131,7 @@ foreach($categories as $key => $value)
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-body-secondary">
-          <?=form_open(url_to('edit-category', $value['id']))?>
+          <?=form_open(url_to('update-category', $value['id']))?>
           <?=form_hidden('id', ''.$value['id'].'')?>
 
           <div class="mb-3">
@@ -251,12 +251,13 @@ foreach($categories as $key => $value)
         </div>
         <div class="modal-footer bg-primary btn-group rounded-0">
           <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
-          <button type="submit" id="delete_cat<?=$value['id']?>" name="delete_cat<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Category</button>
-          <button type="submit" class="btn btn-success btn-sm m-0">Save Category</button>
+          <button type="submit" formaction="<?=base_url('delete-category/'.$value['id'])?>" id="delete_cat<?=$value['id']?>" name="delete_cat<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Category</button>
+          <button type="submit" id="delete_cat<?=$value['id']?>" name="delete_cat<?=$value['id']?>"class="btn btn-success btn-sm m-0">Save Category</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
 <?php
 }

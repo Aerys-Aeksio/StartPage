@@ -14,9 +14,10 @@
 if (!defined('StartPage')) 
     exit;
 
-    foreach($links as $key => $value)
-    {
+  foreach($links as $key => $value)
+  {
 ?>
+
     <!-- Modal -->
 <div class="modal fade modal-lg" id="Edit_Modal_Link<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Link<?=$value['id']?>Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
@@ -24,7 +25,7 @@ if (!defined('StartPage'))
       <div class="modal-header bg-primary text-white">
         <h1 class="modal-title fs-5" id="Edit_Modal_Link<?=$value['id']?>Label">Edit Link - <?=$value['name']?></h1>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        <?=form_open(url_to('edit-link', $value['id']))?>
+        <?=form_open(url_to('update-link', $value['id']))?>
       </div>
       <div class="modal-body">
 
@@ -152,12 +153,13 @@ if (!defined('StartPage'))
       </div>
       <div class="modal-footer bg-primary btn-group rounded-0">
         <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
-        <button type="submit" id="delete_link<?=$value['id']?>" name="delete_link<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Link</button>
+        <button type="submit" formaction="<?=base_url('delete-link/'.$value['id'])?>" id="delete_link<?=$value['id']?>" name="delete_link<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Link</button>
         <button type="submit" class="btn btn-success btn-sm m-0">Save Link</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-    <?php
-    }
+
+<?php
+  }

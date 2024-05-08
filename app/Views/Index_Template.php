@@ -30,7 +30,7 @@ define('StartPage', 'StartPage');
 
   <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-  <?="\n\t".link_tag('Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
+  <?="\n\t".link_tag(base_url().'Assets/css/Admin-Css.css', 'stylesheet')."\n";?>
 
   <?=(empty($settings['head']))?$settings['head']:'';?>
 
@@ -46,7 +46,7 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
   <div class="row align-items-center mt-3 px-0 mx-0">
     <div class="col-4"></div>
     <div class="col text-center">
-      <img class="mb-3" style="height:50px;" src="<?=base_url()?>/Assets/images/startpage-header.png" alt="Logo">
+      <img class="mb-3" style="height:50px;" src="<?=base_url()?>Assets/images/startpage-header.png" alt="Logo">
     </div>
     <div class="col-4"></div>
   </div>
@@ -210,9 +210,10 @@ while($i < 5)
 <?php
   if($more[$value['id']] == '1')
   {
+    $bg_header          = (!empty($value['background_color_header'])) ? ' '.$value['background_color_header'] : '';
     $link_color_header  = (!empty($value['link_color_header'])) ? ' '.$value['link_color_header'] : '';
     $link_color_footer  = (!empty($value['link_color_footer'])) ? ' '.$value['link_color_footer'] : '';
-    $bg_footer          = (!empty($value['background_color_footer'])) ? $value['background_color_footer'] : '';
+    $bg_footer          = (!empty($value['background_color_footer'])) ? ' '.$value['background_color_footer'] : '';
 ?>
 
         <div class="card-footer <?=$bg_footer?> py-0 ps-2">
@@ -222,7 +223,7 @@ while($i < 5)
         </div>
 
 <?php
-    $more_modal .= '<!-- Modal -->
+    $more_modal .= '<!-- The More Modal -->
           <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="TRUE">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -241,12 +242,17 @@ while($i < 5)
                         {
                           $target = ($linkvalue['target'] == '1') ? ' target="_blank"' : ' target="_self"';
 
+                          if($logged_in === TRUE)
+                            $edit_link_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
+                          else
+                          $edit_link_button = '';
+
                           if(!empty($linkvalue['icon']))
                             $link = ($linkvalue['side_icon'] == '1') ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
                           else
                             $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
 
-                          $more_modal .= '<li class="list-group-item p-0 m-0">' . $link . '</li>';
+                          $more_modal .= '<li class="list-group-item p-0 m-0">' . $link . ' '.$edit_link_button.'</li>';
                         }
                       }
                     }

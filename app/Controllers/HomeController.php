@@ -29,6 +29,12 @@ class HomeController extends BaseController
     helper('form');
   }
 
+  /**
+   * [Description for index]
+   *
+   * @return string
+   * 
+   */
   public function index(): string
   {
     $data               = $this->_get_data();
@@ -42,6 +48,12 @@ class HomeController extends BaseController
     return view('Index_Template', $data);
   }
 
+  /**
+   * [Description for login]
+   *
+   * @return [type]
+   * 
+   */
   public function login()
   {
     if($this->_loggedin() == TRUE)
@@ -68,6 +80,12 @@ class HomeController extends BaseController
     }
   }
 
+  /**
+   * [Description for _get_data]
+   *
+   * @return [type]
+   * 
+   */
   private function _get_data()
   {
     $data['settings']   = $this->admin->get_settings();
@@ -76,6 +94,12 @@ class HomeController extends BaseController
     return $data;
   }
 
+  /**
+   * [Description for _loggedin]
+   *
+   * @return [type]
+   * 
+   */
   private function _loggedin()
   {
     $session = \Config\Services::session();
@@ -85,6 +109,12 @@ class HomeController extends BaseController
       return FALSE;
   }
 
+  /**
+   * [Description for logout]
+   *
+   * @return [type]
+   * 
+   */
   public function logout()
   {
     $session = \Config\Services::session();
@@ -100,6 +130,12 @@ class HomeController extends BaseController
     return view("/Redirect-Template", $data);
   }
 
+  /**
+   * [Description for edit_settings]
+   *
+   * @return [type]
+   * 
+   */
   public function edit_settings()
   {
     if (!$this->request->is("post"))
@@ -134,19 +170,19 @@ class HomeController extends BaseController
     }
   }
 
+  /**
+   * [Description for edit_category]
+   *
+   * @param mixed $id
+   * 
+   * @return [type]
+   * 
+   */
   public function edit_category($id)
   {
     $data['settings'] = $this->admin->get_settings();
     if($this->request->is("post"))
     {
-      if($this->request->getPost('name').$id)
-      {
-        $this->admin->delete_category($id);
-        $data['time']             = $data['settings']['redirect_time'];
-        $data['destination_url']  = url_to('/');
-        $data['message']          = 'Your category Has Been Deleted..';
-        return view("/Redirect-Template", $data);  
-      }
       $newdata =
       [
         "name"                    =>  $this->request->getPost('name'),
@@ -170,19 +206,61 @@ class HomeController extends BaseController
     }
   }
 
-  public function edit_link($id)
+  /**
+   * [Description for delete_category]
+   *
+   * @param mixed $id
+   * 
+   * @return [type]
+   * 
+   */
+  public function delete_category($id)
+  {
+    $data['settings'] = $this->admin->get_settings();
+    if($this->request->is("post") AND ($this->request->getPost('delete_cat').$id))
+    {
+      $this->admin->delete_category($id);
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your category Has Been Deleted..';
+      return view("/Redirect-Template", $data);
+    }
+  }
+
+  /**
+   * [Description for delete_link]
+   *
+   * @param mixed $id
+   * 
+   * @return [type]
+   * 
+   */
+  public function delete_link($id)
+  {
+    $data['settings'] = $this->admin->get_settings();
+    if ($this->request->is("post") AND ($this->request->getPost('delete_link').$id))
+    {
+      $this->admin->delete_link($id);
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your Link Has Been Deleted..';
+      return view("/Redirect-Template", $data);  
+    }
+  }
+
+  /**
+   * [Description for update_link]
+   *
+   * @param mixed $id
+   * 
+   * @return [type]
+   * 
+   */
+  public function update_link($id)
   {
     $data['settings'] = $this->admin->get_settings();
     if ($this->request->is("post"))
     {
-      if($this->request->getPost('delete_link').$id)
-      {
-        $this->admin->delete_link($id);
-        $data['time']             = $data['settings']['redirect_time'];
-        $data['destination_url']  = url_to('/');
-        $data['message']          = 'Your Link Has Been Deleted..';
-        return view("/Redirect-Template", $data);  
-      }
       $newdata =
       [
         "name"        =>  $this->request->getPost('name'),

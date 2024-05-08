@@ -40,17 +40,27 @@ $routes->get(
   ['as' => 'logout']
 );
 $routes->post(
-  'edit-settings',
-  'HomeController::edit_settings',
-  ['as' => 'edit_settings']
+  'update-settings',
+  'HomeController::update_settings',
+  ['as' => 'update-settings']
 );
 $routes->post(
-  'edit-category/(:num)',
-  'HomeController::edit_category/$1',
-  ['as' => 'edit-category']
+  'update-category/(:num)',
+  'HomeController::update_category/$1',
+  ['as' => 'update-category']
 );
 $routes->post(
-  'edit-link/(:num)',
-  'HomeController::edit_link/$1',
-  ['as' => 'edit-link']
+  'delete-category/(:num)',
+  'HomeController::delete_category/$1',
+  ['as' => 'delete-category']
+);
+$routes->post(
+  'update-link/(:num)',
+  'HomeController::update_link/$1',
+  ['as' => 'update-link']
+);
+$routes->post(
+  'delete-link/(:num)',
+  'HomeController::delete_link/$1',
+  ['as' => 'delete-link']
 );
