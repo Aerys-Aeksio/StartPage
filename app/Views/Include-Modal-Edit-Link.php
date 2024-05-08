@@ -131,8 +131,12 @@ if (!defined('StartPage'))
 
         <div class="mb-3">
           <div class="input-group input-group-sm">
-            <span class="input-group-text w-25" id="icon_span" name="icon_span">Icon</span>
-            <input type="text" class="form-control" id="icon" name="icon" placeholder="Icon" value="<?=esc($value['icon'])?>">
+            <?php
+            $icon_left = !empty($value['icon_left']) ? $value['icon_left'] : '';
+            $icon_right = !empty($value['icon_right']) ? $value['icon_right'] : '';
+            ?>
+            <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Left</span>
+            <input type="text" class="form-control" id="icon_left" name="icon_left" placeholder="Icon Left" value="<?=esc($icon_left)?>">
           </div>
           <div class="form-text">
             You can use icons from font awesome
@@ -141,12 +145,11 @@ if (!defined('StartPage'))
 
         <div class="mb-3">
           <div class="input-group input-group-sm">
-            <span class="input-group-text w-25" id="side_icon_span" name="side_icon_span">Side icon of the link</span>
-            <select class="form-select" id="side_icon" name="side_icon" aria-label="Default select example">
-              <option>Side icon of the link</option>
-              <option value="1"<?=($value['side_icon'] === '1') ? ' selected="selected"' : ''?>>Left</option>
-              <option value="0"<?=($value['side_icon'] === '0') ? ' selected="selected"' : ''?>>Right</option>
-            </select>
+            <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Right</span>
+            <input type="text" class="form-control" id="icon_right" name="icon_right" placeholder="Icon Right" value="<?=esc($icon_right)?>">
+          </div>
+          <div class="form-text">
+            You can use icons from font awesome
           </div>
         </div>
 

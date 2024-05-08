@@ -162,7 +162,7 @@ while($i < 5)
 
       <div class="card mx-0 mb-1 rounded-0">
         <div class="card-header rounded-0 p-1<?=$bg_header?><?=$text_color_header?>">
-          <?=(!empty($value['side_icon']) AND $value['side_icon'] = '1') ? $value['icon'] : ''?> <?=$value['name']?>&nbsp;<?=(!empty($value['side_icon']) AND $value['side_icon'] = '0') ? $value['icon'] : ''?> <?=$edit_cat_button?>
+          <?=(!empty($value['icon_left'])) ? $value['icon_left'] : ''?> <?=$value['name']?>&nbsp;<?=(!empty($value['icon_right']) ) ? $value['icon_right'] : ''?> <?=$edit_cat_button?>
         </div>
         <div class="card-body p-0">
 
@@ -184,12 +184,10 @@ while($i < 5)
             case 'list':
               if(($linkvalue['category_id'] == $value['id']) AND ($a < $value['numb_links']))
               {
-                $target = ($linkvalue['target'] === '1') ? ' target="_blank"' : ' target="_self"';
-
-                if(!empty($linkvalue['icon']))
-                  $link = ($linkvalue['side_icon'] === '1') ? $linkvalue['icon'].'&nbsp;<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>&nbsp;'.$linkvalue['icon'];
-                else
-                  $link = '<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>';
+                $target     = ($linkvalue['target'] === '1')      ? ' target="_blank"' : ' target="_self"';
+                $icon_left  = (!empty($linkvalue['icon_left']))   ? $linkvalue['icon_left'] : '';
+                $icon_right = (!empty($linkvalue['icon_right']))  ? $linkvalue['icon_right'] : '';
+                $link = $icon_left.'&nbsp;<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>'.$icon_right;
 
                 echo '<li class="list-group-item p-0 m-0">'.$link.'&nbsp;'.$edit_link_button.'</li>';
                 $a++;
@@ -217,7 +215,7 @@ while($i < 5)
     $bg_footer          = (!empty($value['background_color_footer'])) ? ' '.$value['background_color_footer'] : '';
 ?>
 
-        <div class="card-footer <?=$bg_footer?> py-0 ps-2">
+        <div class="card-footer <?=$bg_footer?> py-0 ps-2 rounded-0">
           <button type="button" class="btn btn-link<?=$link_color_footer?>" data-bs-toggle="modal" data-bs-target="#more_<?=$value['id']?>">
             More
           </button>

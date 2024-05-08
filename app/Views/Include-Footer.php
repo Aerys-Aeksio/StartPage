@@ -14,6 +14,7 @@
 if (!defined('StartPage')) 
     exit;
 ?>
+
   <footer class="bg-body-tertiary text-muted">
     <div class="pt-4" style="background-color: rgba(0, 0, 0, 0.05);">
       <div class="d-flex justify-content-center justify-content-lg-between py-4 border-bottom">
