@@ -181,6 +181,9 @@ class HomeController extends BaseController
   public function update_category($id)
   {
     $data['settings'] = $this->admin->get_settings();
+    if (!$this->request->is("post"))
+      return redirect('/');
+
     if($this->request->is("post"))
     {
       $newdata =
@@ -217,6 +220,9 @@ class HomeController extends BaseController
   public function delete_category($id)
   {
     $data['settings'] = $this->admin->get_settings();
+    if (!$this->request->is("post"))
+      return redirect('/');
+
     if($this->request->is("post") AND ($this->request->getPost('delete_cat').$id))
     {
       $this->admin->delete_category($id);
@@ -238,6 +244,8 @@ class HomeController extends BaseController
   public function delete_link($id)
   {
     $data['settings'] = $this->admin->get_settings();
+    if (!$this->request->is("post"))
+      return redirect('/');
     if ($this->request->is("post") AND ($this->request->getPost('delete_link').$id))
     {
       $this->admin->delete_link($id);
@@ -259,6 +267,8 @@ class HomeController extends BaseController
   public function update_link($id)
   {
     $data['settings'] = $this->admin->get_settings();
+    if (!$this->request->is("post"))
+      return redirect('/');
     if ($this->request->is("post"))
     {
       $newdata =

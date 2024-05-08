@@ -757,7 +757,7 @@ class InstallController extends BaseController
       $database_dir_write = is_wriTable(DATABASE_DIR);
       $data["database_dir_write"] = ($database_dir_write) ? 1 : 0;
     }
-    return view("Install-Template/Install-Template", $data);
+    return view("Install-Template", $data);
   }
 }
 
