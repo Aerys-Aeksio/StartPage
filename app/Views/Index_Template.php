@@ -54,7 +54,7 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
     <nav class="navbar navbar-expand-lg<?=$nav_bg_color?>">
       <div class="container-fluid">
         <a class="navbar-brand<?=$nav_link_color?>" href="#">Home</a>
-        <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="FALSE" aria-label="Toggle navigation">
+        <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -223,7 +223,7 @@ while($i < 5)
 
 <?php
     $more_modal .= '<!-- The More Modal -->
-          <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="TRUE">
+          <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header '.$bg_header . $link_color_header.'">

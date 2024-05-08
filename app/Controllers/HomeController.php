@@ -188,18 +188,18 @@ class HomeController extends BaseController
     {
       $newdata =
       [
-        "name"                    =>  $this->request->getPost('name'),
-        "column"                  =>  $this->request->getPost('column'),
-        "numb_links"              =>  $this->request->getPost('numb_links'),
-        "icon_left"               =>  $this->request->getPost('icon_left'),
-        "icon_right"              =>  $this->request->getPost('icon_right'),
-        "background_color_header" =>  $this->request->getPost('background_color_header'),
-        "text_color_header"       =>  $this->request->getPost('text_color_header'),
-        "background_color_footer" =>  $this->request->getPost('background_color_footer'),
-        "link_color_footer"       =>  $this->request->getPost('link_color_footer'),
-        "link_color_list"         =>  $this->request->getPost('link_color_list'),
-        "visible"                 =>  $this->request->getPost('visible'),
-        "position"                =>  $this->request->getPost('position'),
+        "name"                    =>  $this->request->getPost('name_edit_category_').$id,
+        "column"                  =>  $this->request->getPost('column_edit_category_').$id,
+        "numb_links"              =>  $this->request->getPost('numb_links_edit_category_').$id,
+        "icon_left"               =>  $this->request->getPost('icon_left_edit_category_').$id,
+        "icon_right"              =>  $this->request->getPost('icon_right_edit_category_').$id,
+        "background_color_header" =>  $this->request->getPost('background_color_header_edit_category_').$id,
+        "text_color_header"       =>  $this->request->getPost('text_color_header_edit_category_').$id,
+        "background_color_footer" =>  $this->request->getPost('background_color_footer_edit_category_').$id,
+        "link_color_footer"       =>  $this->request->getPost('link_color_footer_edit_category_').$id,
+        "link_color_list"         =>  $this->request->getPost('link_color_list_edit_category_').$id,
+        "visible"                 =>  $this->request->getPost('visible_edit_category_').$id,
+        "position"                =>  $this->request->getPost('position_edit_category_').$id,
       ];
       $this->admin->update_category($newdata, $id);
       $data['time']             = $data['settings']['redirect_time'];

@@ -123,7 +123,7 @@ foreach($categories as $key => $value)
 ?>
 
 <!-- Edit_Modal_Cat<?=$value['id']?> -->
-  <div class="modal fade modal-lg" id="Edit_Modal_Cat<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Cat<?=$value['id']?>_Label" aria-hidden="TRUE">
+  <div class="modal fade modal-lg" id="Edit_Modal_Cat<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Cat<?=$value['id']?>_Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header bg-primary text-light">
@@ -134,127 +134,101 @@ foreach($categories as $key => $value)
           <?=form_open(url_to('update-category', $value['id']))?>
           <?=form_hidden('id', ''.$value['id'].'')?>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="_id_span" name="_id_span">Category Id</span>
-              <input type="text" class="form-control bg-white" id="_id" name="_id" placeholder="Id" value="<?=$value['id']?>" aria-label="Disabled input" disabled>
-              <span class="input-group-text w-25" id="_id_span" name="_id_span"><= Disabled</span>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="_id_1_<?=$value['id']?>_span">Category Id</span>
+            <input type="text" class="form-control bg-white" id="_id_edit_category_<?=$value['id']?>" name="_id_category_1_<?=$value['id']?>" placeholder="Id" value="<?=$value['id']?>" aria-label="Disabled input" disabled>
+            <span class="input-group-text w-25" id="_id_2_<?=$value['id']?>">&lt;= Disabled</span>
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="name_span" name="name_span">Name Category</span>
-              <input type="text" class="form-control" minlength="1" maxlength="25" id="name" name="name" placeholder="Name" value="<?=$value['name']?>">
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="name_edit_category_<?=$value['id']?>_span">Name Category</span>
+            <input type="text" class="form-control" minlength="1" maxlength="25" id="name_edit_category_<?=$value['id']?>" name="name_edit_category_<?=$value['id']?>" placeholder="Name" value="<?=$value['name']?>">
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="column_span" name="column_span">Column</span>
-              <input type="number" class="form-control" min="1" max="4" id="column" name="column" placeholder="Column" value="<?=$value['column']?>">
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="column_edit_category_<?=$value['id']?>_span">Column</span>
+            <input type="number" class="form-control" min="1" max="4" id="column_edit_category_<?=$value['id']?>" name="column_edit_category_<?=$value['id']?>" placeholder="Column" value="<?=$value['column']?>">
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
-              <input type="number" class="form-control" min="0" max="1000" id="position" name="position" placeholder="Position / Height" value="<?=$value['position']?>">
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="position_edit_category_<?=$value['id']?>_span">Position / Height</span>
+            <input type="number" class="form-control" min="0" max="1000" id="position_edit_category_<?=$value['id']?>" name="position_edit_category_<?=$value['id']?>" placeholder="Position / Height" value="<?=$value['position']?>">
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="numb_links_span" name="numb_links_span">Number Of Links</span>
-              <input type="number" class="form-control" min="1" max="50" id="numb_links" name="numb_links" placeholder="Number Of Links" value="<?=$value['numb_links']?>">
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="numb_links_edit_category_<?=$value['id']?>_span">Number Of Links</span>
+            <input type="number" class="form-control" min="1" max="50" id="numb_links_edit_category_<?=$value['id']?>" name="numb_links_edit_category_<?=$value['id']?>" placeholder="Number Of Links" value="<?=$value['numb_links']?>">
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Right</span>
-              <input type="text" class="form-control" id="icon_left" name="icon_left" placeholder="Icon Left" value="<?=esc($value['icon_left'])?>">
-            </div>
-            <div class="form-text">
-              You can use icons from font awesome
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="icon_left_edit_category_<?=$value['id']?>_span">Icon Left</span>
+            <input type="text" class="form-control" id="icon_left_edit_category_<?=$value['id']?>" name="icon_left_edit_category_<?=$value['id']?>" placeholder="Icon Left" value="<?=esc($value['icon_left'])?>">
+          </div>
+          <div class="form-text">
+            You can use icons from font awesome
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Left</span>
-              <input type="text" class="form-control" id="icon_right" name="icon_right" placeholder="Icon Right" value="<?=esc($value['icon_right'])?>">
-            </div>
-            <div class="form-text">
-              You can use icons from font awesome
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="icon_right_edit_category_<?=$value['id']?>_span">Icon Right</span>
+            <input type="text" class="form-control" id="icon_right_edit_category_<?=$value['id']?>" name="icon_right_edit_category_<?=$value['id']?>" placeholder="Icon Right" value="<?=esc($value['icon_right'])?>">
+          </div>
+          <div class="form-text">
+            You can use icons from font awesome
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="background_color_header_span" name="background_color_header_span">Background Color Header</span>
-              <select class="form-select" id="background_color_header" name="background_color_header">
-              <option value="">Background Color Header</option>
-              <?=$background_color_header?>
-              </select>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="background_color_header_edit_category_<?=$value['id']?>_span">Background Color Header</span>
+            <select class="form-select" id="background_color_header_edit_category_<?=$value['id']?>" name="background_color_header_edit_category_<?=$value['id']?>">
+            <option value="">Background Color Header</option>
+            <?=$background_color_header?>
+            </select>
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="text_color_header_span" name="text_color_header_span">Text Color Header</span>
-              <select class="form-select" id="text_color_header" name="text_color_header">
-                <option value="">Text Color Header</option>
-              <?=$text_color_header?>
-              </select>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="text_color_header_edit_category_<?=$value['id']?>_span">Text Color Header</span>
+            <select class="form-select" id="text_color_header_edit_category_<?=$value['id']?>" name="text_color_header_edit_category_<?=$value['id']?>">
+              <option value="">Text Color Header</option>
+            <?=$text_color_header?>
+            </select>
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25 text-start" id="background_color_footer_span" name="background_color_footer_span">Background Color Footer<br>(The More link)</span>
-              <select class="form-select" id="background_color_footer" name="background_color_footer">
-                <option value="">Background Color Footer</option>
-                <?=$background_color_footer?>
-              </select>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25 text-start" id="background_color_footer_edit_category_<?=$value['id']?>_span">Background Color Footer<br>(The More link)</span>
+            <select class="form-select" id="background_color_footer_edit_category_<?=$value['id']?>" name="background_color_footer_edit_category_<?=$value['id']?>">
+              <option value="">Background Color Footer</option>
+              <?=$background_color_footer?>
+            </select>
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25 text-start" id="link_color_footer_span" name="link_color_footer_span">Link Color Footer<br>(The More Link)</span>
-              <select class="form-select" id="link_color_footer" name="link_color_footer">
-                <option value="">Link Color Footer</option>
-                <?=$link_color_footer?>
-              </select>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25 text-start" id="link_color_footer_edit_category_<?=$value['id']?>_span">Link Color Footer<br>(The More Link)</span>
+            <select class="form-select" id="link_color_footer_edit_category_<?=$value['id']?>" name="link_color_footer_edit_category_<?=$value['id']?>">
+              <option value="">Link Color Footer</option>
+              <?=$link_color_footer?>
+            </select>
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25 text-start" id="link_color_list_span" name="link_color_list_span">Links Color List</span>
-              <select class="form-select" id="link_color_list" name="link_color_list">
-                <option value="">Link Color Links</option>
-                <?=$link_color_list?>
-              </select>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25 text-start" id="link_color_list_edit_category_<?=$value['id']?>_span">Links Color List</span>
+            <select class="form-select" id="link_color_list_edit_category_<?=$value['id']?>" name="link_color_list_edit_category_<?=$value['id']?>">
+              <option value="">Link Color Links</option>
+              <?=$link_color_list?>
+            </select>
           </div>
 
-          <div class="mb-3">
-            <div class="input-group input-group-sm">
-              <span class="input-group-text w-25" id="visible_span" name="visible_span">Category Visible</span>
-              <select class="form-select" id="visible" name="visible" aria-label="visible_span">
-                <option value="1"<?=($value['visible'] === '1') ? ' selected="selected"' : ''?>>Yes</option>
-                <option value="0"<?=($value['visible'] === '0') ? ' selected="selected"' : ''?>>No</option>
-              </select>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text w-25" id="visible_edit_category_<?=$value['id']?>_span">Category Visible</span>
+            <select class="form-select" id="visible_edit_category_<?=$value['id']?>" name="visible_edit_category_<?=$value['id']?>" aria-label="visible_span">
+              <option value="1"<?=($value['visible'] === '1') ? ' selected="selected"' : ''?>>Yes</option>
+              <option value="0"<?=($value['visible'] === '0') ? ' selected="selected"' : ''?>>No</option>
+            </select>
           </div>
 
         </div>
         <div class="modal-footer bg-primary btn-group rounded-0">
           <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
           <button type="submit" formaction="<?=base_url('delete-category/'.$value['id'])?>" id="delete_cat<?=$value['id']?>" name="delete_cat<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Category</button>
-          <button type="submit" id="delete_cat<?=$value['id']?>" name="delete_cat<?=$value['id']?>"class="btn btn-success btn-sm m-0">Save Category</button>
+          <button type="submit" id="update_cat<?=$value['id']?>" name="update_cat<?=$value['id']?>" class="btn btn-success btn-sm m-0">Update Category</button>
           </form>
         </div>
       </div>
