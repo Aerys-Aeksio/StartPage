@@ -84,7 +84,8 @@ if (!defined('StartPage'))
             <select class="form-select" id="body_background" name="body_background" aria-label="Default select example">
             <option value="">Background body Color</option>
 
-<?php           $bg_colors =
+<?php
+              $bg_colors =
               [
                 'bg-primary',
                 'bg-primary-subtle',
@@ -143,7 +144,8 @@ if (!defined('StartPage'))
             <select class="form-select" id="nav_link_color" name="nav_link_color" aria-label="nav_link_color">
             <option value="">Navigation Link Color</option>
 
-<?php           $link_colors =
+<?php
+              $link_colors =
               [
                 'link-primary',
                 'link-secondary',

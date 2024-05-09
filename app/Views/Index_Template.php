@@ -32,7 +32,7 @@ define('StartPage', 'StartPage');
   <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
   <?="\n\t".link_tag(base_url().'Assets/css/Default-Css.css', 'stylesheet')."\n";?>
 
-  <?=(empty($settings['head']))?$settings['head']:'';?>
+  <?=(empty($settings['head'])) ? $settings['head'] : '';?>
 
 <?php
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
@@ -55,7 +55,7 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
       <div class="container-fluid">
         <a class="navbar-brand<?=$nav_link_color?>" href="#">Home</a>
         <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
@@ -175,19 +175,19 @@ while($i < 5)
             $ul_already = TRUE;
           }
           if($logged_in === TRUE)
-            $edit_link_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
+            $edit_link_button = '<button type="button" class="float-end py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
           else
             $edit_link_button = '';
-          // Switch betwee "list", "img" and "html"
+          // Switch between "list", "img" and "html"
           switch ($linkvalue['type'])
           {
             case 'list':
               if(($linkvalue['category_id'] == $value['id']) AND ($a < $value['numb_links']))
               {
-                $target     = ($linkvalue['target'] === '1')      ? ' target="_blank"' : ' target="_self"';
-                $icon_left  = (!empty($linkvalue['icon_left']))   ? $linkvalue['icon_left'] : '';
-                $icon_right = (!empty($linkvalue['icon_right']))  ? $linkvalue['icon_right'] : '';
-                $link = $icon_left.'&nbsp;<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>'.$icon_right;
+                $target     = ($linkvalue['target'] === '1') ? ' target="_blank"' : ' target="_self"';
+                $icon_left  = (!empty($linkvalue['icon_left'])) ? $linkvalue['icon_left'] : '';
+                $icon_right = (!empty($linkvalue['icon_right'])) ? $linkvalue['icon_right'] : '';
+                $link       = $icon_left.'&nbsp;<a title="'.$linkvalue['title'].'" class="icon-link link-dark" href="'.$linkvalue['url'].'"'.$target.'>'.$linkvalue['name'].'</a>'.$icon_right;
 
                 echo '<li class="list-group-item p-0 m-0">'.$link.'&nbsp;'.$edit_link_button.'</li>';
                 $a++;
@@ -215,7 +215,7 @@ while($i < 5)
     $bg_footer          = (!empty($value['background_color_footer'])) ? ' '.$value['background_color_footer'] : '';
 ?>
 
-        <div class="card-footer <?=$bg_footer?> py-0 ps-2 rounded-0">
+        <div class="card-footer<?=$bg_footer?> py-0 ps-2 rounded-0">
           <button type="button" class="btn btn-link<?=$link_color_footer?>" data-bs-toggle="modal" data-bs-target="#more_<?=$value['id']?>">
             More
           </button>
@@ -226,7 +226,7 @@ while($i < 5)
           <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header '.$bg_header . $link_color_header.'">
+                <div class="modal-header'.$bg_header . $link_color_header.'">
                   <h1 class="modal-title fs-5" id="more_'.$value['id'].'Label">'.$value['name'].'</h1>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -235,24 +235,19 @@ while($i < 5)
 
                     foreach($links as $linkkey => $linkvalue)
                     {
-                      if($linkvalue['category_id'] == $value['id'] )
+                      if(($linkvalue['category_id'] == $value['id']) AND ($a <= $value['numb_links']))
                       {
-                        if($a <= $value['numb_links'])
-                        {
-                          $target = ($linkvalue['target'] == '1') ? ' target="_blank"' : ' target="_self"';
+                        $target = ($linkvalue['target'] == '1') ? ' target="_blank"' : ' target="_self"';
 
-                          if($logged_in === TRUE)
-                            $edit_link_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
-                          else
+                        if($logged_in === TRUE)
+                          $edit_link_button = '<button type="button" class="float-end py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
+                        else
                           $edit_link_button = '';
 
-                          if(!empty($linkvalue['icon']))
-                            $link = ($linkvalue['side_icon'] == '1') ? $linkvalue['icon'] . ' <a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a>' : '<a class="icon-link link-dark" href="' . $linkvalue['url'] . '"' . $target . '>' . $linkvalue['name'] . '</a> ' . $linkvalue['icon'];
-                          else
-                            $link = '<a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a>';
-
-                          $more_modal .= '<li class="list-group-item p-0 m-0">' . $link . ' '.$edit_link_button.'</li>';
-                        }
+                        $icon_left  = (!empty($linkvalue['icon_left'])) ? $linkvalue['icon_left'] : '';
+                        $icon_right = (!empty($linkvalue['icon_right'])) ? $linkvalue['icon_right'] : '';
+                        $link = $icon_left .' <a title="' . $linkvalue['title'] . '" class="icon-link link-dark" href="' . $linkvalue['url'] . '"'.$target.'>'.$linkvalue['name'].'</a> '.$icon_right;
+                        $more_modal .= '<li class="list-group-item p-0 m-0">' . $link . ' '.$edit_link_button.'</li>';
                       }
                     }
     $more_modal .= '
@@ -289,7 +284,6 @@ if($logged_in === TRUE)
   echo $this->include('Include-Modal-Edit-Settings');
   // Here are all the add Modal's of the links and categories
   echo $this->include('Include-Modal-Add-Link-Add-Category');
-
 }
 // Here are all the Modal's of the more links in every category unless there aren't any
 echo isset($more_modal) ? $more_modal : ''; 

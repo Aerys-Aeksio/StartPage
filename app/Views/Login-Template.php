@@ -52,15 +52,15 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
         </div>
         <div class="card-body text-center">
           <img class="mb-3" src="<?=base_url()?>Assets/images/logo-login-screen-resized.png" alt="Logo">
-          <?php if (! empty($errors)): ?>
+            <?php if (! empty($errors)): ?>
               <div class="alert alert-danger" role="alert">
-                  <ul>
-                  <?php foreach ($errors as $error): ?>
-                      <li><?= esc($error) ?></li>
-                  <?php endforeach ?>
-                  </ul>
+                <ul>
+                <?php foreach ($errors as $error): ?>
+                  <li><?= esc($error) ?></li>
+                <?php endforeach ?>
+                </ul>
               </div>
-          <?php endif ?>
+            <?php endif ?>
           <div class="input-group mb-3 has-validation">
             <span class="input-group-text">
               <i class="fa-solid fa-envelope"></i>

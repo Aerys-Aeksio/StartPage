@@ -18,106 +18,106 @@ foreach($categories as $key => $value)
 {
   $bg_colors =
   [
-  'bg-primary',
-  'bg-primary-subtle',
-  'bg-secondary',
-  'bg-secondary-subtle',
-  'bg-success',
-  'bg-success-subtle',
-  'bg-danger',
-  'bg-danger-subtle',
-  'bg-warning',
-  'bg-warning-subtle',
-  'bg-info',
-  'bg-info-subtle',
-  'bg-light',
-  'bg-light-subtle',
-  'bg-dark',
-  'bg-dark-subtle',
-  'bg-body-secondary',
-  'bg-body-tertiary',
-  'bg-body',
-  'bg-black',
-  'bg-white',
-  'bg-transparent',
+    'bg-primary',
+    'bg-primary-subtle',
+    'bg-secondary',
+    'bg-secondary-subtle',
+    'bg-success',
+    'bg-success-subtle',
+    'bg-danger',
+    'bg-danger-subtle',
+    'bg-warning',
+    'bg-warning-subtle',
+    'bg-info',
+    'bg-info-subtle',
+    'bg-light',
+    'bg-light-subtle',
+    'bg-dark',
+    'bg-dark-subtle',
+    'bg-body-secondary',
+    'bg-body-tertiary',
+    'bg-body',
+    'bg-black',
+    'bg-white',
+    'bg-transparent',
   ];
   $background_color_header = '';
   foreach($bg_colors as $colors)
   {
-  if($value['background_color_header'] == $colors)
+    if($value['background_color_header'] == $colors)
       $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
-  else
+    else
       $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
   }
   $background_color_footer = '';
   foreach($bg_colors as $colors)
   {
-  if($value['background_color_footer'] == $colors)
+    if($value['background_color_footer'] == $colors)
       $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
-  else
+    else
       $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
   }
   $text_colors =
   [
-  'text-primary',
-  'text-primary-emphasis',
-  'text-secondary',
-  'text-secondary-emphasis',
-  'text-success',
-  'text-success-emphasis',
-  'text-danger',
-  'text-danger-emphasis',
-  'text-warning',
-  'text-warning-emphasis',
-  'text-info',
-  'text-info-emphasis',
-  'text-light',
-  'text-light-emphasis',
-  'text-dark',
-  'text-dark-emphasis',
-  'text-body',
-  'text-body-emphasis',
-  'text-body-secondary',
-  'text-body-tertiary',
-  'text-black',
-  'text-white',
-  'text-black-50',
-  'text-white-50',
+    'text-primary',
+    'text-primary-emphasis',
+    'text-secondary',
+    'text-secondary-emphasis',
+    'text-success',
+    'text-success-emphasis',
+    'text-danger',
+    'text-danger-emphasis',
+    'text-warning',
+    'text-warning-emphasis',
+    'text-info',
+    'text-info-emphasis',
+    'text-light',
+    'text-light-emphasis',
+    'text-dark',
+    'text-dark-emphasis',
+    'text-body',
+    'text-body-emphasis',
+    'text-body-secondary',
+    'text-body-tertiary',
+    'text-black',
+    'text-white',
+    'text-black-50',
+    'text-white-50',
   ];
   $text_color_header = '';
   foreach($text_colors as $colors)
   {
-  if($value['text_color_header'] == $colors)
+    if($value['text_color_header'] == $colors)
       $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
-  else
+    else
       $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
   }
   $link_colors =
   [
-  'link-primary',
-  'link-secondary',
-  'link-success',
-  'link-danger',
-  'link-warning',
-  'link-info',
-  'link-light',
-  'link-dark',
-  'link-body-emphasis',
+    'link-primary',
+    'link-secondary',
+    'link-success',
+    'link-danger',
+    'link-warning',
+    'link-info',
+    'link-light',
+    'link-dark',
+    'link-body-emphasis',
   ];
   $link_color_footer = '';
   foreach($link_colors as $colors)
   {
-  if($value['link_color_footer'] == $colors)
+    if($value['link_color_footer'] == $colors)
       $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
-  else
+    else
       $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
   }
   $link_color_list = '';
   foreach($link_colors as $colors)
   {
-  if($value['link_color_list'] == $colors)
+    if($value['link_color_list'] == $colors)
       $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
-  else
+    else
       $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
   }
 ?>

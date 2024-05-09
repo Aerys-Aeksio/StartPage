@@ -67,7 +67,6 @@ class HomeController extends BaseController
       $password = $this->request->getPost("password");
       $user     = $this->admin->login(esc($email), esc($password));
 
-      $data                     = [];
       $data['logged_in']        = $this->_loggedin();
       $data['time']             = $data['settings']['redirect_time'];
       $data['message']          = 'You are now logged in.';
@@ -84,9 +83,6 @@ class HomeController extends BaseController
    */
   private function _get_data()
   {
-    if($this->_loggedin() == FALSE)
-      return redirect('/');
-
     $data['settings']   = $this->admin->get_settings();
     $data['categories'] = $this->admin->get_categories();
     $data['links']      = $this->admin->get_links();

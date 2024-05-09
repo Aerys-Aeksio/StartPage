@@ -25,88 +25,88 @@ if (!defined('StartPage'))
       </div>
       <div class="modal-body">
 
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="name_span" name="name_span">Name</span>
-            <input type="text" class="form-control" id="name_add_link" name="name_add_link" aria-describedby="name" value="" required>
-          </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="name_span" name="name_span">Name<span class="text-danger">*</span></span>
+          <input type="text" class="form-control" id="name_add_link" name="name_add_link" aria-describedby="name" value="" required>
+        </div>
 
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="url_span" name="url_span">Url</span>
-            <input type="text" class="form-control" id="url_add_link" name="url_add_link" aria-describedby="url" value="" required>
-          </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="url_span" name="url_span">Url<span class="text-danger">*</span></span>
+          <input type="text" class="form-control" id="url_add_link" name="url_add_link" aria-describedby="url" value="" required>
+        </div>
 
-          <div class="input-group input-group-sm">
-            <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
-            <input type="number" class="form-control" min="0" max="1000" id="position_add_link" name="position_add_link" placeholder="Position / Height" value="">
-          </div>
+        <div class="input-group input-group-sm">
+          <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
+          <input type="number" class="form-control" min="0" max="1000" id="position_add_link" name="position_add_link" placeholder="Position / Height" value="">
+        </div>
 
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="category_id_span" name="category_id_span">Category</span>
-            <select class="form-select" id="category_id_add_link" name="category_id_add_link" aria-label="category_id_add_link">
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="category_id_span" name="category_id_span">Category</span>
+          <select class="form-select" id="category_id_add_link" name="category_id_add_link" aria-label="category_id_add_link">
 
 <?php           
-              foreach($categories as $cat => $cat_value)
-                echo '<option value="'.$cat_value['id'].'">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
+            foreach($categories as $cat => $cat_value)
+              echo '<option value="'.$cat_value['id'].'">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
 ?>
 
-            </select>
+          </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="title_span" name="title_span">Title / Tooltip</span>
+          <input type="text" class="form-control" id="title_add_link" name="title_add_link" aria-describedby="title" value="" required>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="type_span" name="type_span">Type</span>
+          <select class="form-select" id="type_add_link" name="type_add_link" aria-label="type">
+            <option value="list">List</option>
+            <option value="img">Image</option>
+            <option value="html">Html</option>
+          </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="img_span" name="img_span">Base64 Image String</span>
+          <textarea class="form-control" id="img_add_link" name="img_add_link" placeholder="base 64 image string"></textarea>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="html_span" name="html_span">Html</span>
+          <textarea class="form-control" id="html_add_link" name="html_add_link" placeholder="html"></textarea>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="target_span" name="target_span">Link Target</span>
+          <select class="form-select" id="target_add_link" name="target_add_link" aria-label="target">
+            <option value="1">New Window / New Tab</option>
+            <option value="0">Same Window / Same Tab</option>
+          </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="visible_span" name="visible_span">Link Visible</span>
+          <select class="form-select" id="visible_add_link" name="visible_add_link" aria-label="visible">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Left</span>
+          <input type="text" class="form-control" id="icon_left_add_link" name="icon_left_add_link" placeholder="Icon Left" value="">
+        </div>
+        <div class="form-text mb-3">
+            <small>You can use icons from font awesome</small>
           </div>
 
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="title_span" name="title_span">Title / Tooltip</span>
-            <input type="text" class="form-control" id="title_add_link" name="title_add_link" aria-describedby="title" value="" required>
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="type_span" name="type_span">Type</span>
-            <select class="form-select" id="type_add_link" name="type_add_link" aria-label="type">
-              <option value="list">List</option>
-              <option value="img">Image</option>
-              <option value="html">Html</option>
-            </select>
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="img_span" name="img_span">Base64 Image String</span>
-            <textarea class="form-control" id="img_add_link" name="img_add_link" placeholder="base 64 image string"></textarea>
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="html_span" name="html_span">Html</span>
-            <textarea class="form-control" id="html_add_link" name="html_add_link" placeholder="html"></textarea>
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="target_span" name="target_span">Link Target</span>
-            <select class="form-select" id="target_add_link" name="target_add_link" aria-label="target">
-              <option value="1">New Window / New Tab</option>
-              <option value="0">Same Window / Same Tab</option>
-            </select>
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="visible_span" name="visible_span">Link Visible</span>
-            <select class="form-select" id="visible_add_link" name="visible_add_link" aria-label="visible">
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Left</span>
-            <input type="text" class="form-control" id="icon_left_add_link" name="icon_left_add_link" placeholder="Icon Left" value="">
-          </div>
-          <div class="form-text">
-            You can use icons from font awesome
-          </div>
-
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Right</span>
-            <input type="text" class="form-control" id="icon_right_add_link" name="icon_right_add_link" placeholder="Icon Right" value="">
-          </div>
-          <div class="form-text">
-            You can use icons from font awesome
-          </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Right</span>
+          <input type="text" class="form-control" id="icon_right_add_link" name="icon_right_add_link" placeholder="Icon Right" value="">
+        </div>
+        <div class="form-text">
+          You can use icons from font awesome
+        </div>
 
       </div>
       <div class="modal-footer bg-primary text-light btn-group rounded-0">
@@ -120,28 +120,28 @@ if (!defined('StartPage'))
 <?php
   $bg_colors =
   [
-  'bg-primary',
-  'bg-primary-subtle',
-  'bg-secondary',
-  'bg-secondary-subtle',
-  'bg-success',
-  'bg-success-subtle',
-  'bg-danger',
-  'bg-danger-subtle',
-  'bg-warning',
-  'bg-warning-subtle',
-  'bg-info',
-  'bg-info-subtle',
-  'bg-light',
-  'bg-light-subtle',
-  'bg-dark',
-  'bg-dark-subtle',
-  'bg-body-secondary',
-  'bg-body-tertiary',
-  'bg-body',
-  'bg-black',
-  'bg-white',
-  'bg-transparent',
+    'bg-primary',
+    'bg-primary-subtle',
+    'bg-secondary',
+    'bg-secondary-subtle',
+    'bg-success',
+    'bg-success-subtle',
+    'bg-danger',
+    'bg-danger-subtle',
+    'bg-warning',
+    'bg-warning-subtle',
+    'bg-info',
+    'bg-info-subtle',
+    'bg-light',
+    'bg-light-subtle',
+    'bg-dark',
+    'bg-dark-subtle',
+    'bg-body-secondary',
+    'bg-body-tertiary',
+    'bg-body',
+    'bg-black',
+    'bg-white',
+    'bg-transparent',
   ];
   $background_color_header = '';
   foreach($bg_colors as $colors)
@@ -153,30 +153,30 @@ if (!defined('StartPage'))
 
   $text_colors =
   [
-  'text-primary',
-  'text-primary-emphasis',
-  'text-secondary',
-  'text-secondary-emphasis',
-  'text-success',
-  'text-success-emphasis',
-  'text-danger',
-  'text-danger-emphasis',
-  'text-warning',
-  'text-warning-emphasis',
-  'text-info',
-  'text-info-emphasis',
-  'text-light',
-  'text-light-emphasis',
-  'text-dark',
-  'text-dark-emphasis',
-  'text-body',
-  'text-body-emphasis',
-  'text-body-secondary',
-  'text-body-tertiary',
-  'text-black',
-  'text-white',
-  'text-black-50',
-  'text-white-50',
+    'text-primary',
+    'text-primary-emphasis',
+    'text-secondary',
+    'text-secondary-emphasis',
+    'text-success',
+    'text-success-emphasis',
+    'text-danger',
+    'text-danger-emphasis',
+    'text-warning',
+    'text-warning-emphasis',
+    'text-info',
+    'text-info-emphasis',
+    'text-light',
+    'text-light-emphasis',
+    'text-dark',
+    'text-dark-emphasis',
+    'text-body',
+    'text-body-emphasis',
+    'text-body-secondary',
+    'text-body-tertiary',
+    'text-black',
+    'text-white',
+    'text-black-50',
+    'text-white-50',
   ];
   $text_color_header = '';
   foreach($text_colors as $colors)
@@ -184,15 +184,15 @@ if (!defined('StartPage'))
 
   $link_colors =
   [
-  'link-primary',
-  'link-secondary',
-  'link-success',
-  'link-danger',
-  'link-warning',
-  'link-info',
-  'link-light',
-  'link-dark',
-  'link-body-emphasis',
+    'link-primary',
+    'link-secondary',
+    'link-success',
+    'link-danger',
+    'link-warning',
+    'link-info',
+    'link-light',
+    'link-dark',
+    'link-body-emphasis',
   ];
   $link_color_footer = '';
   foreach($link_colors as $colors)
@@ -212,12 +212,6 @@ if (!defined('StartPage'))
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text w-25" id="_id_span1">Category Id</span>
-          <input type="text" class="form-control bg-white" id="_id_add_category" name="_id_add_category" placeholder="Id" value="" aria-label="Disabled input" disabled>
-          <span class="input-group-text w-25" id="_id_span2">&lt;= Disabled</span>
-        </div>
 
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="name_span" name="name_span">Name Category</span>
@@ -302,7 +296,6 @@ if (!defined('StartPage'))
             <option value="0">No</option>
           </select>
         </div>
-
 
       </div>
       <div class="modal-footer bg-primary text-light btn-group rounded-0">
