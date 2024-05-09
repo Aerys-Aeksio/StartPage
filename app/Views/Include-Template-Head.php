@@ -34,11 +34,13 @@ if (!defined('STARTPAGE'))
         $second_title = 'Redirect';
       else
         $second_title = '';
+      if(!empty($settings['description']))
+        $description = $settings['description'];
 ?>
     <title><?=$title?> | <?=$second_title?></title>
     <meta charset="UTF-8">
     <?=link_tag('favicon.ico', 'shortcut icon', 'image/ico');?>
-    <meta name="description" content="The small Startpage with powerful features">
+    <meta name="description" content="<?=$description?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
     <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>

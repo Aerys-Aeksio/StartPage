@@ -739,21 +739,21 @@ class InstallController extends BaseController
         // Begin settings
         $settings_array = 
         [
-          "title"                     =>  'Startpage',
-          "description"               =>  'What is a Startpage',
-          "html_footer"               =>  "<footer>Copyright ©</foorter",
-          "show_footer"               =>  '0',
-          "version"                   =>  "0.0.1",
-          "timestamp_installed"       =>  ''.$installed_time->getTimestamp().'',
-          "redirect_time"             =>  '2',
-          "base_url"                  =>  $base_url,
-          "email"                     =>  $adminemail,
-          "body_background"           =>  "bg-dark-subtle",
-          "nav_background"            =>  "bg-primary",
-          "nav_link_color"            =>  "link-light",
-          "show_login_link"           =>  '1',
-          "head"                 =>  '',
-          "foot"                 =>  '',
+          "title"               =>  'Startpage',
+          "description"         =>  'The small Startpage with powerful features',
+          "html_footer"         =>  "<footer>Copyright ©</footer>",
+          "show_footer"         =>  '0',
+          "version"             =>  "0.0.1",
+          "timestamp_installed" =>  ''.$installed_time->getTimestamp().'',
+          "redirect_time"       =>  '2',
+          "base_url"            =>  $base_url,
+          "email"               =>  $adminemail,
+          "body_background"     =>  "bg-dark-subtle",
+          "nav_background"      =>  "bg-primary",
+          "nav_link_color"      =>  "link-light",
+          "show_login_link"     =>  '1',
+          "head"                =>  '',
+          "foot"                =>  '',
         ];
         // Create Table settings
         $settings  = new Store("settings", DATABASE_DIR, $configuration);
