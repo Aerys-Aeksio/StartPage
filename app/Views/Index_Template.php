@@ -226,9 +226,9 @@ while($i < 5)
           <div class="modal modal-sm fade" id="more_'.$value['id'].'" tabindex="-1" aria-labelledby="more_'.$value['id'].'Label" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header'.$bg_header . $link_color_header.'">
+                <div class="modal-header'.$bg_header . $link_color_header.'" data-bs-theme="dark">
                   <h1 class="modal-title fs-5" id="more_'.$value['id'].'Label">'.$value['name'].'</h1>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <ul class="list-group list-group-flush p9-0 m-0 px-2 mb-2">';

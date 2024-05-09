@@ -126,9 +126,9 @@ foreach($categories as $key => $value)
   <div class="modal fade modal-lg" id="Edit_Modal_Cat<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Cat<?=$value['id']?>_Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header bg-primary text-light">
+        <div class="modal-header bg-primary text-light" data-bs-theme="dark">
           <h1 class="modal-title fs-5" id="Edit_Modal_Cat<?=$value['id']?>_Label">Edit Category <?=$value['name']?></h1>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-body-secondary">
           <?=form_open(url_to('update-category', $value['id']))?>

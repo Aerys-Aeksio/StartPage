@@ -19,9 +19,9 @@ if (!defined('StartPage'))
 <div class="modal fade modal-lg" id="add_link" tabindex="-1" aria-labelledby="add_linkLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header bg-primary text-light">
+      <div class="modal-header bg-primary text-light" data-bs-theme="dark">
         <h1 class="modal-title fs-5" id="add_linkLabel">Add Link</h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
@@ -207,9 +207,9 @@ if (!defined('StartPage'))
 <div class="modal fade modal-lg" id="add_category" tabindex="-1" aria-labelledby="add_categoryLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header bg-primary text-light">
+      <div class="modal-header bg-primary text-light" data-bs-theme="dark">
         <h1 class="modal-title fs-5" id="add_categoryLabel">Add Category</h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 

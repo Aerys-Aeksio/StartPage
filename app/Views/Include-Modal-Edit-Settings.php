@@ -19,9 +19,9 @@ if (!defined('StartPage'))
   <div class="modal modal-lg fade" id="settings" tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header bg-primary text-light">
+        <div class="modal-header bg-primary text-light" data-bs-theme="dark">
           <h1 class="modal-title fs-5" id="settingsLabel">Edit StartPage Settings</h1>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           <?=form_open('update-settings')?>
         </div>
         <div class="modal-body bg-body-secondary">

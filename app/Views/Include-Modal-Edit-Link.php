@@ -22,9 +22,9 @@ if (!defined('StartPage'))
 <div class="modal fade modal-lg" id="Edit_Modal_Link<?=$value['id']?>" tabindex="-1" aria-labelledby="Edit_Modal_Link<?=$value['id']?>Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header bg-primary text-white">
+      <div class="modal-header bg-primary text-white" data-bs-theme="dark">
         <h1 class="modal-title fs-5" id="Edit_Modal_Link<?=$value['id']?>Label">Edit Link - <?=$value['name']?></h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <?=form_open(url_to('update-link', $value['id']))?>
       </div>
       <div class="modal-body">
