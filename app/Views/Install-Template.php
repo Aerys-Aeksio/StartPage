@@ -11,23 +11,14 @@
  * the docs/CREDITS.txt file.
  *
  */
+define('STARTPAGE', 'STARTPAGE');
+define('INSTALL', 'INSTALL');
+
+echo $this->include('Include-Template-Head');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>StartPage | Install Startpage</title>
-  <meta name="description" content="Your StartPage Install">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <?=link_tag('favicon.ico', 'shortcut icon', 'image/ico');?>
-  <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
-  <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-  <?="\n\t".link_tag(base_url().'Assets/css/Default-Css.css', 'stylesheet')."\n";?>
-</head>
 <body class="bg-body-secondary p-0 m-0">
 |<div class="container-fluid">
-  <?= $this->section('content') ?>
 
   <?php
   if ($database_dir_write == 0)

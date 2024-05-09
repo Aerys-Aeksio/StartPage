@@ -11,6 +11,9 @@
  * the docs/CREDITS.txt file.
  *
  */
+define('STARTPAGE', 'STARTPAGE');
+define('REDIRECT', 'REDIRECT');
+
 ?>
   <meta http-equiv="refresh" content="<?= $time ?>;URL=<?= $destination_url ?>" />
 <?php
@@ -21,44 +24,9 @@ header('Expires: Thu, 21 Jul 1977 07:30:00 GMT'); // When yours truly first set 
 header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache'); // For HTTP/1.0 compatibility
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
-    <meta http-equiv="refresh" content="<?= $time ?>;URL=<?= $destination_url ?>" />
-    <title>install | redirect</title>
-    <meta charset="UTF-8">
-    <?=link_tag('favicon.ico', 'shortcut icon', 'image/ico');?>
-    <meta name="description" content="The small Startpage with powerful features">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
-    <?="\n\t".link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', 'stylesheet');?>
-    <?="\n\t".link_tag(base_url().'Assets/css/Default-Css.css', 'stylesheet')."\n";?>
-   <script>
-      var timeleft = <?= $time-1 ?>;
-      var downloadTimer = setInterval(function(){
-        if(timeleft <= 0){
-          clearInterval(downloadTimer);
-        }
-        document.getElementById("progressBar").value = <?= $time ?> - timeleft;
-        timeleft -= 1;
-      }, 1000);
-      var timeleft1 = <?= $time-1 ?>;
-      var downloadTimer1 = setInterval(function(){
-        if(timeleft1 <= 0){
-          clearInterval(downloadTimer1);
-          document.getElementById("countdown").innerHTML = "Going To Redirect Now!!";
-        } else {
-          document.getElementById("countdown").innerHTML = timeleft1 + " seconds remaining";
-        }
-        timeleft1 -= 1;
-      }, 1000);
-    </script>
-  </head>
+echo $this->include('Include-Template-Head');
 
-<?php
 if(!isset($message))
   $message = 'no lang found but still something happened';
 

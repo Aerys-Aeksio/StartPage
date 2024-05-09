@@ -11,7 +11,7 @@
  * the docs/CREDITS.txt file.
  *
  */
-if (!defined('StartPage')) 
+if (!defined('STARTPAGE')) 
     exit;
 
 foreach($categories as $key => $value)
