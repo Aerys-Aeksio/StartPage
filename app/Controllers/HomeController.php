@@ -41,9 +41,8 @@ class HomeController extends BaseController
     $data['logged_in']  = $this->_loggedin() ? TRUE : FALSE;
     $data['more']       = [];
     foreach($data['categories'] as $key => $value)
-    {
       $data['more'][$value['id']] = $this->admin->numb_links($value['id'], $value['numb_links']);
-    }
+
     $data['time'] = Time::createFromTimestamp($data['settings']['timestamp_installed'], 'America/Chicago', 'en_US');
     return view('Index_Template', $data);
   }
@@ -59,11 +58,9 @@ class HomeController extends BaseController
     if($this->_loggedin() == TRUE)
       return redirect('/');
 
+    $data['settings'] = $this->admin->get_settings();
     if (!$this->request->is("post"))
-    {
-      $data['settings'] = $this->admin->get_settings();
       return view('Login-Template', $data);
-    }
     else
     {
       $email    = $this->request->getPost("email");
@@ -72,7 +69,6 @@ class HomeController extends BaseController
 
       $data                     = [];
       $data['logged_in']        = $this->_loggedin();
-      $data['settings']         = $this->admin->get_settings();
       $data['time']             = $data['settings']['redirect_time'];
       $data['message']          = 'You are now logged in.';
       $data['destination_url']  = url_to('/');
@@ -88,6 +84,9 @@ class HomeController extends BaseController
    */
   private function _get_data()
   {
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
+
     $data['settings']   = $this->admin->get_settings();
     $data['categories'] = $this->admin->get_categories();
     $data['links']      = $this->admin->get_links();
@@ -138,6 +137,9 @@ class HomeController extends BaseController
    */
   public function update_settings()
   {
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
+
     if (!$this->request->is("post"))
       return redirect('/');
     else
@@ -162,7 +164,6 @@ class HomeController extends BaseController
         "foot"                      =>  $this->request->getPost('foot'),
       ];
       $this->admin->update_settings($newdata);
-      $data['settings']         = $this->admin->get_settings();
       $data['time']             = $data['settings']['redirect_time'];
       $data['destination_url']  = url_to('/');
       $data['message']          = 'Your Settings Are Updated..';
@@ -180,6 +181,8 @@ class HomeController extends BaseController
    */
   public function update_category($id)
   {
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
     $data['settings'] = $this->admin->get_settings();
     if (!$this->request->is("post"))
       return redirect('/');
@@ -219,10 +222,11 @@ class HomeController extends BaseController
    */
   public function delete_category($id)
   {
-    $data['settings'] = $this->admin->get_settings();
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
     if (!$this->request->is("post"))
       return redirect('/');
-
+    $data['settings'] = $this->admin->get_settings();
     if($this->request->is("post") AND ($this->request->getPost('delete_cat').$id))
     {
       $this->admin->delete_category($id);
@@ -243,9 +247,11 @@ class HomeController extends BaseController
    */
   public function delete_link($id)
   {
-    $data['settings'] = $this->admin->get_settings();
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
     if (!$this->request->is("post"))
       return redirect('/');
+    $data['settings'] = $this->admin->get_settings();
     if ($this->request->is("post") AND ($this->request->getPost('delete_link').$id))
     {
       $this->admin->delete_link($id);
@@ -266,9 +272,11 @@ class HomeController extends BaseController
    */
   public function update_link($id)
   {
-    $data['settings'] = $this->admin->get_settings();
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
     if (!$this->request->is("post"))
       return redirect('/');
+    $data['settings'] = $this->admin->get_settings();
     if ($this->request->is("post"))
     {
       $newdata =

@@ -25,7 +25,7 @@ class InstallController extends BaseController
       echo 'Startpage is already installed';
       exit;
     }
-    $this->admin  = model(\App\Models\AdminModel::class);
+    $this->admin = model(\App\Models\AdminModel::class);
 
     $installed_time             = new \DateTime();
     $data["title"]              = 'Install Startpage';
@@ -432,13 +432,13 @@ class InstallController extends BaseController
             'url'         =>  'http://getbootstrap.com',
             'category_id' =>  '23',
             'title'       =>  'Build fast, responsive sites with Bootstrap',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -446,13 +446,13 @@ class InstallController extends BaseController
             'url'         =>  'http://codeigniter.com',
             'category_id' =>  '23',
             'title'       =>  'The small framework with powerful features',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -460,13 +460,13 @@ class InstallController extends BaseController
             'url'         =>  'https://sleekdb.github.io',
             'category_id' =>  '23',
             'title'       =>  'SleekDB - A NoSQL Database made using PHP',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -474,13 +474,13 @@ class InstallController extends BaseController
             'url'         =>  'https://favicon.io',
             'category_id' =>  '23',
             'title'       =>  'The only favicon generator you need for your next project. Quickly generate your favicon from text, image, or choose from hundreds of emojis.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -488,13 +488,13 @@ class InstallController extends BaseController
             'url'         =>  'https://fontawesome.com',
             'category_id' =>  '23',
             'title'       =>  'Take the hassle out of icons in your project.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -502,13 +502,13 @@ class InstallController extends BaseController
             'url'         =>  'http://getbootstrap.com',
             'category_id' =>  '24',
             'title'       =>  'Build fast, responsive sites with Bootstrap',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -516,13 +516,13 @@ class InstallController extends BaseController
             'url'         =>  'https://bulma.io',
             'category_id' =>  '24',
             'title'       =>  'The Modern CSS Framework',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -530,13 +530,13 @@ class InstallController extends BaseController
             'url'         =>  'https://get.foundation',
             'category_id' =>  '24',
             'title'       =>  'The most advanced responsive front-end framework in the world.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -544,13 +544,13 @@ class InstallController extends BaseController
             'url'         =>  'https://materializecss.github.io/materialize',
             'category_id' =>  '24',
             'title'       =>  'Simple. Built on open source. The responsive front-end library based on Material Design from Google.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -558,13 +558,13 @@ class InstallController extends BaseController
             'url'         =>  'https://tailwindcss.com',
             'category_id' =>  '24',
             'title'       =>  'Rapidly build modern websites without ever leaving your HTML.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -572,13 +572,13 @@ class InstallController extends BaseController
             'url'         =>  'http://codeigniter.com',
             'category_id' =>  '25',
             'title'       =>  'The small framework with powerful features',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '100',
           ],
           [
@@ -586,27 +586,27 @@ class InstallController extends BaseController
             'url'         =>  'http://laravel.com',
             'category_id' =>  '25',
             'title'       =>  'The PHP Framework for Web Artisans',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '99',
           ],
           [
             'name'        =>  'Symfony',
             'url'         =>  'https://symfony.com',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'category_id' =>  '25',
             'title'       =>  'Symfony is a set of reusable PHP components ... and a PHP framework for web projects',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '98',
           ],
           [
@@ -614,13 +614,13 @@ class InstallController extends BaseController
             'url'         =>  'https://getlaminas.org',
             'category_id' =>  '25',
             'title'       =>  'Laminas Project, the enterprise-ready PHP Framework and components A community-supported, open source continuation of Zend Framework.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '98',
           ],
           [
@@ -628,13 +628,13 @@ class InstallController extends BaseController
             'url'         =>  'https://www.yiiframework.com',
             'category_id' =>  '25',
             'title'       =>  'Yii is a fast, secure, and efficient PHP framework. Flexible yet pragmatic. Works right out of the box. Has reasonable defaults.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '97',
           ],
           [
@@ -642,13 +642,13 @@ class InstallController extends BaseController
             'url'         =>  'https://www.base64decode.org',
             'category_id' =>  '26',
             'title'       =>  'Do you have to deal with Base64 format? Then this site is perfect for you! Use our super handy online tool to encode or decode your data.',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '97',
           ],
           [
@@ -656,13 +656,13 @@ class InstallController extends BaseController
             'url'         =>  'https://logo.com',
             'category_id' =>  '26',
             'title'       =>  'Launch your business with a free logo',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
             'position'    =>  '96',
           ],
           [
@@ -670,13 +670,27 @@ class InstallController extends BaseController
             'url'         =>  'https://tw-elements.com',
             'category_id' =>  '26',
             'title'       =>  'Bootstrap components recreated with Tailwind CSS, but with better design and more functionalities',
-            'type'        =>  'list', //'list','img','html'
+            'type'        =>  'list',
             'img'         =>  '',
             'html'        =>  '',
-            'target'      =>  '1', // 0 = same tab 1 = new tab
-            'visible'     =>  '1', // 0 = no 1 = yes
+            'target'      =>  '1',
+            'visible'     =>  '1',
             'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
-            'icon_right'  =>  '', // 1 = left and 0 = right
+            'icon_right'  =>  '',
+            'position'    =>  '96',
+          ],
+          [
+            'name'        =>  'Validator.w3',
+            'url'         =>  'https://validator.w3.org',
+            'category_id' =>  '26',
+            'title'       =>  'Markup Validation Service Check the markup (HTML, XHTML, …) of Web documents',
+            'type'        =>  'list',
+            'img'         =>  '',
+            'html'        =>  '',
+            'target'      =>  '1',
+            'visible'     =>  '1',
+            'icon_left'   =>  '<i class="fa-solid fa-arrow-up-right-from-square"></i>',
+            'icon_right'  =>  '',
             'position'    =>  '96',
           ],
         ];
@@ -728,7 +742,7 @@ class InstallController extends BaseController
           "title"                     =>  'Startpage',
           "description"               =>  'What is a Startpage',
           "html_footer"               =>  "<footer>Copyright ©</foorter",
-          "show_footer"               =>  '0', // 0 = no 1 = yes
+          "show_footer"               =>  '0',
           "version"                   =>  "0.0.1",
           "timestamp_installed"       =>  ''.$installed_time->getTimestamp().'',
           "redirect_time"             =>  '2',
