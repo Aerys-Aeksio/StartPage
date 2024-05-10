@@ -19,27 +19,54 @@ if (!defined('STARTPAGE'))
   <head>
 <?php if(defined('REDIRECT-TEMPLATE'))
         echo '<meta http-equiv="refresh" content="'.$time.';URL='.$destination_url.'">';
+
       if(isset($settings['title']))
-        $title=$settings['title'];
+        $title = $settings['title'];
       else
-        $title='';
+        $title = '';
 
       if(defined('INDEX'))
-        $second_title = 'Index';
+      {
+        $title        = $settings['title'];
+        $second_title = $settings['description'];
+        $description  = $settings['description'];
+      }
       elseif(defined('LOGIN'))
+      {
+        $title        = $settings['title'];
         $second_title = 'Login';
+        $description  = $settings['description'];
+      }
       elseif(defined('INSTALL'))
+      {
+        $title        = 'StartPage';
         $second_title = 'Install';
+        $description  = 'Installing StartPage';
+      }
       elseif(defined('REDIRECT'))
-        $second_title = 'Redirect';
+      {
+        if(empty($settings['title']) AND empty($settings['description']))
+        {
+          $title        = 'StartPage';
+          $second_title = 'Redirecting';
+          $description  = 'Just installed StartPage';
+        }
+        else
+        {
+          $title        = $settings['title'];
+          $second_title = 'Redirecting';
+          $description  = $settings['description'];
+        }
+      }
       else
         $second_title = '';
-      if(!empty($settings['description']))
-        $description = $settings['description'];
+      //if(!empty($settings['description']))
+        //$description = $settings['description'];
 ?>
+
     <title><?=$title?> | <?=$second_title?></title>
     <meta charset="UTF-8">
-    <?=link_tag('favicon.ico', 'shortcut icon', 'image/ico');?>
+    <?=link_tag('favicon.ico', 'shortcut icon', 'image/ico')."\n";?>
     <meta name="description" content="<?=$description?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?="\n\t".link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', 'stylesheet');?>
