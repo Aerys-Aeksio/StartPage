@@ -31,7 +31,7 @@ echo $this->include('Include-Template-Head');
           <p>
             The directory<br><code><?= DATABASE_DIR ?></code><br>
             does not exist or it is not writable or both.<br>
-            Create the directory and/or make it writeble. After that reload[F5] this page to check.
+            Create the directory and/or make it writable. After that reload[F5] this page to check.
           </p>
         </div>
       </div>

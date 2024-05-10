@@ -19,7 +19,7 @@ echo $this->include('Include-Template-Head');
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
 $nav_link_color = (!empty($settings['nav_link_color'])) ? ' '.$settings['nav_link_color'] : '';
-$login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
+$login_link     = (!empty($settings['show_login_link']) == '1') ? true : false;
 ?>
 
 <?=$body_color?>
@@ -69,7 +69,7 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
             </li>
 
 <?php
-if($login_link AND $logged_in == FALSE)
+if($login_link AND $logged_in == false)
 {
 ?>
 
@@ -79,7 +79,7 @@ if($login_link AND $logged_in == FALSE)
 
 <?php
 }
-if($logged_in === TRUE)
+if($logged_in === true)
 {
 ?>
 
@@ -133,12 +133,9 @@ while($i < 5)
   {
     $bg_header          = (!empty($value['background_color_header'])) ? ' '.$value['background_color_header'] : '';
     $text_color_header  = (!empty($value['text_color_header'])) ? ' '.$value['text_color_header'] : '';
-    if($value['column'] == $i AND $value['visible'] = '1')
+    if($value['column'] == $i AND $value['visible'] === '1')
     {
-      if($logged_in === TRUE)
-        $edit_cat_button = '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Cat'.$value['id'].'"><i class="fa-solid fa-pencil"></i></button>';
-      else
-        $edit_cat_button = '';
+      $edit_cat_button = ($logged_in === true) ? '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Cat'.$value['id'].'"><i class="fa-solid fa-pencil"></i></button>' : '';
 ?>
 
       <div class="card mx-0 mb-1 rounded-0">
@@ -153,12 +150,9 @@ while($i < 5)
           if($linkvalue['type'] == 'list' AND !isset($ul_already))
           {
             echo ($linkvalue['type'] == 'list') ? '<ul class="list-group list-group-flush p9-0 m-0 px-2 mb-2">' : '';
-            $ul_already = TRUE;
+            $ul_already = true;
           }
-          if($logged_in === TRUE)
-            $edit_link_button = '<button type="button" class="float-end py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
-          else
-            $edit_link_button = '';
+            $edit_link_button = ($logged_in === true) ? '<button type="button" class="float-end py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>' : '';
           // Switch between "list", "img" and "html"
           switch ($linkvalue['type'])
           {
@@ -175,8 +169,10 @@ while($i < 5)
               }
               break;
             case 'img':
+              echo '<li class="list-group-item p-0 m-0">'.$link.'&nbsp;'.$edit_link_button.'</li>';
               break;
             case 'html':
+              echo '<li class="list-group-item p-0 m-0">'.$link.'&nbsp;'.$edit_link_button.'</li>';
               break;
           }
         }
@@ -220,7 +216,7 @@ while($i < 5)
                       {
                         $target = ($linkvalue['target'] == '1') ? ' target="_blank"' : ' target="_self"';
 
-                        if($logged_in === TRUE)
+                        if($logged_in === true)
                           $edit_link_button = '<button type="button" class="float-end py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Link'.$linkvalue['id'].'"><i class="fa-solid fa-pencil"></i></button>';
                         else
                           $edit_link_button = '';
@@ -255,7 +251,7 @@ while($i < 5)
   </div>
 
 <?php
-if($logged_in === TRUE)
+if($logged_in === true)
 {
   // Here are all the edit Modal's of every category
   echo $this->include('Include-Modal-Edit-Category');
@@ -270,7 +266,7 @@ if($logged_in === TRUE)
 echo isset($more_modal) ? $more_modal : ''; 
 
 // if user want's a footer here we show it
-if (!empty($settings['show_footer']) == '1')
+if(!empty($settings['show_footer']) == '1')
   echo $settings['html_footer'];
 ?>
 

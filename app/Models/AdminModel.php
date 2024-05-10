@@ -38,9 +38,9 @@ class AdminModel extends Model
   {
     $users_configuration =
     [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "user_id",
       "folder_permissions"  => 0777
     ];
@@ -54,23 +54,23 @@ class AdminModel extends Model
       ->fetch();
     $user = array_shift($user);
     // Verify password
-    if (password_verify($password, $user["password"]) == TRUE)
+    if (password_verify($password, $user["password"]) == true)
     {
       $newdata =
       [
         "id"        => $user["user_id"],
         "username"  => $user["username"],
         "email"     => $user["email"],
-        "logged_in" => TRUE,
+        "logged_in" => true,
       ];
       $session->set("id",        $newdata["id"]);
       $session->set("username",  $newdata["username"]);
       $session->set("email",     $newdata["email"]);
       $session->set("logged_in", $newdata["logged_in"]);
-      return TRUE;
+      return true;
     }
     else
-      return FALSE;
+      return false;
   }
 
   /**
@@ -100,9 +100,9 @@ class AdminModel extends Model
   public function get_links(): array
   {
     $configuration = [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
@@ -128,9 +128,9 @@ class AdminModel extends Model
   {
     $configuration =
     [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
@@ -142,7 +142,7 @@ class AdminModel extends Model
       ->disableCache()
       ->getQuery()
       ->fetch();
-    return TRUE;
+    return true;
   }
 
   /**
@@ -158,15 +158,15 @@ class AdminModel extends Model
   {
     $configuration =
     [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $update_category = new Store('categories', DATABASE_DIR, $configuration);
     $update_category->updateById($id, $array);
-    return TRUE;
+    return true;
   }
 
   /**
@@ -182,15 +182,15 @@ class AdminModel extends Model
   {
     $configuration =
     [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $update_category = new Store('links', DATABASE_DIR, $configuration);
     $update_category->updateOrInsert($array);
-    return TRUE;
+    return true;
   }
 
   /**
@@ -206,15 +206,15 @@ class AdminModel extends Model
   {
     $configuration =
     [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $update_category = new Store('links', DATABASE_DIR, $configuration);
     $update_category->deleteById($id);
-    return TRUE;
+    return true;
   }
 
   /**
@@ -226,9 +226,9 @@ class AdminModel extends Model
   public function get_categories(): array
   {
     $configuration = [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
@@ -254,15 +254,15 @@ class AdminModel extends Model
   public function add_category($array): bool
   {
     $configuration = [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $add_category = new Store('categories', DATABASE_DIR, $configuration);
     $add_category->insert($array);
-    return TRUE;
+    return true;
   }
 
   /**
@@ -276,15 +276,15 @@ class AdminModel extends Model
   public function delete_category($id)
   {
     $configuration = [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
     $categories = new Store("categories", DATABASE_DIR, $configuration);
     $categories->deleteById($id);
-    return TRUE;
+    return true;
   }
 
   /**
@@ -299,9 +299,9 @@ class AdminModel extends Model
   function numb_links($cat_id, $number_link_in_category)
   {
     $configuration = [
-      "auto_cache"          => FALSE,
+      "auto_cache"          => false,
       "cache_lifetime"      => NULL,
-      "timeout"             => FALSE, // deprecated! Set it to FALSE!
+      "timeout"             => false, // deprecated! Set it to false!
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
@@ -314,11 +314,11 @@ class AdminModel extends Model
       ->fetch();
     $numb = count($links);
     if($numb == $number_link_in_category)
-      return FALSE;
+      return false;
     elseif($numb < $number_link_in_category)
-      return FALSE;
+      return false;
     else
-      return TRUE;
+      return true;
   }
 
 }

@@ -25,22 +25,22 @@ if (!defined('STARTPAGE'))
           © <?= date('Y') ?> Copyright: <a class="text-body" href="http://startpage.io" target="_blank">StartPage</a>
         </div>
         <div class="col text-end">
-          <a href="" class="me-4 text-reset">
+          <a href="#" class="me-4 text-reset">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="" class="me-4 text-reset">
+          <a href="#" class="me-4 text-reset">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="" class="me-4 text-reset">
+          <a href="#" class="me-4 text-reset">
             <i class="fab fa-google"></i>
           </a>
-          <a href="" class="me-4 text-reset">
+          <a href="#" class="me-4 text-reset">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="" class="me-4 text-reset">
+          <a href="#" class="me-4 text-reset">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="" class="me-4 text-reset">
+          <a href="#" class="me-4 text-reset">
             <i class="fab fa-github"></i>
           </a>
         </div>

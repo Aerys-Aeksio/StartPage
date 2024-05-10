@@ -19,7 +19,7 @@ echo $this->include('Include-Template-Head');
 $body_color     = (!empty($settings['body_background'])) ? '<body class="'.$settings['body_background'].'">' : '<body>';
 $nav_bg_color   = (!empty($settings['nav_background'])) ? ' '.$settings['nav_background'] : '';
 $nav_link_color = (!empty($settings['nav_link_color'])) ? ' '.$settings['nav_link_color'] : '';
-$login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
+$login_link     = (!empty($settings['show_login_link']) == '1') ? true : false;
 ?>
 
 <?=$body_color?>
@@ -36,15 +36,15 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
         </div>
         <div class="card-body text-center">
           <img class="mb-3" src="<?=base_url()?>Assets/images/logo-login-screen-resized.png" alt="Logo">
-            <?php if (! empty($errors)): ?>
-              <div class="alert alert-danger" role="alert">
-                <ul>
-                <?php foreach ($errors as $error): ?>
-                  <li><?= esc($error) ?></li>
-                <?php endforeach ?>
-                </ul>
-              </div>
-            <?php endif ?>
+          <?php if (! empty($errors)): ?>
+            <div class="alert alert-danger" role="alert">
+              <ul>
+              <?php foreach ($errors as $error): ?>
+                <li><?= esc($error) ?></li>
+              <?php endforeach ?>
+              </ul>
+            </div>
+          <?php endif ?>
           <div class="input-group mb-3 has-validation">
             <span class="input-group-text">
               <i class="fa-solid fa-envelope"></i>
@@ -63,16 +63,12 @@ $login_link     = (!empty($settings['show_login_link']) == '1') ? TRUE : FALSE;
           </div>
           <div class="row">
             <div class="col justify-content-center pb-3">
-              <a href ="#!" class="link-dark fw-bold">
-                Forgot Password?
-              </a>
+              <a href ="#!" class="link-dark fw-bold">Forgot Password?</a>
             </div>
           </div>
         </div>
         <div class="card-footer text-end bg-primary">
-          <a role="button" href="<?=base_url()?>" class="btn btn-warning">
-            Go Back To Index
-          </a>
+          <a role="button" href="<?=base_url()?>" class="btn btn-warning">Go Back To Index</a>
           <button type ="submit" class="btn btn-success">
             Login
           </button>
