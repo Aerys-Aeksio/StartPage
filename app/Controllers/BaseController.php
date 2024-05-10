@@ -62,7 +62,7 @@ abstract class BaseController extends Controller
 
     if (!is_dir(DATABASE_DIR . "/settings") and !(uri_string() === 'install'))
     {
-      ?><meta http-equiv="refresh" content="0;URL=<?= url_to("install") ?>"><?php
+      echo '<meta http-equiv="refresh" content="0;URL='.url_to("install").'">';
       exit;
     }
   }
