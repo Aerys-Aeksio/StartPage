@@ -24,6 +24,7 @@ if (!defined('STARTPAGE'))
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <?=form_open(url_to('add-link'))?>
 
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="name_span" name="name_span">Name<span class="text-danger">*</span></span>
@@ -35,7 +36,7 @@ if (!defined('STARTPAGE'))
           <input type="text" class="form-control" id="url_add_link" name="url_add_link" aria-describedby="url" value="" required>
         </div>
 
-        <div class="input-group input-group-sm">
+        <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="position_span" name="position_span">Position / Height</span>
           <input type="number" class="form-control" min="0" max="1000" id="position_add_link" name="position_add_link" placeholder="Position / Height" value="">
         </div>
@@ -92,7 +93,7 @@ if (!defined('STARTPAGE'))
           </select>
         </div>
 
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Left</span>
           <input type="text" class="form-control" id="icon_left_add_link" name="icon_left_add_link" placeholder="Icon Left" value="">
         </div>
@@ -100,7 +101,7 @@ if (!defined('STARTPAGE'))
             <small>You can use icons from font awesome</small>
           </div>
 
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Right</span>
           <input type="text" class="form-control" id="icon_right_add_link" name="icon_right_add_link" placeholder="Icon Right" value="">
         </div>
@@ -112,6 +113,7 @@ if (!defined('STARTPAGE'))
       <div class="modal-footer bg-primary text-light btn-group rounded-0">
         <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success btn-sm m-0">Add Link</button>
+        </form>
       </div>
     </div>
   </div>
@@ -212,15 +214,16 @@ if (!defined('STARTPAGE'))
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <?=form_open(url_to('add-category'))?>
 
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="name_span" name="name_span">Name Category</span>
-          <input type="text" class="form-control" minlength="1" maxlength="25" id="name_add_category" name="name_add_category" placeholder="Name" value="">
+          <input type="text" class="form-control" minlength="1" maxlength="25" id="name_add_category" name="name_add_category" placeholder="Name" value="" required>
         </div>
 
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="column_span" name="column_span">Column</span>
-          <input type="number" class="form-control" min="1" max="4" id="column_add_category" name="column_add_category" placeholder="Column" value="">
+          <input type="number" class="form-control" min="1" max="4" id="column_add_category" name="column_add_category" placeholder="Column" value="" required>
         </div>
 
         <div class="input-group input-group-sm mb-3">
@@ -251,9 +254,9 @@ if (!defined('STARTPAGE'))
 
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="background_color_header_span" name="background_color_header_span">Background Color Header</span>
-          <select class="form-select" id="background_color_header_add_category" name="background_color_header_add_category">
-          <option value="">Background Color Header</option>
-          <?=$background_color_header?>
+            <select class="form-select" id="background_color_header_add_category" name="background_color_header_add_category">
+            <option value="">Background Color Header</option>
+            <?=$background_color_header?>
           </select>
         </div>
 
@@ -301,6 +304,7 @@ if (!defined('STARTPAGE'))
       <div class="modal-footer bg-primary text-light btn-group rounded-0">
         <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success btn-sm m-0">Add Category</button>
+        </form>
       </div>
     </div>
   </div>

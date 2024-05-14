@@ -63,10 +63,9 @@ class HomeController extends BaseController
       return view('Login-Template', $data);
     else
     {
-      $email    = $this->request->getPost("email");
-      $password = $this->request->getPost("password");
-      $user     = $this->admin->login(esc($email), esc($password));
-
+      $email                    = $this->request->getPost("email");
+      $password                 = $this->request->getPost("password");
+      $user                     = $this->admin->login(esc($email), esc($password));
       $data['logged_in']        = $this->_loggedin();
       $data['time']             = $data['settings']['redirect_time'];
       $data['message']          = 'You are now logged in.';
@@ -143,26 +142,67 @@ class HomeController extends BaseController
       $data['settings'] = $this->admin->get_settings();
       $newdata =
       [
-        "title"                     =>  $this->request->getPost('title'),
-        "description"               =>  $this->request->getPost('description'),
-        "html_footer"               =>  $this->request->getPost('html_footer'),
-        "show_footer"               =>  $this->request->getPost('show_footer'),
-        "version"                   =>  $this->request->getPost('version'),
-        "timestamp_installed"       =>  $this->request->getPost('timestamp_installed'),
-        "redirect_time"             =>  $this->request->getPost('redirect_time'),
-        "base_url"                  =>  $this->request->getPost('base_url'),
-        "email"                     =>  $this->request->getPost('email'),
-        "body_background"           =>  $this->request->getPost('body_background'),
-        "nav_background"            =>  $this->request->getPost('nav_background'),
-        "nav_link_color"            =>  $this->request->getPost('nav_link_color'),
-        "show_login_link"           =>  $this->request->getPost('show_login_link'),
-        "head"                      =>  $this->request->getPost('head'),
-        "foot"                      =>  $this->request->getPost('foot'),
+        "title"               =>  $this->request->getPost('title'),
+        "description"         =>  $this->request->getPost('description'),
+        "html_footer"         =>  $this->request->getPost('html_footer'),
+        "show_footer"         =>  $this->request->getPost('show_footer'),
+        "version"             =>  $this->request->getPost('version'),
+        "timestamp_installed" =>  $this->request->getPost('timestamp_installed'),
+        "redirect_time"       =>  $this->request->getPost('redirect_time'),
+        "base_url"            =>  $this->request->getPost('base_url'),
+        "email"               =>  $this->request->getPost('email'),
+        "body_background"     =>  $this->request->getPost('body_background'),
+        "nav_background"      =>  $this->request->getPost('nav_background'),
+        "nav_link_color"      =>  $this->request->getPost('nav_link_color'),
+        "show_login_link"     =>  $this->request->getPost('show_login_link'),
+        "head"                =>  $this->request->getPost('head'),
+        "foot"                =>  $this->request->getPost('foot'),
       ];
       $this->admin->update_settings($newdata);
       $data['time']             = $data['settings']['redirect_time'];
       $data['destination_url']  = url_to('/');
       $data['message']          = 'Your Settings Are Updated..';
+      return view("/Redirect-Template", $data);
+    }
+  }
+
+  /**
+   * [Description for add_category]
+   *
+   * @param mixed $id
+   * 
+   * @return [type]
+   * 
+   */
+  public function add_category()
+  {
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
+    $data['settings'] = $this->admin->get_settings();
+    if (!$this->request->is("post"))
+      return redirect('/');
+
+    if($this->request->is("post"))
+    {
+      $newdata =
+      [
+        "name"                    =>  $this->request->getPost('name_add_category'),
+        "column"                  =>  $this->request->getPost('column_add_category'),
+        "numb_links"              =>  $this->request->getPost('numb_links_add_category'),
+        "icon_left"               =>  $this->request->getPost('icon_left_add_category'),
+        "icon_right"              =>  $this->request->getPost('icon_right_add_category'),
+        "background_color_header" =>  $this->request->getPost('background_color_header_add_category'),
+        "text_color_header"       =>  $this->request->getPost('text_color_header_add_category'),
+        "background_color_footer" =>  $this->request->getPost('background_color_footer_add_category'),
+        "link_color_footer"       =>  $this->request->getPost('link_color_footer_add_category'),
+        "link_color_list"         =>  $this->request->getPost('link_color_list_add_category'),
+        "visible"                 =>  $this->request->getPost('visible_add_category'),
+        "position"                =>  $this->request->getPost('position_add_category'),
+      ];
+      $this->admin->add_category($newdata);
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your Category Has Been Saved..';
       return view("/Redirect-Template", $data);
     }
   }
@@ -255,6 +295,46 @@ class HomeController extends BaseController
       $data['destination_url']  = url_to('/');
       $data['message']          = 'Your Link Has Been Deleted..';
       return view("/Redirect-Template", $data);  
+    }
+  }
+
+    /**
+   * [Description for add_link]
+   *
+   * @param mixed $id
+   * 
+   * @return [type]
+   * 
+   */
+  public function add_link()
+  {
+    if($this->_loggedin() == FALSE)
+      return redirect('/');
+    if (!$this->request->is("post"))
+      return redirect('/');
+    $data['settings'] = $this->admin->get_settings();
+    if ($this->request->is("post"))
+    {
+      $newdata =
+      [
+        "name"        =>  $this->request->getPost('name_add_link'),
+        "url"         =>  $this->request->getPost('url_add_link'),
+        "category_id" =>  $this->request->getPost('category_id_add_link'),
+        "title"       =>  $this->request->getPost('title_add_link'),
+        "type"        =>  $this->request->getPost('type_add_link'),
+        "img"         =>  $this->request->getPost('img_add_link'),
+        "html"        =>  $this->request->getPost('html_add_link'),
+        "target"      =>  $this->request->getPost('target_add_link'),
+        "visible"     =>  $this->request->getPost('visible_add_link'),
+        "icon_left"   =>  $this->request->getPost('icon_left_add_link'),
+        "icon_right"  =>  $this->request->getPost('icon_right_add_link'),
+        "position"    =>  $this->request->getPost('position_add_link'),
+      ];
+      $this->admin->add_link($newdata);
+      $data['time']             = $data['settings']['redirect_time'];
+      $data['destination_url']  = url_to('/');
+      $data['message']          = 'Your Link Has Been Saved..';
+      return view("/Redirect-Template", $data);
     }
   }
 

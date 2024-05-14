@@ -50,6 +50,11 @@ $routes->post(
   ['as' => 'update-category']
 );
 $routes->post(
+  'add-category',
+  'HomeController::add_category',
+  ['as' => 'add-category']
+);
+$routes->post(
   'delete-category/(:num)',
   'HomeController::delete_category/$1',
   ['as' => 'delete-category']
@@ -58,6 +63,11 @@ $routes->post(
   'update-link/(:num)',
   'HomeController::update_link/$1',
   ['as' => 'update-link']
+);
+$routes->post(
+  'add-link',
+  'HomeController::add_link',
+  ['as' => 'add-link']
 );
 $routes->post(
   'delete-link/(:num)',

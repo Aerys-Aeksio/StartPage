@@ -137,16 +137,16 @@ class AdminModel extends Model
     $settings = new Store('settings', DATABASE_DIR, $configuration);
     $settings->updateById(1, $array);
 
-    $settings
+    /* $settings
       ->createQueryBuilder()
       ->disableCache()
       ->getQuery()
-      ->fetch();
+      ->fetch(); */
     return true;
   }
 
-  /**
-   * [Description for update_category]
+    /**
+   * [Description for add_link]
    *
    * @param mixed $array
    * @param mixed $id
@@ -154,7 +154,7 @@ class AdminModel extends Model
    * @return [bool]
    * 
    */
-  public function update_category($array, $id)
+  public function add_link($array): bool
   {
     $configuration =
     [
@@ -164,8 +164,8 @@ class AdminModel extends Model
       "primary_key"         => "id",
       "folder_permissions"  => 0777
     ];
-    $update_category = new Store('categories', DATABASE_DIR, $configuration);
-    $update_category->updateById($id, $array);
+    $update_category = new Store('links', DATABASE_DIR, $configuration);
+    $update_category->Insert($array);
     return true;
   }
 
@@ -266,6 +266,30 @@ class AdminModel extends Model
   }
 
   /**
+   * [Description for update_category]
+   *
+   * @param mixed $array
+   * @param mixed $id
+   * 
+   * @return [bool]
+   * 
+   */
+  public function update_category($array, $id): bool
+  {
+    $configuration =
+    [
+      "auto_cache"          => false,
+      "cache_lifetime"      => NULL,
+      "timeout"             => false, // deprecated! Set it to false!
+      "primary_key"         => "id",
+      "folder_permissions"  => 0777
+    ];
+    $update_category = new Store('categories', DATABASE_DIR, $configuration);
+    $update_category->updateById($id, $array);
+    return true;
+  }
+
+  /**
    * [delete_category deletes category]
    *
    * @param mixed $array
@@ -273,7 +297,7 @@ class AdminModel extends Model
    * @return [bool]
    * 
    */
-  public function delete_category($id)
+  public function delete_category($id): bool
   {
     $configuration = [
       "auto_cache"          => false,
@@ -293,10 +317,10 @@ class AdminModel extends Model
    * @param mixed $cat_id
    * @param mixed $number_link_in_category
    * 
-   * @return [type]
+   * @return [bool]
    * 
    */
-  function numb_links($cat_id, $number_link_in_category)
+  function numb_links($cat_id, $number_link_in_category): bool
   {
     $configuration = [
       "auto_cache"          => false,
