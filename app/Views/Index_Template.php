@@ -138,9 +138,9 @@ while($i < 5)
       $edit_cat_button = ($logged_in === true) ? '<button style="float: right;" type="button" class="py-0 m-0 btn btn-transparent btn-sm" data-bs-toggle="modal" data-bs-target="#Edit_Modal_Cat'.$value['id'].'"><i class="fa-solid fa-pencil" style="color: white;"></i></button>' : '';
 ?>
 
-      <div class="card mx-0 mb-1 rounded-0">
+      <div class="card mx-0 mb-1 rounded-0" id="<?=strtolower(str_replace(' ', '_', $value['name']))?>">
         <div class="card-header rounded-0 p-1<?=$bg_header?><?=$text_color_header?>">
-          <?=(!empty($value['icon_left'])) ? $value['icon_left'] : ''?> <a href="#<?=strtolower(str_replace(' ', '_', $value['name']))?>"></a><?=$value['name']?>&nbsp;<?=(!empty($value['icon_right']) ) ? $value['icon_right'] : ''?> <?=$edit_cat_button?>
+          <?=(!empty($value['icon_left'])) ? $value['icon_left'] : ''?>&nbsp;<a class="link-light" href="#<?=strtolower(str_replace(' ', '_', $value['name']))?>">#</a>&nbsp;<?=$value['name']?>&nbsp;<?=(!empty($value['icon_right']) ) ? $value['icon_right'] : ''?> <?=$edit_cat_button?>
         </div>
         <div class="card-body p-0">
 

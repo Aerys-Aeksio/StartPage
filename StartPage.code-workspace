@@ -6,10 +6,23 @@
   ],
   "settings": {
     "cSpell.ignoreWords": [
+      "Bbclone",
       "Bbpress",
       "Bulma",
+      "Cakephp",
       "Doku",
+      "Flarum",
+      "Joomla",
+      "LCMS",
+      "Matomo",
+      "Minibb",
+      "Mybb",
+      "Mylittleforum",
+      "Opencart",
+      "Phpwiki",
       "Piwigo",
+      "Pligg",
+      "Pluxml",
       "Simplemachines",
       "Textpattern",
       "WRITEPATH",
@@ -18,10 +31,13 @@
       "linkvalue",
       "loggedin",
       "loginform",
-      "newdata"
+      "newdata",
+      "phpwcms",
+      "scriptable"
     ],
     "cSpell.words": [
-      "Doku"
+      "Doku",
+      "themeable"
     ]
   }
 }
