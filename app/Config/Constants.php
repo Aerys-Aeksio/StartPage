@@ -96,13 +96,18 @@ define('EVENT_PRIORITY_HIGH', 10);
 /* SleekDB storage database */
 define('DATABASE_DIR', WRITEPATH .'DB_Tables');
 
-if ( (! empty($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] == 'https') || (! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (! empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443') )
+if (  (!empty($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] == 'https')
+      ||
+      (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')
+      ||
+      (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443')
+  )
   $protocole = 'https://';
 else
   $protocole = 'http://';
 
-$host = $_SERVER['HTTP_HOST'] . '/';
-$project = explode('/', $_SERVER['REQUEST_URI']);
-$baseurl = $protocole . $host . $project[1];
+$host         = $_SERVER['HTTP_HOST'] . '/';
+$project      = explode('/', $_SERVER['REQUEST_URI']);
+$baseurl      = $protocole . $host . $project[1];
 $myappBaseUrl = $baseurl.'/';
 defined('BASESEURL') || define('BASESEURL',$myappBaseUrl);

@@ -6,7 +6,12 @@
   ],
   "settings": {
     "cSpell.ignoreWords": [
+      "Bbpress",
       "Bulma",
+      "Doku",
+      "Piwigo",
+      "Simplemachines",
+      "Textpattern",
       "WRITEPATH",
       "editsettings",
       "linkkey",
@@ -14,6 +19,9 @@
       "loggedin",
       "loginform",
       "newdata"
+    ],
+    "cSpell.words": [
+      "Doku"
     ]
   }
 }
