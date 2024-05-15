@@ -58,9 +58,9 @@ if (!defined('STARTPAGE'))
             foreach($categories as $cat => $cat_value)
             {
               if($value['category_id'] == $cat_value['id'])
-                echo '<option value="'.$cat_value['id'].'" selected="selected">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
+                echo '<option value="'.$cat_value['id'].'" selected="selected">Column '.$cat_value['column'].' -- '.$cat_value['name'].'</option>';
               else
-                echo '<option value="'.$cat_value['id'].'">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
+                echo '<option value="'.$cat_value['id'].'">Column '.$cat_value['column'].' -- '.$cat_value['name'].'</option>';
             }
             ?>
 
@@ -107,7 +107,7 @@ if (!defined('STARTPAGE'))
           </select>
         </div>
 
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <?php
           $icon_left = !empty($value['icon_left']) ? $value['icon_left'] : '';
           $icon_right = !empty($value['icon_right']) ? $value['icon_right'] : '';
@@ -115,16 +115,16 @@ if (!defined('STARTPAGE'))
           <span class="input-group-text w-25" id="icon_left_span">Icon Left</span>
           <input type="text" class="form-control" id="icon_left" name="icon_left" placeholder="Icon Left" value="<?=esc($icon_left)?>">
         </div>
-        <div class="form-text">
-          You can use icons from font awesome
+        <div class="form-text mb-3 mt-0 pt-0">
+          <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
         </div>
 
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <span class="input-group-text w-25" id="icon_right_span">Icon Right</span>
           <input type="text" class="form-control" id="icon_right" name="icon_right" placeholder="Icon Right" value="<?=esc($icon_right)?>">
         </div>
-        <div class="form-text">
-          You can use icons from font awesome
+        <div class="form-text mb-3 mt-0 pt-0">
+          <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
         </div>
 
       </div>
@@ -132,7 +132,7 @@ if (!defined('STARTPAGE'))
         <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
         <button type="submit" formaction="<?=base_url('delete-link/'.$value['id'])?>" id="delete_link<?=$value['id']?>" name="delete_link<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Link</button>
         <button type="submit" id="update_link<?=$value['id']?>" class="btn btn-success btn-sm m-0">Update Link</button>
-        </form>
+        <?=form_close()?>
       </div>
     </div>
   </div>

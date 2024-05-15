@@ -84,7 +84,8 @@ class AdminModel extends Model
     $settings = new Store('settings', DATABASE_DIR);
     $settings = $settings
       ->createQueryBuilder()
-      ->disableCache()
+      ->useCache(300)
+      ->regenerateCache()
       ->getQuery()
       ->fetch();
     $settings = array_shift($settings);
@@ -110,7 +111,8 @@ class AdminModel extends Model
     $links = $links
     ->createQueryBuilder()
     ->orderBy([ "position" =>  "DESC" ])
-    ->disableCache()
+    ->useCache(300)
+    ->regenerateCache()
     ->getQuery()
     ->fetch();
     return $links;
@@ -237,7 +239,8 @@ class AdminModel extends Model
       ->createQueryBuilder()
       ->orderBy([ "column" =>  "ASC" ])
       ->orderBy([ "position" =>  "DESC" ])
-      ->disableCache()
+      ->useCache(300)
+      ->regenerateCache()
       ->getQuery()
       ->fetch();
     return $categories;

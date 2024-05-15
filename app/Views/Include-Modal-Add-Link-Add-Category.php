@@ -47,7 +47,7 @@ if (!defined('STARTPAGE'))
 
 <?php           
             foreach($categories as $cat => $cat_value)
-              echo '<option value="'.$cat_value['id'].'">'.$cat_value['name'].' in Column '.$cat_value['column'].'</option>';
+              echo '<option value="'.$cat_value['id'].'">Column '.$cat_value['column'] .' -- '. $cat_value['name'].'</option>';
 ?>
 
           </select>
@@ -97,23 +97,23 @@ if (!defined('STARTPAGE'))
           <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Left</span>
           <input type="text" class="form-control" id="icon_left_add_link" name="icon_left_add_link" placeholder="Icon Left" value="">
         </div>
-        <div class="form-text mb-3">
-            <small>You can use icons from font awesome</small>
+        <div class="form-text mb-3 mt-0 pt-0">
+            <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
           </div>
 
         <div class="input-group input-group-sm">
           <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Right</span>
           <input type="text" class="form-control" id="icon_right_add_link" name="icon_right_add_link" placeholder="Icon Right" value="">
         </div>
-        <div class="form-text">
-          You can use icons from font awesome
+        <div class="form-text mb-3 mt-0 pt-0">
+          <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
         </div>
 
       </div>
       <div class="modal-footer bg-primary text-light btn-group rounded-0">
         <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success btn-sm m-0">Add Link</button>
-        </form>
+        <?=form_close()?>
       </div>
     </div>
   </div>
@@ -147,11 +147,21 @@ if (!defined('STARTPAGE'))
   ];
   $background_color_header = '';
   foreach($bg_colors as $colors)
-    $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  {
+    if($colors == $settings['default_cat_bg_color_header'])
+      $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+    else
+      $background_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  }
 
   $background_color_footer = '';
   foreach($bg_colors as $colors)
-    $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  {
+    if($colors == $settings['default_cat_bg_color_footer'])
+      $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+    else
+      $background_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  }
 
   $text_colors =
   [
@@ -182,7 +192,12 @@ if (!defined('STARTPAGE'))
   ];
   $text_color_header = '';
   foreach($text_colors as $colors)
-    $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  {
+    if($colors == $settings['default_cat_text_color_header'])
+      $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+    else
+      $text_color_header .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  }
 
   $link_colors =
   [
@@ -198,11 +213,21 @@ if (!defined('STARTPAGE'))
   ];
   $link_color_footer = '';
   foreach($link_colors as $colors)
-    $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  {
+    if($colors == $settings['default_cat_link_color_footer'])
+      $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+    else
+      $link_color_footer .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  }
   
   $link_color_list = '';
   foreach($link_colors as $colors)
-    $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  {
+    if($colors == $settings['default_cat_link_color_list'])
+      $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'" selected="selected">'.$colors.'</option>';
+    else
+      $link_color_list .= '<option value="'.$colors.'" class="'.$colors.'">'.$colors.'</option>';
+  }
 ?>
 
 <!-- Add Category Modal -->
@@ -217,12 +242,12 @@ if (!defined('STARTPAGE'))
       <?=form_open(url_to('add-category'))?>
 
         <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text w-25" id="name_span" name="name_span">Name Category</span>
+          <span class="input-group-text w-25" id="name_span" name="name_span">Name Category<span class="text-danger">*</span></span>
           <input type="text" class="form-control" minlength="1" maxlength="25" id="name_add_category" name="name_add_category" placeholder="Name" value="" required>
         </div>
 
         <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text w-25" id="column_span" name="column_span">Column</span>
+          <span class="input-group-text w-25" id="column_span" name="column_span">Column<span class="text-danger">*</span></span>
           <input type="number" class="form-control" min="1" max="4" id="column_add_category" name="column_add_category" placeholder="Column" value="" required>
         </div>
 
@@ -233,23 +258,23 @@ if (!defined('STARTPAGE'))
 
         <div class="input-group input-group-sm mb-3">
           <span class="input-group-text w-25" id="numb_links_span" name="numb_links_span">Number Of Links</span>
-          <input type="number" class="form-control" min="1" max="50" id="numb_links_add_category" name="numb_links_add_category" placeholder="Number Of Links" value="">
+          <input type="number" class="form-control" min="1" max="50" id="numb_links_add_category" name="numb_links_add_category" placeholder="Number Of Links" value="10">
         </div>
 
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <span class="input-group-text w-25" id="icon_left_span" name="icon_left_span">Icon Right</span>
           <input type="text" class="form-control" id="icon_left_add_category" name="icon_left_add_category" placeholder="Icon Left" value="">
         </div>
-        <div class="form-text">
-          You can use icons from font awesome
+        <div class="form-text mb-3 mt-0 pt-0">
+          <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
         </div>
 
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group input-group-sm">
           <span class="input-group-text w-25" id="icon_right_span" name="icon_right_span">Icon Left</span>
           <input type="text" class="form-control" id="icon_right_add_category" name="icon_right_add_category" placeholder="Icon Right" value="">
         </div>
-        <div class="form-text">
-          You can use icons from font awesome
+        <div class="form-text mb-3 mt-0 pt-0">
+          <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
         </div>
 
         <div class="input-group input-group-sm mb-3">
@@ -304,7 +329,7 @@ if (!defined('STARTPAGE'))
       <div class="modal-footer bg-primary text-light btn-group rounded-0">
         <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success btn-sm m-0">Add Category</button>
-        </form>
+        <?=form_close()?>
       </div>
     </div>
   </div>

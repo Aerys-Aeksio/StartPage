@@ -160,20 +160,20 @@ foreach($categories as $key => $value)
             <input type="number" class="form-control" min="1" max="50" id="numb_links_edit_category_<?=$value['id']?>" name="numb_links_edit_category_<?=$value['id']?>" placeholder="Number Of Links" value="<?=$value['numb_links']?>">
           </div>
 
-          <div class="input-group input-group-sm mb-3">
+          <div class="input-group input-group-sm">
             <span class="input-group-text w-25" id="icon_left_edit_category_<?=$value['id']?>_span">Icon Left</span>
             <input type="text" class="form-control" id="icon_left_edit_category_<?=$value['id']?>" name="icon_left_edit_category_<?=$value['id']?>" placeholder="Icon Left" value="<?=esc($value['icon_left'])?>">
           </div>
-          <div class="form-text">
-            You can use icons from font awesome
+          <div class="form-text mb-3 mt-0 pt-0">
+            <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
           </div>
 
-          <div class="input-group input-group-sm mb-3">
+          <div class="input-group input-group-sm">
             <span class="input-group-text w-25" id="icon_right_edit_category_<?=$value['id']?>_span">Icon Right</span>
             <input type="text" class="form-control" id="icon_right_edit_category_<?=$value['id']?>" name="icon_right_edit_category_<?=$value['id']?>" placeholder="Icon Right" value="<?=esc($value['icon_right'])?>">
           </div>
-          <div class="form-text">
-            You can use icons from font awesome
+          <div class="form-text mb-3 mt-0 pt-0">
+            <small>You can use icons from <a class="link-dark" href="https://fontawesome.com" target="_blank">font awesome</a></small>
           </div>
 
           <div class="input-group input-group-sm mb-3">
@@ -229,7 +229,7 @@ foreach($categories as $key => $value)
           <button type="button" class="btn btn-warning btn-sm m-0" data-bs-dismiss="modal">Close</button>
           <button type="submit" formaction="<?=base_url('delete-category/'.$value['id'])?>" id="delete_cat<?=$value['id']?>" name="delete_cat<?=$value['id']?>" class="btn btn-danger btn-sm m-0">Delete Category</button>
           <button type="submit" id="update_cat<?=$value['id']?>" name="update_cat<?=$value['id']?>" class="btn btn-success btn-sm m-0">Update Category</button>
-          </form>
+          <?=form_close()?>
         </div>
       </div>
     </div>

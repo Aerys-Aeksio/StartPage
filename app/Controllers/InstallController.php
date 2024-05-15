@@ -1767,21 +1767,27 @@ class InstallController extends BaseController
         // Begin settings
         $settings_array = 
         [
-          "title"               =>  'Startpage',
-          "description"         =>  'The small Startpage with powerful features',
-          "html_footer"         =>  "<footer>Copyright ©</footer>",
-          "show_footer"         =>  '0',
-          "version"             =>  "0.0.1",
-          "timestamp_installed" =>  ''.$installed_time->getTimestamp().'',
-          "redirect_time"       =>  '2',
-          "base_url"            =>  $base_url,
-          "email"               =>  $adminemail,
-          "body_background"     =>  "bg-dark-subtle",
-          "nav_background"      =>  "bg-primary",
-          "nav_link_color"      =>  "link-light",
-          "show_login_link"     =>  '1',
-          "head"                =>  '',
-          "foot"                =>  '',
+          "title"                         =>  'Startpage',
+          "description"                   =>  'The small Startpage with powerful features',
+          "html_footer"                   =>  "<footer>Copyright ©</footer>",
+          "show_footer"                   =>  '0',
+          "version"                       =>  "0.0.1",
+          "timestamp_installed"           =>  ''.$installed_time->getTimestamp().'',
+          "redirect_time"                 =>  '2',
+          "base_url"                      =>  $base_url,
+          "email"                         =>  $adminemail,
+          "body_background"               =>  "bg-dark-subtle",
+          "nav_background"                =>  "bg-primary",
+          "nav_link_color"                =>  "link-light",
+          "show_login_link"               =>  '1',
+          "head"                          =>  '',
+          "foot"                          =>  '',
+          'default_cat_bg_color_header'   =>  'bg-primary',
+          'default_cat_text_color_header' =>  'text-light',
+          'default_cat_bg_color_footer'   =>  'bg-primary',
+          'default_cat_link_color_footer' =>  'link-light',
+          'default_cat_link_color_list'   =>  'link-dark',
+
         ];
         // Create Table settings
         $settings  = new Store("settings", DATABASE_DIR, $configuration);
@@ -1789,23 +1795,23 @@ class InstallController extends BaseController
         $settings->Insert($settings_array);
         // End settings
 
-        $settings_Table = new Store('settings', DATABASE_DIR);
-        $settings_Table = $settings_Table
+        $settings_table = new Store('settings', DATABASE_DIR);
+        $settings_table = $settings_table
           ->CreateQueryBuilder()
           ->disableCache()
           ->getQuery()
           ->fetch();
-        $settings_Table = array_shift($settings_Table);
+        $settings_table = array_shift($settings_Table);
 
         $data['time'] 	          = '2';
         $data['message']          = 'Well Done. Startpage is installed';
-        $data['destination_url']  = $settings_Table['base_url'];
+        $data['destination_url']  = $settings_table['base_url'];
 
         return view('Redirect-Template', $data);
       }
       $data['time'] 	          = '2';
       $data['message']          = 'Well Done. Startpage is installed';
-      $data['destination_url']  = $settings_Table['base_url'];
+      $data['destination_url']  = $settings_table['base_url'];
       return view('Redirect-Template', $data);
     }
     else
